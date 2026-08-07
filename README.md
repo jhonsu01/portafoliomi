@@ -53,4 +53,4 @@ Este repositorio publica releases versionadas que empaquetan el sitio web comple
 
 ## 📜 Licencia
 
-MIT © Jhon Supelano
+MIT © Jhon Supelano.
