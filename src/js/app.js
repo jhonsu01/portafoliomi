@@ -29,6 +29,8 @@
     document.querySelectorAll('.theme-opt').forEach(o => {
       o.classList.toggle('active', o.dataset.theme === theme);
     });
+    // avisa a componentes (constelación) para que re-rendericen con el nuevo tema
+    window.dispatchEvent(new Event('themechange'));
   }
 
   function toggle(open){
@@ -62,7 +64,8 @@
 (function(){
   "use strict";
   const D = window.PORTFOLIO_DATA;
-  const P = D.PROFILE, SK = D.SKILLS, PR = D.PROJECTS, EX = D.EXPERIENCE, CE = D.CERTS;
+  const P = D.PROFILE, SK = D.SKILLS, PR = D.PROJECTS, EX = D.EXPERIENCE, CE = D.CERTS,
+        ISSUERS = D.ISSUERS, STUDIES = D.STUDIES;
   const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
   const $ = s => document.querySelector(s);
   const el = (tag, cls, html) => { const e=document.createElement(tag); if(cls)e.className=cls; if(html!=null)e.innerHTML=html; return e; };
@@ -157,9 +160,36 @@
      <div class="tl-org">${esc(e.org)} · <span class="tl-period">${esc(e.period)}</span></div>
      <div class="tl-desc">${esc(e.desc)}</div>`)));
 
-  /* ---------- Certs ---------- */
-  const cl = $('#certsList');
-  CE.forEach(c => cl.appendChild(el('span','cert',esc(c))));
+  /* ---------- Estudios (timeline académica) ---------- */
+  const stTl = $('#studiesTimeline');
+  if(stTl){
+    STUDIES.forEach(s => {
+      const item = el('div','tl-item reveal');
+      const statusCls = s.status === 'En curso' ? 'study-status ongoing' : 'study-status';
+      item.innerHTML =
+        `<div class="tl-role">${esc(s.title)}</div>
+         <div class="tl-org">${esc(s.school)} · <span class="tl-period">${esc(s.period)}</span></div>
+         <div class="study-meta"><span class="${statusCls}">${esc(s.status)}</span>
+           ${s.note ? `<span class="study-note">${esc(s.note)}</span>` : ''}</div>
+         ${s.skills ? `<div class="study-skills">${s.skills.map(x=>`<span class="chip">${esc(x)}</span>`).join('')}</div>` : ''}`;
+      stTl.appendChild(item);
+    });
+  }
+
+  /* ---------- Leyenda de la constelación (agrupada por emisor) ---------- */
+  const legend = $('#certLegend');
+  if(legend){
+    const groups = {};
+    CE.forEach(c => { (groups[c.issuer] = groups[c.issuer] || []).push(c); });
+    const sorted = Object.entries(groups).sort((a,b)=> b[1].length - a[1].length);
+    legend.innerHTML = sorted.map(([iss, list]) => {
+      const info = ISSUERS[iss] || { short:iss, color:'#888', kind:'' };
+      return `<span class="legend-item" title="${esc(iss)}">
+        <span class="legend-dot" style="background:${info.color}"></span>
+        ${esc(info.short)} <em>${list.length}</em>
+      </span>`;
+    }).join('');
+  }
 
   /* ---------- Contact ---------- */
   $('#contactText').textContent = 'Ya sea para un producto con IA, una app segura o una consultoría técnica, conversemos.';

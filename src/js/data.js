@@ -184,15 +184,87 @@ const EXPERIENCE = [
   { role: "Técnico de Soporte de TI", org: "Independiente", period: "2013–2019", desc: "Soporte técnico presencial y remoto, administración de Windows/Linux y redes LAN/WiFi." }
 ];
 
+/* --- Emisores con color e info (para la nube de constelación) --- */
+const ISSUERS = {
+  "Platzi":                                       { short:"Platzi",   color:"#7c3aed", kind:"Tech" },
+  "Servicio Nacional de Aprendizaje (SENA)":      { short:"SENA",     color:"#39a935", kind:"Formal" },
+  "Amazon Web Services (AWS)":                    { short:"AWS",      color:"#ff9900", kind:"Cloud" },
+  "Huawei":                                       { short:"Huawei",   color:"#c8102e", kind:"Telco" },
+  "Cisco Networking Academy":                     { short:"Cisco",    color:"#1ba0d7", kind:"Seguridad" },
+  "Coursera":                                     { short:"Coursera", color:"#0056d3", kind:"Gestión" },
+  "NASA - National Aeronautics and Space Administration": { short:"NASA", color:"#0b3d91", kind:"Hackathon" },
+  "Universidad Distrital Francisco José de Caldas": { short:"U. Distrital", color:"#8a2be2", kind:"Académico" },
+  "Bancolombia":                                  { short:"Bancolombia", color:"#ffd200", kind:"Finanzas" },
+  "Bancoldex":                                    { short:"Bancoldex", color:"#e87722", kind:"Negocios" },
+  "bvc-Bolsa de Valores de Colombia S.A.":        { short:"bvc",      color:"#0046a8", kind:"Finanzas" },
+  "Superintendencia Financiera de Colombia":      { short:"SFC",      color:"#0a6b3b", kind:"Finanzas" },
+  "Cámara de Comercio de Casanare":               { short:"Cámara",   color:"#b8860b", kind:"Negocios" },
+  "CertiProf":                                    { short:"CertiProf",color:"#16a085", kind:"Agile" },
+  "LinkedIn":                                     { short:"LinkedIn", color:"#0a66c2", kind:"Soft skills" },
+  "CodeAI":                                       { short:"CodeAI",   color:"#e91e63", kind:"Programación" }
+};
+
+/* --- 44 certificaciones (orden: por emisor, luego fecha desc) ---
+   cat = categoría temática derivada del título (para tooltip/leyenda) */
 const CERTS = [
-  "Introduction to Cybersecurity",
-  "Google Cloud Platform para E-commerce",
-  "Curso de Docker",
-  "Blockchain y Criptomonedas (Platzi)",
-  "Inteligencia Artificial (Platzi)",
-  "Marketing y Modelos de Negocio Online (SENA)"
+  { name:"Capacitación Financiera", issuer:"Bancolombia", date:"2026-07", cat:"Finanzas" },
+  { name:"Monetización avanzada multiplataforma", issuer:"Universidad Distrital Francisco José de Caldas", date:"2026-06", cat:"Negocios" },
+  { name:"Galactic Problem Solver — Space Apps Challenge", issuer:"NASA - National Aeronautics and Space Administration", date:"2025-10", cat:"Hackathon" },
+  { name:"Fundamentos de la gestión de proyectos", issuer:"Coursera", date:"2024-08", cat:"Gestión" },
+  { name:"Prework para Desarrollo de Aplicaciones Blockchain", issuer:"Platzi", date:"2021-11", cat:"Blockchain" },
+  { name:"Introducción al Desarrollo Blockchain: Smart Contracts", issuer:"Platzi", date:"2021-11", cat:"Blockchain" },
+  { name:"Ethereum para Developers", issuer:"Platzi", date:"2021-11", cat:"Blockchain" },
+  { name:"DeFi: Inversiones en Finanzas Descentralizadas", issuer:"Platzi", date:"2021-11", cat:"Blockchain" },
+  { name:"Creación de NFTs", issuer:"Platzi", date:"2021-11", cat:"Blockchain" },
+  { name:"HCIA-5G Course", issuer:"Huawei", date:"2021-03", cat:"Telecom" },
+  { name:"Redes Informáticas de Internet", issuer:"Platzi", date:"2021-02", cat:"Infraestructura" },
+  { name:"Inglés Técnico para Profesionales", issuer:"Platzi", date:"2021-02", cat:"Idiomas" },
+  { name:"Administración de Servidores Linux", issuer:"Platzi", date:"2021-02", cat:"DevOps" },
+  { name:"Jenkins", issuer:"Platzi", date:"2021-01", cat:"DevOps" },
+  { name:"Docker", issuer:"Platzi", date:"2021-01", cat:"DevOps" },
+  { name:"ICO: Initial Coin Offering", issuer:"Platzi", date:"2020-12", cat:"Blockchain" },
+  { name:"Google Cloud Platform para E-commerce", issuer:"Platzi", date:"2020-12", cat:"Cloud" },
+  { name:"Finanzas Personales para el Futuro", issuer:"Platzi", date:"2020-12", cat:"Finanzas" },
+  { name:"Finanzas Personales", issuer:"Platzi", date:"2020-11", cat:"Finanzas" },
+  { name:"Web Development Engineer", issuer:"Amazon Web Services (AWS)", date:"2020-08", cat:"Cloud" },
+  { name:"Habilidades para teletrabajo", issuer:"LinkedIn", date:"2020-07", cat:"Soft skills" },
+  { name:"Scrum Foundations Professional (SFPC)", issuer:"CertiProf", date:"2020-06", cat:"Agile" },
+  { name:"Inteligencia Artificial con IBM Watson", issuer:"Platzi", date:"2020-05", cat:"IA" },
+  { name:"Ingeniería de datos con Python", issuer:"Platzi", date:"2020-05", cat:"Datos" },
+  { name:"Deployment Best Practices for Amazon WorkSpaces", issuer:"Amazon Web Services (AWS)", date:"2020-05", cat:"Cloud" },
+  { name:"Bolsa para principiantes", issuer:"bvc-Bolsa de Valores de Colombia S.A.", date:"2020-04", cat:"Finanzas" },
+  { name:"Fintech para emprendedores", issuer:"Superintendencia Financiera de Colombia", date:"2020-04", cat:"Finanzas" },
+  { name:"Python", issuer:"Platzi", date:"2020-04", cat:"Programación" },
+  { name:"Machine Learning Aplicado con Python", issuer:"Platzi", date:"2020-04", cat:"IA" },
+  { name:"Introduction to Cybersecurity", issuer:"Cisco Networking Academy", date:"2020-04", cat:"Seguridad" },
+  { name:"Fundamentos Matemáticos para IA", issuer:"Platzi", date:"2020-03", cat:"IA" },
+  { name:"Estructuración de modelos de negocio", issuer:"Bancoldex", date:"2019-11", cat:"Negocios" },
+  { name:"Software Development Engineer — DevOps", issuer:"Amazon Web Services (AWS)", date:"2019-11", cat:"Cloud" },
+  { name:"Gerente en microempresas en etapa temprana", issuer:"Cámara de Comercio de Casanare", date:"2019-10", cat:"Negocios" },
+  { name:"Controladores Lógicos Programables PLC 1", issuer:"Servicio Nacional de Aprendizaje (SENA)", date:"2018-07", cat:"Industrial" },
+  { name:"Teletrabajo para independientes", issuer:"Servicio Nacional de Aprendizaje (SENA)", date:"2016-05", cat:"Soft skills" },
+  { name:"The Hour of Code — Computer Science", issuer:"CodeAI", date:"2014-11", cat:"Programación" },
+  { name:"Trámites legales para constitución de empresa", issuer:"Servicio Nacional de Aprendizaje (SENA)", date:"2014-06", cat:"Negocios" },
+  { name:"Programación de dispositivos móviles", issuer:"Servicio Nacional de Aprendizaje (SENA)", date:"2011-12", cat:"Programación" },
+  { name:"Sistemas de gestión de calidad — SST", issuer:"Servicio Nacional de Aprendizaje (SENA)", date:"2011-11", cat:"Calidad" },
+  { name:"English Discoveries Intermedio I", issuer:"Servicio Nacional de Aprendizaje (SENA)", date:"2010-07", cat:"Idiomas" },
+  { name:"Controles y seguridad informática", issuer:"Servicio Nacional de Aprendizaje (SENA)", date:"2010-04", cat:"Seguridad" },
+  { name:"Diseño Web con Adobe Dreamweaver", issuer:"Servicio Nacional de Aprendizaje (SENA)", date:"2009-09", cat:"Diseño" },
+  { name:"Ensamble y mantenimiento de computadoras", issuer:"Servicio Nacional de Aprendizaje (SENA)", date:"2009-07", cat:"Hardware" }
+];
+
+/* --- Trayectoria académica (8 títulos, orden cronológico inverso) --- */
+const STUDIES = [
+  { title:"Ingeniería de Multimedia", school:"Universidad Nacional Abierta y a Distancia (UNAD)", period:"2026 – 2029", status:"En curso", note:"Acuerdo de homologación SENA 012/2019", skills:["Programación","Producción Multimedia","Sistemas"] },
+  { title:"Tecnólogo en Distribución Física Internacional", school:"SENA", period:"2021 – 2023", status:"Titulado", skills:["Importación/Exportación","Aduanas","Logística"] },
+  { title:"Inteligencia Artificial", school:"Platzi (alianza MinTIC)", period:"2020", status:"Completado", skills:["IA","Tecnologías científicas"] },
+  { title:"Blockchain y Criptomonedas", school:"Platzi", period:"2020", status:"Completado", skills:["Blockchain","DeFi"] },
+  { title:"Especialización en Marketing y Modelos de Negocio Online", school:"SENA", period:"2019", status:"Titulado", skills:["Marketing digital","Negocios"] },
+  { title:"Tecnólogo en Producción de Multimedia", school:"SENA", period:"2016 – 2018", status:"Titulado", skills:["Multimedia","Producción audiovisual"] },
+  { title:"Auxiliar en Ensamble y Configuración de PCs", school:"SENA", period:"2007 – 2008", status:"Titulado", note:"Certificado de Aptitud Profesional", skills:["Hardware","Soporte"] },
+  { title:"Bachiller Técnico en Electricidad (Electrónica)", school:"Colegio Juan José Rondón", period:"2007 – 2008", status:"Bachiller", note:"Práctica en mantenimiento de equipos", skills:["Electricidad","Electrónica"] }
 ];
 
 if (typeof window !== "undefined") {
-  window.PORTFOLIO_DATA = { PROFILE, SKILLS, PROJECTS, EXPERIENCE, CERTS };
+  window.PORTFOLIO_DATA = { PROFILE, SKILLS, PROJECTS, EXPERIENCE, CERTS, ISSUERS, STUDIES };
 }
