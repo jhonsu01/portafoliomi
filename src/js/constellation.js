@@ -21,7 +21,6 @@
   if(!canvas) return;
   const ctx = canvas.getContext('2d');
   const tooltip = document.getElementById('certTooltip');
-  const legendEl = document.getElementById('certLegend');
   const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
 
   const D = window.PORTFOLIO_DATA;
@@ -299,32 +298,14 @@
     if(nodeAt(e.clientX-r.left,e.clientY-r.top)) { if(reduce) draw(); }
   });
 
-  /* ---------- Leyenda (paleta dinámica) ---------- */
-  function renderLegend(){
-    const host = legendEl || document.getElementById('certLegend');
-    if(!host) return;
-    const p = palette();
-    const groups={};
-    CERTS.forEach(c=> (groups[c.issuer]=groups[c.issuer]||[]).push(c));
-    const sorted=Object.entries(groups).sort((a,b)=>b[1].length-a[1].length);
-    host.innerHTML = sorted.map(([iss,list])=>{
-      const info=ISSUERS[iss]||{short:iss};
-      const c=color(hueFor(iss), p, p.light+8);
-      return `<span class="legend-item" title="${iss.replace(/"/g,'&quot;')}">
-        <span class="legend-dot" style="background:${c};color:${c}"></span>${info.short} <em>${list.length}</em></span>`;
-    }).join('');
-  }
+  /* La leyenda la genera app.js (paleta dinámica por tema) */
 
-  window.addEventListener('themechange', ()=>{ renderLegend(); draw(); });
+  window.addEventListener('themechange', ()=>{ draw(); });
   let rT; window.addEventListener('resize', ()=>{ clearTimeout(rT); rT=setTimeout(resize,200); });
 
   /* ---------- Init ---------- */
   function init(){
     resize();
-    renderLegend();
-    // doble verificación: re-poblar la leyenda en el siguiente frame por si el
-    // div aún no estaba listo al capturar legendEl
-    requestAnimationFrame(()=>{ if(legendEl && !legendEl.children.length) renderLegend(); });
     if(reduce) draw(); else loop();
   }
   if(document.readyState === 'loading'){

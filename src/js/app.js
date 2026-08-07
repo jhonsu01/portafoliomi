@@ -176,7 +176,26 @@
     });
   }
 
-  /* La leyenda de la constelación la genera constellation.js con paleta dinámica por tema */
+  /* ---------- Leyenda de la constelación (paleta dinámica por tema) ---------- */
+  function renderLegend(){
+    const legend = $('#certLegend');
+    if(!legend) return;
+    const dark = document.documentElement.getAttribute('data-theme') === 'aurora';
+    const sat = dark ? 80 : 48, light = dark ? 62 : 42;
+    const HUES = { "Platzi":265,"Servicio Nacional de Aprendizaje (SENA)":120,"Amazon Web Services (AWS)":32,"Huawei":0,"Cisco Networking Academy":197,"Coursera":217,"NASA - National Aeronautics and Space Administration":224,"Universidad Distrital Francisco José de Caldas":277,"Bancolombia":49,"Bancoldex":20,"bvc-Bolsa de Valores de Colombia S.A.":217,"Superintendencia Financiera de Colombia":150,"Cámara de Comercio de Casanare":41,"CertiProf":168,"LinkedIn":210,"CodeAI":338 };
+    const groups = {};
+    CE.forEach(c => (groups[c.issuer] = groups[c.issuer] || []).push(c));
+    const sorted = Object.entries(groups).sort((a,b) => b[1].length - a[1].length);
+    legend.innerHTML = sorted.map(([iss, list]) => {
+      const info = ISSUERS[iss] || { short: iss };
+      const hue = HUES[iss] != null ? HUES[iss] : (iss.length * 37) % 360;
+      const col = `hsl(${hue},${sat}%,${light+8}%)`;
+      return `<span class="legend-item" title="${esc(iss)}">
+        <span class="legend-dot" style="background:${col};color:${col}"></span>${esc(info.short)} <em>${list.length}</em></span>`;
+    }).join('');
+  }
+  renderLegend();
+  window.addEventListener('themechange', renderLegend);
 
   /* ---------- Contact ---------- */
   $('#contactText').textContent = 'Ya sea para un producto con IA, una app segura o una consultoría técnica, conversemos.';
