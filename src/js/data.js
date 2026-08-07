@@ -255,7 +255,7 @@ const CERTS = [
 
 /* --- Trayectoria académica (8 títulos, orden cronológico inverso) --- */
 const STUDIES = [
-  { title:"Ingeniería de Multimedia", school:"Universidad Nacional Abierta y a Distancia (UNAD)", period:"2026 – 2029", status:"En curso", note:"Acuerdo de homologación SENA 012/2019", skills:["Programación","Producción Multimedia","Sistemas"] },
+  { title:"Ingeniería de Multimedia", school:"Universidad Nacional Abierta y a Distancia (UNAD)", period:"2025 – 2029", status:"En curso", note:"Acuerdo de homologación SENA 012/2019", skills:["Programación","Producción Multimedia","Sistemas"] },
   { title:"Tecnólogo en Distribución Física Internacional", school:"SENA", period:"2021 – 2023", status:"Titulado", skills:["Importación/Exportación","Aduanas","Logística"] },
   { title:"Inteligencia Artificial", school:"Platzi (alianza MinTIC)", period:"2020", status:"Completado", skills:["IA","Tecnologías científicas"] },
   { title:"Blockchain y Criptomonedas", school:"Platzi", period:"2020", status:"Completado", skills:["Blockchain","DeFi"] },
