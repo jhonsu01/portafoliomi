@@ -1,0 +1,25 @@
+# Dependencias
+node_modules/
+.venv/
+__pycache__/
+
+# Builds y temporales
+dist/
+build/
+*.zip
+*.tar.gz
+.tmp/
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
