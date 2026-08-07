@@ -301,12 +301,13 @@
 
   /* ---------- Leyenda (paleta dinámica) ---------- */
   function renderLegend(){
-    if(!legendEl) return;
+    const host = legendEl || document.getElementById('certLegend');
+    if(!host) return;
     const p = palette();
     const groups={};
     CERTS.forEach(c=> (groups[c.issuer]=groups[c.issuer]||[]).push(c));
     const sorted=Object.entries(groups).sort((a,b)=>b[1].length-a[1].length);
-    legendEl.innerHTML = sorted.map(([iss,list])=>{
+    host.innerHTML = sorted.map(([iss,list])=>{
       const info=ISSUERS[iss]||{short:iss};
       const c=color(hueFor(iss), p, p.light+8);
       return `<span class="legend-item" title="${iss.replace(/"/g,'&quot;')}">
@@ -318,6 +319,17 @@
   let rT; window.addEventListener('resize', ()=>{ clearTimeout(rT); rT=setTimeout(resize,200); });
 
   /* ---------- Init ---------- */
-  resize(); renderLegend();
-  if(reduce) draw(); else loop();
+  function init(){
+    resize();
+    renderLegend();
+    // doble verificación: re-poblar la leyenda en el siguiente frame por si el
+    // div aún no estaba listo al capturar legendEl
+    requestAnimationFrame(()=>{ if(legendEl && !legendEl.children.length) renderLegend(); });
+    if(reduce) draw(); else loop();
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 })();
