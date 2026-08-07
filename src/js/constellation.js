@@ -57,7 +57,7 @@
   function hueFor(issuer){ return HUES[issuer] != null ? HUES[issuer] : (issuer.length * 37) % 360; }
 
   function palette(){
-    const dark = getComputedStyle(document.documentElement).getAttribute('data-theme') === 'aurora';
+    const dark = document.documentElement.getAttribute('data-theme') === 'aurora';
     return dark
       ? { sat:80, light:62, alpha:1.0, halo:0.35, link:0.30, dim:0.18, somaLight:70 }
       : { sat:48, light:42, alpha:0.92, halo:0.22, link:0.30, dim:0.16, somaLight:32 };
