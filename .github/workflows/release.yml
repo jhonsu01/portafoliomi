@@ -2,21 +2,21 @@
 #  Release del Portafolio
 # ----------------------------------------------------------------------------
 #  Se dispara al crear un tag vX.Y.Z. Empaqueta el sitio en un .zip,
-#  actualiza el CHANGELOG.md y publica una release de GitHub.
+#  actualiza el CHANGELOG y publica una release de GitHub.
 #
-#  AUTO-CLEANUP: antes de publicar la nueva release, elimina TODAS las
-#  releases anteriores (con sus tags) para mantener SOLO la ultima version.
+#  AUTO-CLEANUP: antes de publicar, elimina TODAS las releases anteriores
+#  (con sus tags) para mantener SOLO la ultima version.
 # ============================================================================
 name: Release Portafolio
 
 on:
   push:
     tags:
-      - 'v*.*.*'
+      - 'v*'
   workflow_dispatch:
     inputs:
       version:
-        description: 'Version a publicar (ej. 0.2.0)'
+        description: 'Version a publicar (ej. 0.1.0)'
         required: true
 
 permissions:
@@ -26,103 +26,77 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      # --- 1. Checkout ---
-      - name: 📥 Checkout
+      - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      # --- 2. Resolver version ---
-      - name: 🔖 Resolver version
+      - name: Resolver version
         id: ver
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             V="${{ github.event.inputs.version }}"
-            # asegurar prefijo v
             case "$V" in v*) ;; *) V="v$V" ;; esac
           else
             V="${GITHUB_REF_NAME}"
           fi
-          echo "tag=$V" >> $GITHUB_OUTPUT
-          echo "num=${V#v}" >> $GITHUB_OUTPUT
-          echo "👉 Version a publicar: $V"
+          echo "tag=$V" >> "$GITHUB_OUTPUT"
+          echo "num=${V#v}" >> "$GITHUB_OUTPUT"
+          echo "Publicando version: $V"
 
-      # --- 3. AUTO-CLEANUP: eliminar releases y tags anteriores ---
-      - name: 🧹 Eliminar releases anteriores (mantener solo la ultima)
+      - name: Eliminar releases anteriores
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          set -e
           NEW_TAG="${{ steps.ver.outputs.tag }}"
-          echo "Buscando releases previas (excepto la actual $NEW_TAG)..."
-          # Listar releases previas que NO sean la que se va a publicar
+          echo "Buscando releases previas (excepto $NEW_TAG)..."
           PREV=$(gh release list --limit 100 --json tagName -q '.[].tagName' | grep -v "^${NEW_TAG}$" || true)
           if [ -z "$PREV" ]; then
-            echo "✅ No hay releases previas que limpiar."
+            echo "No hay releases previas que limpiar."
           else
             for old in $PREV; do
-              echo "🗑️  Eliminando release $old ..."
-              gh release delete "$old" --yes --cleanup-tag --repo "$GITHUB_REPOSITORY" || echo "  (no se pudo eliminar $old, continuando)"
+              echo "Eliminando release $old ..."
+              gh release delete "$old" --yes --cleanup-tag || echo "no se pudo eliminar $old"
             done
-            echo "✅ Cleanup completado."
+            echo "Cleanup completado."
           fi
 
-      # --- 4. Empaquetar el sitio en .zip ---
-      - name: 📦 Empaquetar sitio
+      - name: Empaquetar sitio
         run: |
           VERSION="${{ steps.ver.outputs.num }}"
           STAGE="portafolio-${VERSION}"
           zip -r "${STAGE}.zip" src -x "*/.*"
-          echo "Creado ${STAGE}.zip:"
-          unzip -l "${STAGE}.zip" | tail -5
-          echo "artifact=${STAGE}.zip" >> $GITHUB_ENV
+          ls -la "${STAGE}.zip"
 
-      # --- 5. Generar notas de la release desde el CHANGELOG ---
-      - name: 📝 Generar notas de release
-        id: notes
+      - name: Publicar release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERSION_NUM: ${{ steps.ver.outputs.num }}
+          VERSION_TAG: ${{ steps.ver.outputs.tag }}
         run: |
-          VERSION="${{ steps.ver.outputs.num }}"
           {
-            echo "## 🎉 Portafolio v${VERSION}"
+            echo "## Portafolio v${VERSION_NUM}"
             echo ""
-            cat CHANGELOG.md 2>/dev/null | sed -n '/## \[Unreleased\]/,/## \[/p' | sed '$d' | sed '1d;/^$/N;/^\n$/D' || true
+            echo "### Novedades"
+            echo "- Sitio web del portafolio version ${VERSION_NUM}"
+            echo "- Estilo microsoft.ai / Claude Desktop"
+            echo "- Proyectos, skills, trayectoria y contacto"
             echo ""
-            echo "---"
-            echo "📦 **Asset:** \`portafolio-${VERSION}.zip\`"
+            echo "**Asset:** portafolio-${VERSION_NUM}.zip"
             echo ""
-            echo "🌐 **Ver en vivo:** https://serviciosconiabyjhonsu.com"
-            echo ""
-            echo "_Generado automáticamente por GitHub Actions el $(date -u '+%Y-%m-%d %H:%M UTC')._"
-          } > release_notes.md
-          echo "### Notas generadas:"
-          cat release_notes.md
-
-      # --- 6. Publicar la nueva release ---
-      - name: 🚀 Publicar release
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          TAG="${{ steps.ver.outputs.tag }}"
-          gh release create "$TAG" \
-            --title "Portafolio ${{ steps.ver.outputs.tag }}" \
-            --notes-file release_notes.md \
+            echo "Ver en vivo: https://serviciosconiabyjhonsu.com"
+          } > /tmp/notes.md
+          gh release create "${VERSION_TAG}" \
+            --title "Portafolio ${VERSION_TAG}" \
+            --notes-file /tmp/notes.md \
             --latest \
-            "${{ env.artifact}" \
-            --repo "$GITHUB_REPOSITORY"
-          echo "✅ Release $TAG publicada."
+            "portafolio-${VERSION_NUM}.zip"
 
-      # --- 7. Reporte final ---
-      - name: ✅ Verificar releases activas
+      - name: Verificar
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo "=== Releases activas (debe ser 1) ==="
-          gh release list --repo "$GITHUB_REPOSITORY"
-          COUNT=$(gh release list --repo "$GITHUB_REPOSITORY" --json tagName -q '. | length')
-          echo ""
-          echo "Total de releases activas: $COUNT"
-          if [ "$COUNT" -eq 1 ]; then
-            echo "✅ Confirmado: solo la ultima release se mantiene."
-          else
-            echo "⚠️ Hay $COUNT releases (se esperaba 1)."
-          fi
+          echo "=== Releases activas ==="
+          gh release list
+          COUNT=$(gh release list --json tagName -q '. | length')
+          echo "Total: $COUNT release(s) activa(s)"
