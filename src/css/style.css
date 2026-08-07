@@ -295,7 +295,7 @@ section{padding:72px 0}
 .study-skills .chip{font-size:10px;background:var(--hundido)}
 
 /* ---------- Constelación de certificaciones ---------- */
-.constellation-wrap{position:relative;width:100%;height:min(560px,72vw);
+.constellation-wrap{position:relative;width:100%;height:min(640px,82vw);
   background:var(--surface);border:1px solid var(--border);border-radius:var(--radio-caja);
   overflow:hidden;box-shadow:var(--shadow)}
 [data-theme="aurora"] .constellation-wrap{background:radial-gradient(ellipse at center, rgba(110,140,255,.04), transparent 70%)}

@@ -176,20 +176,7 @@
     });
   }
 
-  /* ---------- Leyenda de la constelación (agrupada por emisor) ---------- */
-  const legend = $('#certLegend');
-  if(legend){
-    const groups = {};
-    CE.forEach(c => { (groups[c.issuer] = groups[c.issuer] || []).push(c); });
-    const sorted = Object.entries(groups).sort((a,b)=> b[1].length - a[1].length);
-    legend.innerHTML = sorted.map(([iss, list]) => {
-      const info = ISSUERS[iss] || { short:iss, color:'#888', kind:'' };
-      return `<span class="legend-item" title="${esc(iss)}">
-        <span class="legend-dot" style="background:${info.color}"></span>
-        ${esc(info.short)} <em>${list.length}</em>
-      </span>`;
-    }).join('');
-  }
+  /* La leyenda de la constelación la genera constellation.js con paleta dinámica por tema */
 
   /* ---------- Contact ---------- */
   $('#contactText').textContent = 'Ya sea para un producto con IA, una app segura o una consultoría técnica, conversemos.';
