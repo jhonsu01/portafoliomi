@@ -1,6 +1,64 @@
 /* ============================================================================
  *  Portafolio Jhon Supelano — Render dinámico + interacciones
  * ============================================================================ */
+/* ---------- Selector de tema ---------- */
+(function(){
+  "use strict";
+  const THEMES = {
+    papel:  { name:'Papel',  color:'#f7f1e3', swatch:'linear-gradient(135deg,#f7f1e3,#fffdf7)' },
+    aurora: { name:'Aurora', color:'#0a0b14', swatch:'linear-gradient(135deg,#0a0b14,#6e8cff)' }
+  };
+  const root = document.documentElement;
+  const btn = document.getElementById('themeBtn');
+  const menu = document.getElementById('themeMenu');
+  const swatch = document.getElementById('themeSwatch');
+  const nameEl = document.getElementById('themeName');
+  const metaTheme = document.getElementById('meta-theme');
+
+  function current(){ return root.getAttribute('data-theme') || 'papel'; }
+
+  function apply(theme){
+    if(!THEMES[theme]) theme = 'papel';
+    root.setAttribute('data-theme', theme);
+    try { localStorage.setItem('portfolio-theme', theme); } catch(e){}
+    const t = THEMES[theme];
+    if(swatch) swatch.style.background = t.swatch;
+    if(nameEl) nameEl.textContent = t.name;
+    if(metaTheme) metaTheme.setAttribute('content', t.color);
+    // marca la opción activa
+    document.querySelectorAll('.theme-opt').forEach(o => {
+      o.classList.toggle('active', o.dataset.theme === theme);
+    });
+  }
+
+  function toggle(open){
+    const isOpen = open !== undefined ? open : !menu.classList.contains('open');
+    menu.classList.toggle('open', isOpen);
+    btn.setAttribute('aria-expanded', String(isOpen));
+  }
+
+  if(btn && menu){
+    btn.addEventListener('click', e => { e.stopPropagation(); toggle(); });
+    document.querySelectorAll('.theme-opt').forEach(o => {
+      o.addEventListener('click', () => { apply(o.dataset.theme); toggle(false); });
+    });
+    document.addEventListener('click', e => {
+      if(!menu.contains(e.target) && !btn.contains(e.target)) toggle(false);
+    });
+    document.addEventListener('keydown', e => { if(e.key === 'Escape') toggle(false); });
+  }
+
+  // sincroniza el botón con el tema ya aplicado por el script anti-FOUC
+  apply(current());
+
+  // Atajo de teclado: T para ciclar temas
+  document.addEventListener('keydown', e => {
+    if(e.key.toLowerCase() === 't' && !/input|textarea/i.test(e.target.tagName)){
+      apply(current() === 'papel' ? 'aurora' : 'papel');
+    }
+  });
+})();
+
 (function(){
   "use strict";
   const D = window.PORTFOLIO_DATA;

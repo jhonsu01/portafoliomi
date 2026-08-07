@@ -1,21 +1,35 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="papel">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jhon Supelano — Desarrollador de IA, DevOps & Blockchain</title>
-<meta name="description" content="Portafolio de Jhon Supelano Rojas. Desarrollo de aplicaciones con IA, DevOps, seguridad y blockchain. Apps Android, .NET, multiagente.">
+<meta name="description" content="Portafolio de Jhon Supelano Rojas. Desarrollo de aplicaciones con IA, DevOps, seguridad y blockchain.">
 <meta name="author" content="Jhon Supelano">
-<meta name="theme-color" content="#0a0b14">
+<meta name="theme-color" content="#f7f1e3" id="meta-theme">
 <meta property="og:title" content="Jhon Supelano — Desarrollador de IA, DevOps & Blockchain">
 <meta property="og:description" content="Construyo aplicaciones inteligentes que combinan IA, seguridad y experiencia de producto.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://serviciosconiabyjhonsu.com">
+
+<!-- Fuente Inter solo para tema Aurora (carga diferida; Papel usa fonts autohospedadas) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
 <link rel="stylesheet" href="css/style.css">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%236e8cff'/><stop offset='1' stop-color='%239d7cff'/></linearGradient></defs><rect width='100' height='100' rx='22' fill='url(%23g)'/><text x='50' y='68' font-family='Arial' font-size='52' font-weight='bold' fill='white' text-anchor='middle'>J</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='14' fill='%23241f1b'/><text x='50' y='70' font-family='Georgia' font-size='58' fill='%238c5a31' text-anchor='middle'>J</text></svg>">
+
+<!-- Anti-FOUC: aplica tema guardado antes de renderizar -->
+<script>
+(function(){
+  try{
+    var t = localStorage.getItem('portfolio-theme');
+    if(t === 'aurora' || t === 'papel') document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.setAttribute('data-theme', 'papel');
+  }catch(e){ document.documentElement.setAttribute('data-theme','papel'); }
+})();
+</script>
 </head>
 <body>
 <div class="ambient"></div>
@@ -29,7 +43,27 @@
       <a href="#projects">Proyectos</a>
       <a href="#experience">Trayectoria</a>
     </div>
-    <a href="#contact" class="nav-cta">Contacto</a>
+    <div class="nav-right">
+      <!-- Selector de tema -->
+      <div class="theme-select">
+        <button class="theme-btn" id="themeBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Cambiar tema">
+          <span class="theme-swatch" id="themeSwatch"></span>
+          <span class="theme-name" id="themeName">Papel</span>
+          <svg width="10" height="10" viewBox="0 0 10 10" style="opacity:.5"><path d="M2 3.5L5 6.5 8 3.5" stroke="currentColor" fill="none" stroke-width="1.4" stroke-linecap="round"/></svg>
+        </button>
+        <div class="theme-menu" id="themeMenu" role="listbox">
+          <div class="theme-opt active" data-theme="papel" role="option">
+            <span class="theme-opt-swatch" style="background:linear-gradient(135deg,#f7f1e3,#fffdf7);border-color:#d4c7ac"></span>
+            <span class="theme-opt-txt"><b>Papel</b><span>Cálido · microsoft.ai</span></span>
+          </div>
+          <div class="theme-opt" data-theme="aurora" role="option">
+            <span class="theme-opt-swatch" style="background:linear-gradient(135deg,#0a0b14,#6e8cff);border-color:#6e8cff"></span>
+            <span class="theme-opt-txt"><b>Aurora</b><span>Oscuro · azul/violeta</span></span>
+          </div>
+        </div>
+      </div>
+      <a href="#contact" class="nav-cta">Contacto</a>
+    </div>
   </div>
 </nav>
 
