@@ -77,7 +77,7 @@
   // Stats
   const stats = $('#stats');
   const statsData = [
-    {num: PR.length + '+', lbl: 'Proyectos open source'},
+    {num: '100+', lbl: 'Proyectos open source'},
     {num: '10+', lbl: 'Años en tecnología'},
     {num: 'AES-256', lbl: 'Cifrado de grado militar'},
     {num: '100%', lbl: 'Offline-first'}
