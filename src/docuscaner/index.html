@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="papel">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Docu Scaner 150% — Escáner y ampliador de documentos para Android</title>
+<meta name="description" content="Docu Scaner 150% escanea, amplía al 150% e imprime documentos de identidad desde tu Android. 100% offline, sin servidores, con cifrado AES-256. Próximamente en Google Play.">
+<meta name="theme-color" content="#f7f1e3">
+<meta property="og:title" content="Docu Scaner 150% — Escáner y ampliador para Android">
+<meta property="og:description" content="Escanea, amplía al 150% e imprime documentos. 100% offline y privado.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23241f1b'/><text x='50' y='68' font-family='Georgia' font-size='44' fill='%238c5a31' text-anchor='middle'>D</text></svg>">
+<style>
+:root{
+  --papel:#fffdf7; --crema:#f7f1e3; --hundido:#f2ead9; --borde:#e5dbc8; --borde-s:#d4c7ac;
+  --tinta:#241f1b; --fuerte:#4a4139; --texto:#5d524b; --apagado:#71675d; --apoyo:#8e8070;
+  --bronce:#8c5a31; --bronce-hover:#73492a; --bronce-suave:#f6e9dc; --melocoton:#fbd3be;
+  --bien:#3f6b47; --display:"Instrument Serif","Red Hat Mono",Georgia,serif;
+  --ui:"Red Hat Mono",ui-monospace,monospace; --prosa:ui-sans-serif,system-ui,sans-serif;
+  --radio:6px; --radio-b:999px; --shadow:0 4px 16px -4px rgba(93,82,75,.14);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--crema);color:var(--texto);font-family:var(--ui);font-size:15px;line-height:1.65;
+  letter-spacing:-.018em;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:980px;margin:0 auto;padding:0 24px}
+
+/* Nav */
+.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(16px);background:rgba(247,241,227,.82);border-bottom:1px solid var(--borde)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:15px;color:var(--tinta)}
+.brand .mark{width:30px;height:30px;border-radius:7px;background:var(--tinta);color:var(--crema);display:grid;place-items:center;font-family:var(--display);font-size:17px}
+.nav-links{display:flex;gap:22px;font-size:13px;color:var(--apagado)}
+.nav-links a:hover{color:var(--tinta)}
+.badge-play{display:inline-flex;align-items:center;gap:7px;padding:7px 14px;border-radius:var(--radio-b);background:var(--bronce);color:var(--papel);font-size:12.5px;font-weight:500}
+@media(max-width:680px){.nav-links{display:none}}
+
+/* Hero */
+.hero{padding:84px 0 64px;text-align:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:var(--radio);background:var(--papel);
+  border:1px solid var(--borde);font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--apagado);margin-bottom:26px}
+.eyebrow .pulse{width:6px;height:6px;border-radius:50%;background:var(--bien);box-shadow:0 0 8px var(--bien);animation:p 2s infinite}
+@keyframes p{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(2.6rem,7vw,4.4rem);color:var(--tinta);
+  letter-spacing:-.035em;line-height:1.04;margin-bottom:18px;text-wrap:balance}
+.hero h1 .accent{color:var(--bronce)}
+.hero .lead{max-width:58ch;margin:0 auto 32px;font-family:var(--prosa);font-size:clamp(1.05rem,2vw,1.2rem);color:var(--apagado);line-height:1.6}
+.hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:var(--radio-b);font-family:var(--ui);
+  font-weight:500;font-size:13px;border:1px solid transparent;cursor:pointer;transition:.2s}
+.btn-primary{background:var(--tinta);color:var(--crema)}
+.btn-primary:hover{background:var(--fuerte);transform:translateY(-1px)}
+.btn-marca{background:var(--bronce);color:var(--papel)}
+.btn-marca:hover{background:var(--bronce-hover);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--fuerte);border-color:var(--borde-s)}
+.btn-ghost:hover{background:var(--papel)}
+
+/* Phone mock */
+.phone-frame{max-width:280px;margin:0 auto 30px;aspect-ratio:9/18;border-radius:34px;background:var(--tinta);
+  padding:10px;box-shadow:0 30px 60px -20px rgba(36,31,27,.4),0 0 0 1px var(--borde-s)}
+.phone-screen{width:100%;height:100%;border-radius:26px;background:var(--hundido);display:flex;flex-direction:column;
+  align-items:center;justify-content:center;padding:24px;text-align:center;position:relative;overflow:hidden}
+.phone-screen::after{content:"";position:absolute;top:8px;left:50%;transform:translateX(-50%);width:70px;height:5px;border-radius:99px;background:var(--borde)}
+.phone-doc{width:90px;height:120px;background:var(--papel);border-radius:6px;border:1px solid var(--borde);position:relative;
+  box-shadow:var(--shadow);transform:scale(1.5);margin:10px 0}
+.phone-doc::before,.phone-doc::after{content:"";position:absolute;left:12px;right:12px;height:4px;background:var(--borde);border-radius:2px}
+.phone-doc::before{top:14px}.phone-doc::after{top:24px}
+.phone-doc .l3{position:absolute;left:12px;right:30px;top:34px;height:4px;background:var(--borde);border-radius:2px}
+.phone-doc .l4{position:absolute;left:12px;right:20px;top:44px;height:4px;background:var(--melocoton);border-radius:2px}
+.phone-label{font-size:10px;color:var(--apoyo);margin-top:20px;text-transform:uppercase;letter-spacing:.1em}
+
+/* Section */
+section{padding:64px 0}
+.section-head{margin-bottom:40px}
+.section-head .kicker{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--bronce);font-weight:500;margin-bottom:8px}
+.section-head h2{font-family:var(--display);font-size:clamp(1.8rem,4vw,2.5rem);font-weight:400;color:var(--tinta);letter-spacing:-.03em}
+.section-head p{color:var(--apagado);margin-top:8px;font-family:var(--prosa);max-width:54ch}
+
+/* Features */
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.feature{background:var(--papel);border:1px solid var(--borde);border-radius:var(--radio);padding:22px;transition:.2s}
+.feature:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--borde-s)}
+.feature .ico{font-size:24px;margin-bottom:12px;display:block}
+.feature h3{font-family:var(--prosa);font-size:15px;font-weight:600;color:var(--tinta);margin-bottom:6px}
+.feature p{font-size:13.5px;color:var(--apagado);font-family:var(--prosa)}
+
+/* Steps */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.step{position:relative;padding-left:0}
+.step .num{font-family:var(--display);font-size:2.6rem;color:var(--bronce);line-height:1;opacity:.5}
+.step h3{font-family:var(--prosa);font-size:15px;font-weight:600;color:var(--tinta);margin:4px 0 6px}
+.step p{font-size:13.5px;color:var(--apagado);font-family:var(--prosa)}
+
+/* Privacy banner */
+.privacy-banner{background:var(--papel);border:1px solid var(--borde);border-radius:12px;padding:28px;text-align:center}
+.privacy-banner .ico{font-size:28px;margin-bottom:10px}
+.privacy-banner h3{font-family:var(--display);font-size:1.5rem;color:var(--tinta);margin-bottom:8px}
+.privacy-banner p{color:var(--apagado);font-family:var(--prosa);max-width:52ch;margin:0 auto 16px}
+
+/* FAQ */
+.faq{display:flex;flex-direction:column;gap:10px;max-width:720px;margin:0 auto}
+.q{background:var(--papel);border:1px solid var(--borde);border-radius:var(--radio);overflow:hidden}
+.q summary{padding:15px 18px;cursor:pointer;font-size:14px;font-weight:500;color:var(--tinta);list-style:none;display:flex;justify-content:space-between;align-items:center}
+.q summary::-webkit-details-marker{display:none}
+.q summary::after{content:"+";color:var(--bronce);font-size:18px;font-weight:600}
+.q[open] summary::after{content:"–"}
+.q .a{padding:0 18px 16px;font-size:13.5px;color:var(--apagado);font-family:var(--prosa)}
+
+/* CTA */
+.cta{text-align:center;padding:80px 0}
+.cta h2{font-family:var(--display);font-size:clamp(2rem,5vw,2.8rem);font-weight:400;color:var(--tinta);margin-bottom:14px}
+.cta .accent{color:var(--bronce)}
+.cta p{color:var(--apagado);max-width:48ch;margin:0 auto 28px;font-family:var(--prosa)}
+
+/* Footer */
+footer{border-top:1px solid var(--borde);padding:28px 0;text-align:center;color:var(--apoyo);font-size:12.5px}
+footer a{color:var(--apagado)}
+footer .links{display:flex;gap:18px;justify-content:center;margin-bottom:10px}
+
+@media(max-width:680px){.hero{padding:60px 0 48px}.hero h1{font-size:2.6rem}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="/docuscaner/" class="brand"><span class="mark">D</span> Docu Scaner 150%</a>
+    <div class="nav-links">
+      <a href="#funciones">Funciones</a>
+      <a href="#como">Cómo funciona</a>
+      <a href="#privacidad">Privacidad</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <span class="badge-play">📱 Próximamente en Google Play</span>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="pulse"></span> App Android · En revisión en Google Play</span>
+    <h1>Tu documentos, <span class="accent">al 150%</span><br>y listos para imprimir.</h1>
+    <p class="lead">Escanea documentos de identidad, amplicalos al 150% sobre hoja Carta e imprímelos en segundos. Todo en tu Android, sin internet y sin que tus datos salgan del dispositivo.</p>
+    <div class="hero-cta">
+      <a href="#funciones" class="btn btn-primary">Ver funciones →</a>
+      <a href="#privacidad" class="btn btn-ghost">Privacidad</a>
+    </div>
+    <div class="phone-frame">
+      <div class="phone-screen">
+        <div class="phone-doc"><span class="l3"></span><span class="l4"></span></div>
+        <div class="phone-label">Escalado 150% · 300 DPI</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="funciones">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Funciones</div>
+      <h2>Todo lo que necesitas para tramitar</h2>
+      <p>Diseñada para trámites: rápida, precisa y respetuosa con tu privacidad.</p>
+    </div>
+    <div class="features">
+      <div class="feature"><span class="ico">🔍</span><h3>Ampliación 150%</h3><p>Escala el documento sobre hoja Carta (8.5×11 in) a 300 DPI, con la nitidez justa para trámites y copias.</p></div>
+      <div class="feature"><span class="ico">📷</span><h3>Escáner con IA</h3><p>Captura con ML Kit de Google: recorta, endereza y mejora el documento automáticamente, en el dispositivo.</p></div>
+      <div class="feature"><span class="ico">🎨</span><h3>Modos de color</h3><p>Color, Blanco y Negro o Alto Contraste. Elige el que mejor queda para cada documento.</p></div>
+      <div class="feature"><span class="ico">🖨️</span><h3>Impresión nativa</h3><p>Imprime directo al diálogo del sistema de Android o detecta impresoras en tu red local.</p></div>
+      <div class="feature"><span class="ico">🔐</span><h3>Bloqueo biométrico</h3><p>Protege la app con tu huella o PIN mediante BiometricPrompt. Nadie entra sin tu permiso.</p></div>
+      <div class="feature"><span class="ico">💾</span><h3>Bóveda cifrada</h3><p>Guarda documentos en el dispositivo cifrados con AES-256. Nada se sube a la nube.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="como">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Cómo funciona</div>
+      <h2>Tres pasos, un minuto</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><h3>Escanea o adjunta</h3><p>Abre la cámara y enfoca el documento, o elige una imagen de tu galería. La IA recorta y mejora sola.</p></div>
+      <div class="step"><div class="num">2</div><h3>Amplía al 150%</h3><p>El documento se escala a 300 DPI sobre hoja Carta, listo para imprimir con la calidad de un trámite.</p></div>
+      <div class="step"><div class="num">3</div><h3>Imprime o guarda</h3><p>Envía a tu impresora o guárdalo en la bóveda cifrada. Todo queda en tu dispositivo.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="privacidad">
+  <div class="wrap">
+    <div class="privacy-banner">
+      <div class="ico">🛡️</div>
+      <h3>Tus documentos no salen de tu móvil</h3>
+      <p>Docu Scaner 150% es offline-first: <strong>no recopilamos, no almacenamos en servidores y no compartimos ningún dato personal</strong>. Las imágenes se procesan y cifran en tu dispositivo. Sin cuentas, sin registro, sin rastreadores.</p>
+      <a href="/docuscaner/privacy.html" class="btn btn-marca">Ver Política de Privacidad →</a>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Preguntas frecuentes</div>
+      <h2>Lo que quieres saber</h2>
+    </div>
+    <div class="faq">
+      <details class="q"><summary>¿La app necesita internet?</summary><div class="a">No. Funciona 100% offline. El permiso de internet solo se usa para detectar impresoras en tu red local y para validar la compra de la licencia a través de Google Play. Tus documentos nunca se envían por internet.</div></details>
+      <details class="q"><summary>¿Mis datos llegan a algún servidor?</summary><div class="a">Nunca. Todo el procesamiento (escaneo, ampliación, cifrado) ocurre en tu dispositivo con ML Kit de Google en modo on-device. No hay analítica, ni publicidad, ni rastreadores.</div></details>
+      <details class="q"><summary>¿Para qué sirve el escalado al 150%?</summary><div class="a">Muchos trámites exigen el documento de identidad ampliado al 150% sobre hoja Carta. La app lo hace automáticamente a 300 DPI, con el tamaño y la resolución exactos.</div></details>
+      <details class="q"><summary>¿Cómo protejo mis documentos?</summary><div class="a">Puedes activar el bloqueo con huella o PIN (BiometricPrompt) y guardar los documentos en una bóveda cifrada con AES-256. Si los borras o desinstalas la app, la eliminación es total.</div></details>
+      <details class="q"><summary>¿Cuándo estará en Google Play?</summary><div class="a">La app está en proceso de aprobación en Google Play. Mientras tanto, puedes conocer todas las funciones aquí y en el repositorio del desarrollador.</div></details>
+      <details class="q"><summary>¿Hay costo?</summary><div class="a">La app es gratuita con un límite diario de documentos. La licencia ilimitada de por vida se compra una sola vez a través de Google Play Billing, sin suscripciones.</div></details>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Trámites sin complicaciones,<br><span class="accent">desde el bolsillo.</span></h2>
+    <p>Docu Scaner 150% estará disponible pronto en Google Play. Mientras, conoce el proyecto y al desarrollador.</p>
+    <div class="hero-cta" style="margin-bottom:0">
+      <a href="https://serviciosconiabyjhonsu.com" class="btn btn-primary">Sobre el desarrollador →</a>
+      <a href="https://ko-fi.com/V7V81LV7GX" class="btn btn-ghost" target="_blank" rel="noopener">Apóyame en Ko-fi ☕</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="links">
+      <a href="/docuscaner/privacy.html">Política de Privacidad</a>
+      <a href="mailto:jaiverbot77@gmail.com">Soporte</a>
+      <a href="https://serviciosconiabyjhonsu.com">© Jhon Supelano</a>
+    </div>
+    © 2026 Docu Scaner 150% · Desarrollado por jhonsu01 · <a href="mailto:jaiverbot77@gmail.com">jaiverbot77@gmail.com</a>
+  </div>
+</footer>
+
+</body>
+</html>
