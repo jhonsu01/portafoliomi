@@ -98,6 +98,23 @@ section{padding:64px 0}
 .privacy-banner h3{font-family:var(--display);font-size:1.5rem;color:var(--tinta);margin-bottom:8px}
 .privacy-banner p{color:var(--apagado);font-family:var(--prosa);max-width:52ch;margin:0 auto 16px}
 
+/* Pricing */
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;max-width:760px;margin:0 auto}
+.price-card{background:var(--papel);border:1px solid var(--borde);border-radius:12px;padding:28px 24px;position:relative;transition:.2s;display:flex;flex-direction:column}
+.price-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.price-card.featured{border-color:var(--bronce);border-width:1.5px;background:linear-gradient(180deg,var(--bronce-suave),var(--papel))}
+.price-tag{position:absolute;top:-11px;right:20px;background:var(--bronce);color:var(--papel);font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:4px 12px;border-radius:99px}
+.price-name{font-family:var(--display);font-size:1.5rem;color:var(--tinta);margin-bottom:6px;font-weight:400}
+.price-amt{font-family:var(--display);font-size:2.6rem;color:var(--bronce);line-height:1;margin-bottom:4px}
+.price-amt small{font-size:1rem;color:var(--apoyo);font-family:var(--ui)}
+.price-amt.free{color:var(--bien)}
+.price-sub{font-size:12px;color:var(--apoyo);font-family:var(--ui);margin-bottom:18px}
+.price-feats{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:22px;flex:1}
+.price-feats li{font-size:13.5px;color:var(--texto);font-family:var(--prosa);padding-left:24px;position:relative}
+.price-feats li::before{content:"✓";position:absolute;left:0;color:var(--bronce);font-weight:700}
+.price-feats li.no::before{content:"—";color:var(--apoyo);font-weight:400}
+.btn-block{display:flex;justify-content:center}
+
 /* FAQ */
 .faq{display:flex;flex-direction:column;gap:10px;max-width:720px;margin:0 auto}
 .q{background:var(--papel);border:1px solid var(--borde);border-radius:var(--radio);overflow:hidden}
@@ -129,6 +146,7 @@ footer .links{display:flex;gap:18px;justify-content:center;margin-bottom:10px}
     <div class="nav-links">
       <a href="#funciones">Funciones</a>
       <a href="#como">Cómo funciona</a>
+      <a href="#precios">Precios</a>
       <a href="#privacidad">Privacidad</a>
       <a href="#faq">FAQ</a>
     </div>
@@ -186,6 +204,46 @@ footer .links{display:flex;gap:18px;justify-content:center;margin-bottom:10px}
   </div>
 </section>
 
+<section id="precios">
+  <div class="wrap">
+    <div class="section-head" style="text-align:center">
+      <div class="kicker">Precios simples</div>
+      <h2>Empieza gratis, mejora cuando quieras</h2>
+      <p style="margin-left:auto;margin-right:auto">Sin suscripciones, sin anuncios, sin trampas. Un único pago y es tuyo para siempre.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-name">Gratis</div>
+        <div class="price-amt free">$0<small> / siempre</small></div>
+        <div class="price-sub">Para uso ocasional</div>
+        <ul class="price-feats">
+          <li>5 documentos por día</li>
+          <li>Todas las funciones de escaneo</li>
+          <li>Ampliación 150% e impresión</li>
+          <li>Modos de color y bóveda cifrada</li>
+          <li class="no">Licencia ilimitada</li>
+        </ul>
+        <div class="btn-block"><span class="btn btn-ghost" style="opacity:.7;cursor:default">Incluido al instalar</span></div>
+      </div>
+      <div class="price-card featured">
+        <span class="price-tag">Recomendado</span>
+        <div class="price-name">Ilimitada</div>
+        <div class="price-amt">$7.99<small> USD · pago único</small></div>
+        <div class="price-sub">Licencia de por vida</div>
+        <ul class="price-feats">
+          <li><strong>Documentos ilimitados</strong> cada día</li>
+          <li>Todas las funciones de la versión gratis</li>
+          <li>Ampliación 150% e impresión sin límite</li>
+          <li>Bóveda cifrada AES-256</li>
+          <li>Sin suscripciones ni renovaciones</li>
+        </ul>
+        <div class="btn-block"><span class="btn btn-marca">Próximamente en Google Play</span></div>
+      </div>
+    </div>
+    <p style="text-align:center;color:var(--apoyo);font-size:12.5px;margin-top:22px;font-family:var(--ui)">La compra se gestiona con Google Play Billing · Pago único · Sin caducidad</p>
+  </div>
+</section>
+
 <section id="privacidad">
   <div class="wrap">
     <div class="privacy-banner">
@@ -209,7 +267,8 @@ footer .links{display:flex;gap:18px;justify-content:center;margin-bottom:10px}
       <details class="q"><summary>¿Para qué sirve el escalado al 150%?</summary><div class="a">Muchos trámites exigen el documento de identidad ampliado al 150% sobre hoja Carta. La app lo hace automáticamente a 300 DPI, con el tamaño y la resolución exactos.</div></details>
       <details class="q"><summary>¿Cómo protejo mis documentos?</summary><div class="a">Puedes activar el bloqueo con huella o PIN (BiometricPrompt) y guardar los documentos en una bóveda cifrada con AES-256. Si los borras o desinstalas la app, la eliminación es total.</div></details>
       <details class="q"><summary>¿Cuándo estará en Google Play?</summary><div class="a">La app está en proceso de aprobación en Google Play. Mientras tanto, puedes conocer todas las funciones aquí y en el repositorio del desarrollador.</div></details>
-      <details class="q"><summary>¿Hay costo?</summary><div class="a">La app es gratuita con un límite diario de documentos. La licencia ilimitada de por vida se compra una sola vez a través de Google Play Billing, sin suscripciones.</div></details>
+      <details class="q"><summary>¿Cuánto cuesta la app?</summary><div class="a">La descarga y el uso son <strong>gratuitos</strong>, con un límite de <strong>5 documentos por día</strong>. Si necesitas más, la <strong>licencia ilimitada de por vida cuesta $7.99 USD</strong> como pago único (sin suscripciones ni renovaciones) a través de Google Play Billing. Consulta todos los detalles en la sección de <a href="#precios">precios</a>.</div></details>
+      <details class="q"><summary>¿Qué pasa cuando llego al límite de 5 documentos?</summary><div class="a">El contador se reinicia cada día, así que al día siguiente vuelves a tener 5 documentos disponibles. El contador se guarda localmente y cifrado en tu dispositivo. Si necesitas procesar más documentos sin esperar, la licencia ilimitada ($7.99 USD, pago único) elimina el límite para siempre.</div></details>
     </div>
   </div>
 </section>
