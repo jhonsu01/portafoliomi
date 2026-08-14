@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="papel">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PrintOrganize — Imágenes a tamaño exacto para imprimir</title>
+<meta name="description" content="PrintOrganize organiza las imágenes de una carpeta en una cuadrícula dentro de un documento Word, cada una a un tamaño físico exacto en centímetros. 100% privado y offline. Próximamente en Google Play.">
+<meta name="theme-color" content="#f7f1e3">
+<meta property="og:title" content="PrintOrganize — Imágenes a tamaño exacto para imprimir">
+<meta property="og:description" content="Cuadrículas listas para imprimir y recortar, con la medida exacta en cm. 100% offline y privado.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23241f1b'/><text x='50' y='68' font-family='Georgia' font-size='44' fill='%238c5a31' text-anchor='middle'>P</text></svg>">
+<style>
+:root{
+  --papel:#fffdf7; --crema:#f7f1e3; --hundido:#f2ead9; --borde:#e5dbc8; --borde-s:#d4c7ac;
+  --tinta:#241f1b; --fuerte:#4a4139; --texto:#5d524b; --apagado:#71675d; --apoyo:#8e8070;
+  --bronce:#8c5a31; --bronce-hover:#73492a; --bronce-suave:#f6e9dc; --melocoton:#fbd3be;
+  --bien:#3f6b47; --display:"Instrument Serif","Red Hat Mono",Georgia,serif;
+  --ui:"Red Hat Mono",ui-monospace,monospace; --prosa:ui-sans-serif,system-ui,sans-serif;
+  --radio:6px; --radio-b:999px; --shadow:0 4px 16px -4px rgba(93,82,75,.14);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--crema);color:var(--texto);font-family:var(--ui);font-size:15px;line-height:1.65;
+  letter-spacing:-.018em;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:980px;margin:0 auto;padding:0 24px}
+
+/* Nav */
+.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(16px);background:rgba(247,241,227,.82);border-bottom:1px solid var(--borde)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:15px;color:var(--tinta)}
+.brand .mark{width:30px;height:30px;border-radius:7px;background:var(--tinta);color:var(--crema);display:grid;place-items:center;font-family:var(--display);font-size:17px}
+.nav-links{display:flex;gap:22px;font-size:13px;color:var(--apagado)}
+.nav-links a:hover{color:var(--tinta)}
+.badge-play{display:inline-flex;align-items:center;gap:7px;padding:7px 14px;border-radius:var(--radio-b);background:var(--bronce);color:var(--papel);font-size:12.5px;font-weight:500}
+@media(max-width:680px){.nav-links{display:none}}
+
+/* Hero */
+.hero{padding:84px 0 64px;text-align:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:var(--radio);background:var(--papel);
+  border:1px solid var(--borde);font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--apagado);margin-bottom:26px}
+.eyebrow .pulse{width:6px;height:6px;border-radius:50%;background:var(--bien);box-shadow:0 0 8px var(--bien);animation:p 2s infinite}
+@keyframes p{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(2.6rem,7vw,4.4rem);color:var(--tinta);
+  letter-spacing:-.035em;line-height:1.04;margin-bottom:18px;text-wrap:balance}
+.hero h1 .accent{color:var(--bronce)}
+.hero .lead{max-width:58ch;margin:0 auto 32px;font-family:var(--prosa);font-size:clamp(1.05rem,2vw,1.2rem);color:var(--apagado);line-height:1.6}
+.hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:var(--radio-b);font-family:var(--ui);
+  font-weight:500;font-size:13px;border:1px solid transparent;cursor:pointer;transition:.2s}
+.btn-primary{background:var(--tinta);color:var(--crema)}
+.btn-primary:hover{background:var(--fuerte);transform:translateY(-1px)}
+.btn-marca{background:var(--bronce);color:var(--papel)}
+.btn-marca:hover{background:var(--bronce-hover);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--fuerte);border-color:var(--borde-s)}
+.btn-ghost:hover{background:var(--papel)}
+
+/* Phone mock */
+.phone-frame{max-width:280px;margin:0 auto 30px;aspect-ratio:9/18;border-radius:34px;background:var(--tinta);
+  padding:10px;box-shadow:0 30px 60px -20px rgba(36,31,27,.4),0 0 0 1px var(--borde-s)}
+.phone-screen{width:100%;height:100%;border-radius:26px;background:var(--hundido);display:flex;flex-direction:column;
+  align-items:center;justify-content:center;padding:24px;text-align:center;position:relative;overflow:hidden}
+.phone-screen::after{content:"";position:absolute;top:8px;left:50%;transform:translateX(-50%);width:70px;height:5px;border-radius:99px;background:var(--borde)}
+.phone-sheet{width:118px;height:150px;background:var(--papel);border-radius:6px;border:1px solid var(--borde);box-shadow:var(--shadow);
+  padding:12px;display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:9px;margin:10px 0}
+.cell{border:1px dashed var(--borde-s);border-radius:3px;display:grid;place-items:center}
+.cell .pic{width:68%;height:68%;border-radius:2px;background:var(--melocoton)}
+.cell:nth-child(2) .pic{background:var(--hundido)}
+.cell:nth-child(3) .pic{background:var(--hundido)}
+.phone-label{font-size:10px;color:var(--apoyo);margin-top:20px;text-transform:uppercase;letter-spacing:.1em}
+
+/* Section */
+section{padding:64px 0}
+.section-head{margin-bottom:40px}
+.section-head .kicker{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--bronce);font-weight:500;margin-bottom:8px}
+.section-head h2{font-family:var(--display);font-size:clamp(1.8rem,4vw,2.5rem);font-weight:400;color:var(--tinta);letter-spacing:-.03em}
+.section-head p{color:var(--apagado);margin-top:8px;font-family:var(--prosa);max-width:54ch}
+
+/* Features */
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.feature{background:var(--papel);border:1px solid var(--borde);border-radius:var(--radio);padding:22px;transition:.2s}
+.feature:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--borde-s)}
+.feature .ico{font-size:24px;margin-bottom:12px;display:block}
+.feature h3{font-family:var(--prosa);font-size:15px;font-weight:600;color:var(--tinta);margin-bottom:6px}
+.feature p{font-size:13.5px;color:var(--apagado);font-family:var(--prosa)}
+
+/* Steps */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.step{position:relative;padding-left:0}
+.step .num{font-family:var(--display);font-size:2.6rem;color:var(--bronce);line-height:1;opacity:.5}
+.step h3{font-family:var(--prosa);font-size:15px;font-weight:600;color:var(--tinta);margin:4px 0 6px}
+.step p{font-size:13.5px;color:var(--apagado);font-family:var(--prosa)}
+
+/* Privacy banner */
+.privacy-banner{background:var(--papel);border:1px solid var(--borde);border-radius:12px;padding:28px;text-align:center}
+.privacy-banner .ico{font-size:28px;margin-bottom:10px}
+.privacy-banner h3{font-family:var(--display);font-size:1.5rem;color:var(--tinta);margin-bottom:8px}
+.privacy-banner p{color:var(--apagado);font-family:var(--prosa);max-width:52ch;margin:0 auto 16px}
+
+/* Pricing */
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;max-width:760px;margin:0 auto}
+.price-card{background:var(--papel);border:1px solid var(--borde);border-radius:12px;padding:28px 24px;position:relative;transition:.2s;display:flex;flex-direction:column}
+.price-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.price-card.featured{border-color:var(--bronce);border-width:1.5px;background:linear-gradient(180deg,var(--bronce-suave),var(--papel))}
+.price-tag{position:absolute;top:-11px;right:20px;background:var(--bronce);color:var(--papel);font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:4px 12px;border-radius:99px}
+.price-name{font-family:var(--display);font-size:1.5rem;color:var(--tinta);margin-bottom:6px;font-weight:400}
+.price-amt{font-family:var(--display);font-size:2.6rem;color:var(--bronce);line-height:1;margin-bottom:4px}
+.price-amt small{font-size:1rem;color:var(--apoyo);font-family:var(--ui)}
+.price-amt.free{color:var(--bien)}
+.price-sub{font-size:12px;color:var(--apoyo);font-family:var(--ui);margin-bottom:18px}
+.price-feats{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:22px;flex:1}
+.price-feats li{font-size:13.5px;color:var(--texto);font-family:var(--prosa);padding-left:24px;position:relative}
+.price-feats li::before{content:"✓";position:absolute;left:0;color:var(--bronce);font-weight:700}
+.price-feats li.no::before{content:"—";color:var(--apoyo);font-weight:400}
+.btn-block{display:flex;justify-content:center}
+
+/* FAQ */
+.faq{display:flex;flex-direction:column;gap:10px;max-width:720px;margin:0 auto}
+.q{background:var(--papel);border:1px solid var(--borde);border-radius:var(--radio);overflow:hidden}
+.q summary{padding:15px 18px;cursor:pointer;font-size:14px;font-weight:500;color:var(--tinta);list-style:none;display:flex;justify-content:space-between;align-items:center}
+.q summary::-webkit-details-marker{display:none}
+.q summary::after{content:"+";color:var(--bronce);font-size:18px;font-weight:600}
+.q[open] summary::after{content:"–"}
+.q .a{padding:0 18px 16px;font-size:13.5px;color:var(--apagado);font-family:var(--prosa)}
+
+/* CTA */
+.cta{text-align:center;padding:80px 0}
+.cta h2{font-family:var(--display);font-size:clamp(2rem,5vw,2.8rem);font-weight:400;color:var(--tinta);margin-bottom:14px}
+.cta .accent{color:var(--bronce)}
+.cta p{color:var(--apagado);max-width:48ch;margin:0 auto 28px;font-family:var(--prosa)}
+
+/* Footer */
+footer{border-top:1px solid var(--borde);padding:28px 0;text-align:center;color:var(--apoyo);font-size:12.5px}
+footer a{color:var(--apagado)}
+footer .links{display:flex;gap:18px;justify-content:center;margin-bottom:10px}
+
+@media(max-width:680px){.hero{padding:60px 0 48px}.hero h1{font-size:2.6rem}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="/printorganize/" class="brand"><span class="mark">P</span> PrintOrganize</a>
+    <div class="nav-links">
+      <a href="#funciones">Funciones</a>
+      <a href="#como">Cómo funciona</a>
+      <a href="#precios">Precios</a>
+      <a href="#privacidad">Privacidad</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <span class="badge-play">📱 Próximamente en Google Play</span>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="pulse"></span> App Android · En revisión en Google Play</span>
+    <h1>Tus imágenes, <span class="accent">al tamaño exacto</span>,<br>listas para imprimir.</h1>
+    <p class="lead">Elige una carpeta, define cuánto debe medir cada imagen (por ejemplo 6 × 6 cm) y PrintOrganize arma la cuadrícula en un documento Word listo para imprimir y recortar. Todo en tu dispositivo, sin que nada suba a internet.</p>
+    <div class="hero-cta">
+      <a href="#funciones" class="btn btn-primary">Ver funciones →</a>
+      <a href="#privacidad" class="btn btn-ghost">Privacidad</a>
+    </div>
+    <div class="phone-frame">
+      <div class="phone-screen">
+        <div class="phone-sheet">
+          <div class="cell"><span class="pic"></span></div>
+          <div class="cell"><span class="pic"></span></div>
+          <div class="cell"><span class="pic"></span></div>
+          <div class="cell"><span class="pic"></span></div>
+        </div>
+        <div class="phone-label">6 × 6 cm · Hoja A4</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="funciones">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Funciones</div>
+      <h2>Imprime a medida, sin pelearte con Word</h2>
+      <p>Word «autoajusta» las tablas y deforma las imágenes. PrintOrganize fija la geometría a nivel de XML para que cada imagen salga con su medida exacta.</p>
+    </div>
+    <div class="features">
+      <div class="feature"><span class="ico">📐</span><h3>Tamaño exacto en cm</h3><p>Cada imagen sale con la medida física que pidas — 6 × 6 cm, 3 × 4 cm, la que necesites — lista para imprimir y recortar.</p></div>
+      <div class="feature"><span class="ico">🧮</span><h3>Cuadrícula automática</h3><p>La app calcula cuántas imágenes caben por hoja y arma la cuadrícula. A4, Carta, Oficio y A3, en vertical u horizontal.</p></div>
+      <div class="feature"><span class="ico">📄</span><h3>Documento Word (.docx)</h3><p>Genera el documento en streaming: una carpeta con cientos de fotos no agota la memoria del teléfono. Ábrelo donde quieras.</p></div>
+      <div class="feature"><span class="ico">🎚️</span><h3>Control total</h3><p>Ajuste Exacto (fuerza la medida) o Contener (respeta la proporción), columnas automáticas o forzadas, márgenes inteligentes.</p></div>
+      <div class="feature"><span class="ico">🏷️</span><h3>Etiquetas y subcarpetas</h3><p>Nombre del archivo bajo cada imagen y procesamiento opcional de subcarpetas para mantener tus proyectos ordenados.</p></div>
+      <div class="feature"><span class="ico">🔒</span><h3>Privacidad total</h3><p>Sin cuentas, sin nube, sin rastreadores. Tus imágenes se procesan 100% en tu dispositivo y nunca se suben a internet.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="como">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Cómo funciona</div>
+      <h2>Tres pasos, sin complicaciones</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><h3>Elige la carpeta</h3><p>Con el selector de carpetas del propio Android. La app no pide permisos de almacenamiento: solo accede a la carpeta que tú concedas.</p></div>
+      <div class="step"><div class="num">2</div><h3>Define el tamaño</h3><p>Dime cuánto debe medir cada imagen (6 × 6 cm, por ejemplo). La app calcula la cuadrícula y cuántas caben por hoja.</p></div>
+      <div class="step"><div class="num">3</div><h3>Imprime y recorta</h3><p>Genera el documento .docx, imprímelo y cada imagen medirá exactamente lo que pediste. Recorta por las líneas y listo.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="precios">
+  <div class="wrap">
+    <div class="section-head" style="text-align:center">
+      <div class="kicker">Precios simples</div>
+      <h2>Empieza gratis, mejora cuando quieras</h2>
+      <p style="margin-left:auto;margin-right:auto">Sin suscripciones, sin anuncios, sin trampas. Un único pago y es tuyo para siempre.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-name">Gratis</div>
+        <div class="price-amt free">$0<small> / siempre</small></div>
+        <div class="price-sub">Para uso ocasional</div>
+        <ul class="price-feats">
+          <li>2 documentos por día</li>
+          <li>Todas las funciones de organización</li>
+          <li>Cuadrícula y tamaño exacto en cm</li>
+          <li>PNG, JPEG, GIF, BMP y TIFF</li>
+          <li class="no">Licencia ilimitada</li>
+        </ul>
+        <div class="btn-block"><span class="btn btn-ghost" style="opacity:.7;cursor:default">Incluido al instalar</span></div>
+      </div>
+      <div class="price-card featured">
+        <span class="price-tag">Recomendado</span>
+        <div class="price-name">Ilimitada</div>
+        <div class="price-amt">$7.99<small> USD · pago único</small></div>
+        <div class="price-sub">Licencia de por vida</div>
+        <ul class="price-feats">
+          <li><strong>Documentos ilimitados</strong> cada día</li>
+          <li>Todas las funciones de la versión gratis</li>
+          <li>Tamaños y formatos sin restricción</li>
+          <li>Etiquetas y subcarpetas</li>
+          <li>Sin suscripciones ni renovaciones</li>
+        </ul>
+        <div class="btn-block"><span class="btn btn-marca">Próximamente en Google Play</span></div>
+      </div>
+    </div>
+    <p style="text-align:center;color:var(--apoyo);font-size:12.5px;margin-top:22px;font-family:var(--ui)">La compra se gestiona con Google Play Billing · Pago único · Sin caducidad</p>
+  </div>
+</section>
+
+<section id="privacidad">
+  <div class="wrap">
+    <div class="privacy-banner">
+      <div class="ico">🛡️</div>
+      <h3>Tus imágenes no salen de tu dispositivo</h3>
+      <p>PrintOrganize funciona 100% en tu móvil u ordenador: <strong>no recopilamos, no almacenamos en servidores y no compartimos ningún dato personal</strong>. Sin cuentas, sin registro, sin analítica, sin publicidad, sin rastreadores.</p>
+      <a href="/printorganize/privacy.html" class="btn btn-marca">Ver Política de Privacidad →</a>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Preguntas frecuentes</div>
+      <h2>Lo que quieres saber</h2>
+    </div>
+    <div class="faq">
+      <details class="q"><summary>¿La app necesita internet?</summary><div class="a">No para organizar tus imágenes: todo funciona sin conexión. El permiso de internet lo añade la biblioteca de Google Play Billing únicamente para verificar la compra de la licencia. Tus imágenes nunca se envían por internet.</div></details>
+      <details class="q"><summary>¿Mis imágenes se suben a algún servidor?</summary><div class="a">Nunca. La app lee la carpeta que eliges y compone el documento enteramente en tu dispositivo. No hay servidores propios, ni bases de datos, ni analítica, ni publicidad.</div></details>
+      <details class="q"><summary>¿Qué significa «tamaño exacto en centímetros»?</summary><div class="a">Que al imprimir, cada imagen mide físicamente lo que pediste (por ejemplo 6 × 6 cm). Word «autoajusta» las tablas por defecto y deforma las imágenes; PrintOrganize fija la geometría a nivel de XML para que la medida salga exacta.</div></details>
+      <details class="q"><summary>¿Qué formatos de imagen admite?</summary><div class="a">PNG, JPEG, GIF, BMP y TIFF. En Android también WEBP y HEIC/HEIF, que se recodifican automáticamente a JPEG porque Word no sabe incrustarlos.</div></details>
+      <details class="q"><summary>¿También hay versión para Windows?</summary><div class="a">Sí. PrintOrganize es una única base de código Kotlin Multiplatform que compila para Android y Windows (instalador MSI). La versión de Windows no tiene límite diario ni guarda ningún contador.</div></details>
+      <details class="q"><summary>¿Cuándo estará en Google Play?</summary><div class="a">La app está en proceso de aprobación en Google Play. Mientras tanto, puedes conocer todas las funciones aquí y en el repositorio del desarrollador.</div></details>
+      <details class="q"><summary>¿Cuánto cuesta la app?</summary><div class="a">La descarga y el uso son <strong>gratuitos</strong>, con un límite de <strong>2 documentos por día</strong>. Si necesitas más, la <strong>licencia ilimitada de por vida cuesta $7.99 USD</strong> como pago único (sin suscripciones ni renovaciones) a través de Google Play Billing. Consulta todos los detalles en la sección de <a href="#precios">precios</a>.</div></details>
+      <details class="q"><summary>¿Qué pasa cuando llego al límite de 2 documentos?</summary><div class="a">El contador se reinicia cada día, así que al día siguiente vuelves a tener 2 documentos disponibles. Ese contador se guarda cifrado con Android Keystore en tu dispositivo y no contiene información personal. Si necesitas generar más sin esperar, la licencia ilimitada ($7.99 USD, pago único) elimina el límite para siempre.</div></details>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Imprime a medida,<br><span class="accent">recorta y listo.</span></h2>
+    <p>PrintOrganize estará disponible pronto en Google Play (y en Windows). Mientras, conoce el proyecto y al desarrollador.</p>
+    <div class="hero-cta" style="margin-bottom:0">
+      <a href="https://serviciosconiabyjhonsu.com" class="btn btn-primary">Sobre el desarrollador →</a>
+      <a href="https://ko-fi.com/V7V81LV7GX" class="btn btn-ghost" target="_blank" rel="noopener">Apóyame en Ko-fi ☕</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="links">
+      <a href="/printorganize/privacy.html">Política de Privacidad</a>
+      <a href="mailto:jaiverbot77@gmail.com">Soporte</a>
+      <a href="https://serviciosconiabyjhonsu.com">© Jhon Supelano</a>
+    </div>
+    © 2026 PrintOrganize · Desarrollado por jhonsu01 · <a href="mailto:jaiverbot77@gmail.com">jaiverbot77@gmail.com</a>
+  </div>
+</footer>
+
+</body>
+</html>

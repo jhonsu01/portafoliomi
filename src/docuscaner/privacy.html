@@ -23,7 +23,8 @@ code{background:var(--hundido);padding:.1em .4em;border-radius:3px;font-size:.9e
 
 /* Nav */
 .nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(16px);background:rgba(247,241,227,.85);border-bottom:1px solid var(--borde)}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:58px;padding:0 24px}
+h2[id],#contacto{scroll-margin-top:80px}
 .brand{display:flex;align-items:center;gap:9px;font-weight:600;font-size:14px;color:var(--tinta);font-family:var(--ui)}
 .brand .mark{width:28px;height:28px;border-radius:7px;background:var(--tinta);color:var(--crema);display:grid;place-items:center;font-family:var(--display);font-size:16px}
 .back{font-size:13px;color:var(--apagado);font-family:var(--ui)}
@@ -54,7 +55,8 @@ li strong{color:var(--tinta)}
 
 .toc{background:var(--papel);border:1px solid var(--borde);border-radius:var(--radio);padding:18px 22px;margin-bottom:36px;font-size:13.5px}
 .toc strong{font-family:var(--ui);font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--apoyo);display:block;margin-bottom:8px}
-.toc a{display:block;padding:3px 0}
+.toc a{display:block;padding:6px 10px;margin:1px -10px;border-radius:5px;color:var(--texto);text-decoration:none;transition:background .12s,color .12s}
+.toc a:hover{background:var(--hundido);color:var(--tinta)}
 
 footer{border-top:1px solid var(--borde);padding:24px;text-align:center;color:var(--apoyo);font-size:12.5px;font-family:var(--ui)}
 </style>
