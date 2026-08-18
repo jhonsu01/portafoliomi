@@ -152,6 +152,7 @@
           ${p.play
             ? `<a class="project-link" href="${esc(p.play)}" target="_blank" rel="noopener">Ver en Play Store →</a>`
             : `<a class="project-link" href="${esc(p.repo)}" target="_blank" rel="noopener">Ver en GitHub →</a>`}
+          ${p.msstore ? `<a class="project-link" href="${esc(p.msstore)}" target="_blank" rel="noopener">Microsoft Store →</a>` : ''}
           ${p.site ? `<a class="project-link alt" href="${esc(p.site)}">Ver más →</a>` : ''}
         </div>
       </div>`;
