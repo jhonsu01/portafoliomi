@@ -52,6 +52,22 @@ const SKILLS = [
 
 const PROJECTS = [
   {
+    name: "PrintOrganize",
+    play: "https://play.google.com/store/apps/details?id=com.jhonsu01.printorganize",
+    site: "https://serviciosconiabyjhonsu.com/printorganize/",
+    image: "img/printorganize.jpg",
+    category: "Productividad",
+    tagline: "Imágenes a tamaño exacto en cm, listas para imprimir y recortar",
+    description: "App publicada en Google Play (Android y Windows) que organiza las imágenes de una carpeta en una cuadrícula dentro de un documento Word, cada una a un tamaño físico exacto en centímetros. El .docx se genera en streaming en el propio dispositivo: sin nube, sin cuentas y sin permisos de almacenamiento.",
+    tech: ["Kotlin Multiplatform", "Compose MP", "Android", "Windows", "OOXML"],
+    features: [
+      "Tamaño físico exacto por imagen (p. ej. 6 × 6 cm)",
+      "Cuadrícula automática: A4, Carta, Oficio y A3",
+      "Documento Word generado en streaming",
+      "100% en el dispositivo: sin cuentas ni nube"
+    ]
+  },
+  {
     name: "OpenCallShield",
     repo: "https://github.com/jhonsu01/OpenCallShield",
     image: "https://raw.githubusercontent.com/jhonsu01/OpenCallShield/main/assets/banner.png",

@@ -148,7 +148,12 @@
         <div class="project-tag">${esc(p.tagline)}</div>
         <p class="project-desc">${esc(p.description)}</p>
         <div class="project-tech">${p.tech.map(t=>`<span class="chip">${esc(t)}</span>`).join('')}</div>
-        <a class="project-link" href="${esc(p.repo)}" target="_blank" rel="noopener">Ver en GitHub →</a>
+        <div class="project-links">
+          ${p.play
+            ? `<a class="project-link" href="${esc(p.play)}" target="_blank" rel="noopener">Ver en Play Store →</a>`
+            : `<a class="project-link" href="${esc(p.repo)}" target="_blank" rel="noopener">Ver en GitHub →</a>`}
+          ${p.site ? `<a class="project-link alt" href="${esc(p.site)}">Ver más →</a>` : ''}
+        </div>
       </div>`;
     pg.appendChild(c);
   });
