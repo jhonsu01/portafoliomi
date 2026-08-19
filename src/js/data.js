@@ -69,6 +69,22 @@ const PROJECTS = [
     ]
   },
   {
+    name: "Docu Scaner 150%",
+    play: "https://play.google.com/store/apps/details?id=com.jhonsu01.docuscaner",
+    site: "https://serviciosconiabyjhonsu.com/docuscaner/",
+    image: "img/docuscaner.jpg",
+    category: "Productividad",
+    tagline: "Escanea, amplía al 150% e imprime documentos de identidad",
+    description: "App Android publicada en Google Play que escanea documentos de identidad con IA en el dispositivo (ML Kit), los amplía al 150% sobre hoja Carta a 300 DPI e imprime directo desde el móvil. Offline-first: bóveda cifrada con AES-256, bloqueo biométrico y sin servidores.",
+    tech: ["Kotlin", "Jetpack Compose", "ML Kit", "AES-256", "BiometricPrompt"],
+    features: [
+      "Escaneo con IA: recorte y enderezado automático",
+      "Ampliación 150% sobre hoja Carta a 300 DPI",
+      "Bóveda cifrada AES-256 y bloqueo biométrico",
+      "100% offline: ningún dato sale del dispositivo"
+    ]
+  },
+  {
     name: "OpenCallShield",
     repo: "https://github.com/jhonsu01/OpenCallShield",
     image: "https://raw.githubusercontent.com/jhonsu01/OpenCallShield/main/assets/banner.png",
