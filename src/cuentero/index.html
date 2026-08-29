@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="papel">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cuentero Infinito — Cuentos de IA que nacen en tu teléfono</title>
+<meta name="description" content="Cuentero Infinito inventa cuentos con una IA que corre dentro de tu Android y te los lee en voz alta. Sin internet, sin cuentas, sin repetirse. Modo peque con filtro infantil. En revisión en Google Play.">
+<meta name="theme-color" content="#f7f1e3">
+<meta property="og:title" content="Cuentero Infinito — Cuentos de IA en tu teléfono">
+<meta property="og:description" content="Pide un cuento, se lo inventa y te lo lee. Todo dentro del teléfono, sin conexión y sin repetirse.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23241f1b'/><text x='50' y='68' font-family='Georgia' font-size='44' fill='%238c5a31' text-anchor='middle'>C</text></svg>">
+<style>
+:root{
+  --papel:#fffdf7; --crema:#f7f1e3; --hundido:#f2ead9; --borde:#e5dbc8; --borde-s:#d4c7ac;
+  --tinta:#241f1b; --fuerte:#4a4139; --texto:#5d524b; --apagado:#71675d; --apoyo:#8e8070;
+  --bronce:#8c5a31; --bronce-hover:#73492a; --bronce-suave:#f6e9dc; --melocoton:#fbd3be;
+  --bien:#3f6b47; --display:"Instrument Serif","Red Hat Mono",Georgia,serif;
+  --ui:"Red Hat Mono",ui-monospace,monospace; --prosa:ui-sans-serif,system-ui,sans-serif;
+  --radio:6px; --radio-b:999px; --shadow:0 4px 16px -4px rgba(93,82,75,.14);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--crema);color:var(--texto);font-family:var(--ui);font-size:15px;line-height:1.65;
+  letter-spacing:-.018em;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:980px;margin:0 auto;padding:0 24px}
+
+/* Nav */
+.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(16px);background:rgba(247,241,227,.82);border-bottom:1px solid var(--borde)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:15px;color:var(--tinta)}
+.brand .mark{width:30px;height:30px;border-radius:7px;background:var(--tinta);color:var(--crema);display:grid;place-items:center;font-family:var(--display);font-size:17px}
+.nav-links{display:flex;gap:22px;font-size:13px;color:var(--apagado)}
+.nav-links a:hover{color:var(--tinta)}
+.badge-play{display:inline-flex;align-items:center;gap:7px;padding:7px 14px;border-radius:var(--radio-b);background:var(--bronce);color:var(--papel);font-size:12.5px;font-weight:500}
+@media(max-width:680px){.nav-links{display:none}}
+
+/* Hero */
+.hero{padding:84px 0 64px;text-align:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:var(--radio);background:var(--papel);
+  border:1px solid var(--borde);font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--apagado);margin-bottom:26px}
+.eyebrow .pulse{width:6px;height:6px;border-radius:50%;background:var(--bien);box-shadow:0 0 8px var(--bien);animation:p 2s infinite}
+@keyframes p{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(2.6rem,7vw,4.4rem);color:var(--tinta);
+  letter-spacing:-.035em;line-height:1.04;margin-bottom:18px;text-wrap:balance}
+.hero h1 .accent{color:var(--bronce)}
+.hero .lead{max-width:58ch;margin:0 auto 32px;font-family:var(--prosa);font-size:clamp(1.05rem,2vw,1.2rem);color:var(--apagado);line-height:1.6}
+.hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:var(--radio-b);font-family:var(--ui);
+  font-weight:500;font-size:13px;border:1px solid transparent;cursor:pointer;transition:.2s}
+.btn-primary{background:var(--tinta);color:var(--crema)}
+.btn-primary:hover{background:var(--fuerte);transform:translateY(-1px)}
+.btn-marca{background:var(--bronce);color:var(--papel)}
+.btn-marca:hover{background:var(--bronce-hover);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--fuerte);border-color:var(--borde-s)}
+.btn-ghost:hover{background:var(--papel)}
+
+/* Phone mock: story book */
+.phone-frame{max-width:280px;margin:0 auto 30px;aspect-ratio:9/18;border-radius:34px;background:var(--tinta);
+  padding:10px;box-shadow:0 30px 60px -20px rgba(36,31,27,.4),0 0 0 1px var(--borde-s)}
+.phone-screen{width:100%;height:100%;border-radius:26px;background:var(--hundido);display:flex;flex-direction:column;
+  align-items:center;justify-content:center;padding:24px;text-align:center;position:relative;overflow:hidden}
+.phone-screen::after{content:"";position:absolute;top:8px;left:50%;transform:translateX(-50%);width:70px;height:5px;border-radius:99px;background:var(--borde)}
+.phone-book{width:120px;height:156px;background:var(--papel);border-radius:8px;border:1px solid var(--borde);box-shadow:var(--shadow);
+  padding:16px 14px;display:flex;flex-direction:column;gap:9px;margin:8px 0}
+.book-title{font-family:var(--display);font-size:13px;color:var(--bronce);line-height:1.15;margin-bottom:2px}
+.book-line{height:4px;border-radius:2px;background:var(--borde)}
+.book-line.short{width:70%}
+.book-line.accent{background:var(--melocoton);width:85%}
+.book-line.active{background:var(--bronce);animation:p 1.6s infinite}
+.phone-label{font-size:10px;color:var(--apoyo);margin-top:18px;text-transform:uppercase;letter-spacing:.1em}
+
+/* Section */
+section{padding:64px 0}
+.section-head{margin-bottom:40px}
+.section-head .kicker{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--bronce);font-weight:500;margin-bottom:8px}
+.section-head h2{font-family:var(--display);font-size:clamp(1.8rem,4vw,2.5rem);font-weight:400;color:var(--tinta);letter-spacing:-.03em}
+.section-head p{color:var(--apagado);margin-top:8px;font-family:var(--prosa);max-width:54ch}
+
+/* Features */
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.feature{background:var(--papel);border:1px solid var(--borde);border-radius:var(--radio);padding:22px;transition:.2s}
+.feature:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--borde-s)}
+.feature .ico{font-size:24px;margin-bottom:12px;display:block}
+.feature h3{font-family:var(--prosa);font-size:15px;font-weight:600;color:var(--tinta);margin-bottom:6px}
+.feature p{font-size:13.5px;color:var(--apagado);font-family:var(--prosa)}
+
+/* Steps */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.step .num{font-family:var(--display);font-size:2.6rem;color:var(--bronce);line-height:1;opacity:.5}
+.step h3{font-family:var(--prosa);font-size:15px;font-weight:600;color:var(--tinta);margin:4px 0 6px}
+.step p{font-size:13.5px;color:var(--apagado);font-family:var(--prosa)}
+
+/* Kids mode highlight */
+.kids-banner{background:var(--papel);border:1px solid var(--borde);border-radius:12px;padding:30px;display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:start}
+.kids-banner .ico{font-size:34px}
+.kids-banner h3{font-family:var(--display);font-size:1.5rem;color:var(--tinta);margin-bottom:8px;font-weight:400}
+.kids-banner p{color:var(--apagado);font-family:var(--prosa);font-size:14px;margin-bottom:8px}
+.kids-banner ul{padding-left:1.2rem;font-family:var(--prosa);font-size:14px;color:var(--texto)}
+.kids-banner li{margin-bottom:5px}
+@media(max-width:680px){.kids-banner{grid-template-columns:1fr}}
+
+/* Privacy banner */
+.privacy-banner{background:var(--papel);border:1px solid var(--borde);border-radius:12px;padding:28px;text-align:center}
+.privacy-banner .ico{font-size:28px;margin-bottom:10px}
+.privacy-banner h3{font-family:var(--display);font-size:1.5rem;color:var(--tinta);margin-bottom:8px}
+.privacy-banner p{color:var(--apagado);font-family:var(--prosa);max-width:56ch;margin:0 auto 16px}
+.legal-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:6px}
+
+/* Pricing */
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;max-width:760px;margin:0 auto}
+.price-card{background:var(--papel);border:1px solid var(--borde);border-radius:12px;padding:28px 24px;position:relative;transition:.2s;display:flex;flex-direction:column}
+.price-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.price-card.featured{border-color:var(--bronce);border-width:1.5px;background:linear-gradient(180deg,var(--bronce-suave),var(--papel))}
+.price-tag{position:absolute;top:-11px;right:20px;background:var(--bronce);color:var(--papel);font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:4px 12px;border-radius:99px}
+.price-name{font-family:var(--display);font-size:1.5rem;color:var(--tinta);margin-bottom:6px;font-weight:400}
+.price-amt{font-family:var(--display);font-size:2.6rem;color:var(--bronce);line-height:1;margin-bottom:4px}
+.price-amt small{font-size:1rem;color:var(--apoyo);font-family:var(--ui)}
+.price-amt.free{color:var(--bien)}
+.price-sub{font-size:12px;color:var(--apoyo);font-family:var(--ui);margin-bottom:18px}
+.price-feats{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:22px;flex:1}
+.price-feats li{font-size:13.5px;color:var(--texto);font-family:var(--prosa);padding-left:24px;position:relative}
+.price-feats li::before{content:"✓";position:absolute;left:0;color:var(--bronce);font-weight:700}
+.price-feats li.no::before{content:"—";color:var(--apoyo);font-weight:400}
+.btn-block{display:flex;justify-content:center}
+
+/* FAQ */
+.faq{display:flex;flex-direction:column;gap:10px;max-width:720px;margin:0 auto}
+.q{background:var(--papel);border:1px solid var(--borde);border-radius:var(--radio);overflow:hidden}
+.q summary{padding:15px 18px;cursor:pointer;font-size:14px;font-weight:500;color:var(--tinta);list-style:none;display:flex;justify-content:space-between;align-items:center}
+.q summary::-webkit-details-marker{display:none}
+.q summary::after{content:"+";color:var(--bronce);font-size:18px;font-weight:600}
+.q[open] summary::after{content:"–"}
+.q .a{padding:0 18px 16px;font-size:13.5px;color:var(--apagado);font-family:var(--prosa)}
+.q .a a{color:var(--bronce);text-decoration:underline}
+
+/* CTA */
+.cta{text-align:center;padding:80px 0}
+.cta h2{font-family:var(--display);font-size:clamp(2rem,5vw,2.8rem);font-weight:400;color:var(--tinta);margin-bottom:14px}
+.cta .accent{color:var(--bronce)}
+.cta p{color:var(--apagado);max-width:48ch;margin:0 auto 28px;font-family:var(--prosa)}
+
+/* Footer */
+footer{border-top:1px solid var(--borde);padding:28px 0;text-align:center;color:var(--apoyo);font-size:12.5px}
+footer a{color:var(--apagado)}
+footer .links{display:flex;gap:18px;justify-content:center;margin-bottom:10px;flex-wrap:wrap}
+
+@media(max-width:680px){.hero{padding:60px 0 48px}.hero h1{font-size:2.6rem}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="/cuentero/" class="brand"><span class="mark">C</span> Cuentero Infinito</a>
+    <div class="nav-links">
+      <a href="#funciones">Funciones</a>
+      <a href="#peque">Modo peque</a>
+      <a href="#precios">Precios</a>
+      <a href="#privacidad">Privacidad</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <span class="badge-play">📱 En revisión en Google Play</span>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="pulse"></span> App Android · IA 100% en tu teléfono</span>
+    <h1>Pide un cuento.<br><span class="accent">Se lo inventa y te lo lee.</span></h1>
+    <p class="lead">Una IA que vive dentro de tu Android inventa cuentos desde cero —en español o inglés—, te los lee en voz alta y los guarda para volver a escucharlos. Sin internet, sin cuentas y sin repetirse nunca.</p>
+    <div class="hero-cta">
+      <a href="#funciones" class="btn btn-primary">Ver funciones →</a>
+      <a href="#privacidad" class="btn btn-ghost">Privacidad</a>
+    </div>
+    <div class="phone-frame">
+      <div class="phone-screen">
+        <div class="phone-book">
+          <div class="book-title">El zorro que contaba estrellas</div>
+          <div class="book-line"></div>
+          <div class="book-line accent"></div>
+          <div class="book-line short"></div>
+          <div class="book-line active"></div>
+          <div class="book-line short"></div>
+        </div>
+        <div class="phone-label">Leyendo en voz alta · Modo peque</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="funciones">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Funciones</div>
+      <h2>Un cuentero completo en tu bolsillo</h2>
+      <p>El modelo de lenguaje corre en el propio teléfono. Tras la descarga inicial del modelo, todo funciona sin conexión.</p>
+    </div>
+    <div class="features">
+      <div class="feature"><span class="ico">✨</span><h3>Nunca se repite</h3><p>280 arranques distintos por combinación de idioma, público y duración, más la variación natural del modelo. Ningún cuento es igual a otro.</p></div>
+      <div class="feature"><span class="ico">🗣️</span><h3>Te lo lee en voz alta</h3><p>Usa las voces de tu teléfono en el idioma elegido, con tres ritmos de lectura. Resalta el párrafo que suena y la pantalla no se apaga mientras lee.</p></div>
+      <div class="feature"><span class="ico">🧑‍🤝‍🧑</span><h3>Público y duración</h3><p>Infantil (4–9), juvenil (10–15) o adulto —cambia cómo escribe— y duración corta, normal o larga.</p></div>
+      <div class="feature"><span class="ico">🌙</span><h3>Modo continuo</h3><p>Al terminar un cuento empieza el siguiente, encadenado. Pensado para dormir sin tocar nada (versión ilimitada).</p></div>
+      <div class="feature"><span class="ico">🔤</span><h3>Letra manuscrita o de palo</h3><p>La fuente manuscrita viaja dentro de la app, así que se ve igual en todos los teléfonos. Ideal para lectores que empiezan.</p></div>
+      <div class="feature"><span class="ico">📚</span><h3>Mis cuentos</h3><p>Historial con favoritos para volver a escuchar cualquier cuento. También accesible desde el modo peque, solo con los infantiles.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="peque">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Para los peques</div>
+      <h2>Modo peque: un cuentero seguro para niños</h2>
+    </div>
+    <div class="kids-banner">
+      <span class="ico">🧸</span>
+      <div>
+        <p>No es solo una letra más grande. Es un libro a pantalla completa con páginas que pasan solas — y cuando está activo pasan tres cosas:</p>
+        <ul>
+          <li><strong>Se fuerza el público infantil</strong>, se ignore lo que se ignore en la pantalla principal.</li>
+          <li><strong>Todo cuento pasa por un filtro de contenido</strong> antes de mostrarse. El que no pasa ni se enseña ni se guarda: se descarta y se genera otro.</li>
+          <li><strong>«Mis cuentos» solo lista los infantiles.</strong> Un cuento generado para adultos no aparece en el estante de un niño.</li>
+          <li>Se sale con <strong>PIN</strong>, guardado como resumen criptográfico, nunca en claro.</li>
+        </ul>
+        <p style="margin-top:10px;font-size:13px">Las salvaguardas reducen el riesgo, pero ninguna lista de palabras lo garantiza al 100%: nada sustituye a un adulto cerca.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="precios">
+  <div class="wrap">
+    <div class="section-head" style="text-align:center">
+      <div class="kicker">Precios simples</div>
+      <h2>Empieza gratis, desbloquea cuando quieras</h2>
+      <p style="margin-left:auto;margin-right:auto">Sin suscripciones y sin renovaciones. Un único pago y es tuyo para siempre.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-name">Gratis</div>
+        <div class="price-amt free">$0<small> / siempre</small></div>
+        <div class="price-sub">Para probarlo cada día</div>
+        <ul class="price-feats">
+          <li>2 cuentos al día</li>
+          <li>Español o inglés</li>
+          <li>Lectura en voz alta y voces</li>
+          <li>Modo peque con filtro infantil</li>
+          <li>Historial y favoritos</li>
+          <li class="no">Modo continuo</li>
+        </ul>
+        <div class="btn-block"><span class="btn btn-ghost" style="opacity:.7;cursor:default">Incluido al instalar</span></div>
+      </div>
+      <div class="price-card featured">
+        <span class="price-tag">Recomendado</span>
+        <div class="price-name">Ilimitado</div>
+        <div class="price-amt">$7.99<small> USD · pago único</small></div>
+        <div class="price-sub">Licencia de por vida</div>
+        <ul class="price-feats">
+          <li><strong>Cuentos ilimitados</strong> cada día</li>
+          <li>Todas las funciones de la versión gratis</li>
+          <li><strong>Modo continuo</strong> para dormir escuchando</li>
+          <li>Sin suscripciones ni renovaciones</li>
+          <li>Se restaura solo al cambiar de teléfono</li>
+        </ul>
+        <div class="btn-block"><span class="btn btn-marca">Próximamente en Google Play</span></div>
+      </div>
+    </div>
+    <p style="text-align:center;color:var(--apoyo);font-size:12.5px;margin-top:22px;font-family:var(--ui)">La compra se gestiona con Google Play Billing · Pago único · Sin caducidad</p>
+  </div>
+</section>
+
+<section id="privacidad">
+  <div class="wrap">
+    <div class="privacy-banner">
+      <div class="ico">🛡️</div>
+      <h3>Los cuentos no salen de tu teléfono</h3>
+      <p>Cuentero Infinito no recoge, no transmite y no almacena ningún dato personal: <strong>sin cuentas, sin servidores, sin analítica y sin publicidad</strong>. La IA corre en tu dispositivo y los cuentos quedan en él. La conexión solo se usa una vez, para descargar el modelo.</p>
+      <div class="legal-links">
+        <a href="/cuentero/privacy.html" class="btn btn-marca">Política de Privacidad →</a>
+        <a href="/cuentero/terms.html" class="btn btn-ghost">Términos de Servicio</a>
+      </div>
+      <div class="legal-links" style="margin-top:10px">
+        <a href="/cuentero/privacy-en.html" style="font-size:12px;color:var(--apoyo)">Privacy Policy (English)</a>
+        <span style="color:var(--borde-s)">·</span>
+        <a href="/cuentero/terms-en.html" style="font-size:12px;color:var(--apoyo)">Terms of Service (English)</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Preguntas frecuentes</div>
+      <h2>Lo que quieres saber</h2>
+    </div>
+    <div class="faq">
+      <details class="q"><summary>¿De verdad funciona sin internet?</summary><div class="a">Sí. La única vez que necesita conexión es al abrirla por primera vez, para descargar el modelo de IA (unos 731 MB, mejor con WiFi; la descarga se reanuda sola si se corta). A partir de ahí funciona en modo avión: puedes comprobarlo.</div></details>
+      <details class="q"><summary>¿Qué teléfono necesito?</summary><div class="a">Android 13 o superior (API 33) y unos 2 GB de RAM libres. Está probada en un teléfono de gama media, donde va con soltura.</div></details>
+      <details class="q"><summary>¿En qué idiomas está?</summary><div class="a">Español e inglés. El idioma se elige al abrir y cambia la interfaz, el idioma en que se escriben los cuentos y qué voces se ofrecen.</div></details>
+      <details class="q"><summary>¿Los cuentos se pueden repetir?</summary><div class="a">Cada combinación de idioma, público y duración tiene 280 arranques distintos, además de la variación propia del modelo. En la práctica, ningún cuento se repite.</div></details>
+      <details class="q"><summary>¿Es seguro para niños?</summary><div class="a">La app la descarga y configura un adulto. El <a href="#peque">modo peque</a> fuerza público infantil, filtra el contenido generado antes de mostrarlo y se sale solo con el PIN del adulto. Aun así, ninguna tecnología sustituye la supervisión de un adulto.</div></details>
+      <details class="q"><summary>¿Qué pasa con mis datos?</summary><div class="a">No hay datos: la app no tiene cuentas, ni servidores, ni analítica, ni publicidad. Los cuentos y preferencias viven solo en tu teléfono y se borran por completo al desinstalar. Detalles en la <a href="/cuentero/privacy.html">Política de Privacidad</a>.</div></details>
+      <details class="q"><summary>¿Cuánto cuesta?</summary><div class="a">La descarga es <strong>gratuita</strong>, con <strong>2 cuentos por día</strong>. La <strong>versión ilimitada cuesta $7.99 USD como pago único</strong> (sin suscripción ni renovaciones) y añade el modo continuo. Detalles en la sección de <a href="#precios">precios</a>.</div></details>
+      <details class="q"><summary>¿Cuándo estará en Google Play?</summary><div class="a">Está en fase de revisión y pruebas en Google Play. Mientras tanto, aquí puedes conocer todas las funciones.</div></details>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Un cuentero infinito,<br><span class="accent">en tu bolsillo.</span></h2>
+    <p>Cuentero Infinito llegará pronto a Google Play. Sin internet, sin cuentas, sin repeticiones.</p>
+    <div class="hero-cta" style="margin-bottom:0">
+      <a href="https://serviciosconiabyjhonsu.com" class="btn btn-primary">Sobre el desarrollador →</a>
+      <a href="https://ko-fi.com/V7V81LV7GX" class="btn btn-ghost" target="_blank" rel="noopener">Apóyame en Ko-fi ☕</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="links">
+      <a href="/cuentero/privacy.html">Política de Privacidad</a>
+      <a href="/cuentero/terms.html">Términos de Servicio</a>
+      <a href="/cuentero/privacy-en.html">Privacy (EN)</a>
+      <a href="/cuentero/terms-en.html">Terms (EN)</a>
+      <a href="mailto:jaiverbot77@gmail.com">Soporte</a>
+      <a href="https://serviciosconiabyjhonsu.com">© Jhon Supelano</a>
+    </div>
+    © 2026 Cuentero Infinito · Desarrollado por jhonsu01 · <a href="mailto:jaiverbot77@gmail.com">jaiverbot77@gmail.com</a>
+  </div>
+</footer>
+
+</body>
+</html>

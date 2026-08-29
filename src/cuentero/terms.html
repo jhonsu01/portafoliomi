@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="papel">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Términos de Servicio — Cuentero Infinito</title>
+<meta name="description" content="Términos de Servicio de Cuentero Infinito: titularidad de los cuentos generados, edad mínima, modo peque y licencias.">
+<meta name="theme-color" content="#f7f1e3">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23241f1b'/><text x='50' y='68' font-family='Georgia' font-size='44' fill='%238c5a31' text-anchor='middle'>C</text></svg>">
+<style>
+:root{
+  --papel:#fffdf7; --crema:#f7f1e3; --hundido:#f2ead9; --borde:#e5dbc8; --borde-s:#d4c7ac;
+  --tinta:#241f1b; --fuerte:#4a4139; --texto:#5d524b; --apagado:#71675d; --apoyo:#8e8070;
+  --bronce:#8c5a31; --bronce-suave:#f6e9dc;
+  --display:"Instrument Serif",Georgia,serif; --ui:"Red Hat Mono",ui-monospace,monospace; --prosa:ui-sans-serif,system-ui,sans-serif;
+  --radio:6px; --shadow:0 4px 16px -4px rgba(93,82,75,.14);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--crema);color:var(--texto);font-family:var(--prosa);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--bronce)}
+code{background:var(--hundido);padding:.1em .4em;border-radius:3px;font-size:.9em;font-family:var(--ui);color:var(--fuerte)}
+.wrap{max-width:760px;margin:0 auto;padding:0 24px 80px}
+.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(16px);background:rgba(247,241,227,.85);border-bottom:1px solid var(--borde)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:58px;padding:0 24px}
+h2[id],#contacto{scroll-margin-top:80px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:600;font-size:14px;color:var(--tinta);font-family:var(--ui)}
+.brand .mark{width:28px;height:28px;border-radius:7px;background:var(--tinta);color:var(--crema);display:grid;place-items:center;font-family:var(--display);font-size:16px}
+.back{font-size:13px;color:var(--apagado);font-family:var(--ui)}
+.back:hover{color:var(--tinta)}
+.legal-head{padding:48px 0 28px;border-bottom:1px solid var(--borde);margin-bottom:32px}
+.legal-head .kicker{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--bronce);font-weight:500;font-family:var(--ui);margin-bottom:8px}
+.legal-head h1{font-family:var(--display);font-size:clamp(2rem,5vw,2.8rem);font-weight:400;color:var(--tinta);letter-spacing:-.03em;line-height:1.1;margin-bottom:14px}
+.meta{color:var(--apoyo);font-size:13.5px;font-family:var(--ui);line-height:1.6}
+.meta strong{color:var(--fuerte);font-weight:600}
+h2{font-family:var(--display);font-size:1.45rem;font-weight:400;color:var(--tinta);letter-spacing:-.02em;margin:36px 0 12px}
+h2:first-of-type{margin-top:0}
+h3{font-family:var(--prosa);font-size:1.05rem;color:var(--tinta);margin:20px 0 8px}
+p{margin-bottom:14px;color:var(--texto)}
+ul,ol{padding-left:1.3rem;margin-bottom:14px}
+li{margin-bottom:8px;color:var(--texto)}
+li strong{color:var(--tinta)}
+.highlight{background:var(--bronce-suave);border-left:3px solid var(--bronce);padding:16px 20px;border-radius:0 var(--radio) var(--radio) 0;margin:20px 0;font-size:15px}
+.highlight strong{color:var(--tinta)}
+table{width:100%;border-collapse:collapse;margin:14px 0 18px;font-size:14px;background:var(--papel);border:1px solid var(--borde);border-radius:var(--radio);overflow:hidden}
+th{background:var(--hundido);text-align:left;padding:10px 14px;font-family:var(--ui);font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--apagado)}
+td{padding:10px 14px;border-top:1px solid var(--borde);color:var(--texto)}
+.contact-box{background:var(--papel);border:1px solid var(--borde);border-radius:var(--radio);padding:24px;text-align:center;margin-top:32px}
+.contact-box h3{font-family:var(--display);font-size:1.3rem;color:var(--tinta);margin-bottom:8px;font-weight:400}
+.contact-box a.email{display:inline-block;margin-top:10px;font-family:var(--ui);font-size:15px;font-weight:600;color:var(--bronce);padding:8px 18px;border-radius:99px;border:1px solid var(--borde-s);background:var(--papel);text-decoration:none}
+.contact-box a.email:hover{background:var(--bronce-suave)}
+.toc{background:var(--papel);border:1px solid var(--borde);border-radius:var(--radio);padding:18px 22px;margin-bottom:36px;font-size:13.5px}
+.toc strong{font-family:var(--ui);font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--apoyo);display:block;margin-bottom:8px}
+.toc a{display:block;padding:6px 10px;margin:1px -10px;border-radius:5px;color:var(--texto);text-decoration:none;transition:background .12s,color .12s}
+.toc a:hover{background:var(--hundido);color:var(--tinta)}
+footer{border-top:1px solid var(--borde);padding:24px;text-align:center;color:var(--apoyo);font-size:12.5px;font-family:var(--ui)}
+.lang-note{text-align:center;font-size:13px;color:var(--apoyo);margin-top:18px;font-family:var(--ui)}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="/cuentero/" class="brand"><span class="mark">C</span> Cuentero Infinito</a>
+    <a href="/cuentero/" class="back">← Volver al inicio</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<header class="legal-head">
+  <div class="kicker">Legal</div>
+  <h1>Términos de Servicio</h1>
+  <p class="meta">
+    Aplicación: <strong>Cuentero Infinito</strong> · Plataforma: <strong>Android</strong><br>
+    Identificador de paquete: <code>com.jhonsu01.cuenteroinfinito</code><br>
+    Titular: <strong>JHON SUPELANO ROJAS</strong> · Registrado ante la Cámara de Comercio de Yopal, Colombia<br>
+    Contacto: <strong>jaiverbot77@gmail.com</strong><br>
+    En vigor desde: <strong>29 de agosto de 2026</strong> · Última revisión: <strong>29 de agosto de 2026</strong>
+  </p>
+</header>
+
+<nav class="toc">
+  <strong>Contenido</strong>
+  <a href="#que-es">1. Qué es Cuentero Infinito</a>
+  <a href="#edad">2. Edad mínima y responsabilidad del adulto</a>
+  <a href="#peque">3. Modo peque: qué garantiza y qué no</a>
+  <a href="#contenido">4. El contenido que generas: titularidad y responsabilidad</a>
+  <a href="#licencia">5. Licencia de uso de la aplicación</a>
+  <a href="#pagos">6. Pagos y funciones de pago</a>
+  <a href="#terceros">7. Componentes de terceros y sus licencias</a>
+  <a href="#modelo">8. Licencia del modelo y umbral de 10.000.000 USD</a>
+  <a href="#garantias">9. Ausencia de garantías</a>
+  <a href="#responsabilidad">10. Limitación de responsabilidad</a>
+  <a href="#modificacion">11. Modificación de los Términos</a>
+  <a href="#legislacion">12. Legislación aplicable</a>
+  <a href="#contacto">13. Contacto</a>
+</nav>
+
+<p>Al descargar, instalar o utilizar Cuentero Infinito aceptas estos Términos. Si no estás de acuerdo con ellos, no uses la aplicación.</p>
+
+<h2 id="que-es">1. Qué es Cuentero Infinito</h2>
+<p>Cuentero Infinito es una <strong>herramienta de generación de texto</strong>. Un modelo de lenguaje que se ejecuta <strong>íntegramente dentro de tu teléfono</strong> inventa cuentos a partir del tema que le indiques y los lee en voz alta con el sintetizador de voz del sistema.</p>
+<p>No es un servicio en línea. No hay servidores nuestros implicados en la generación. Una vez descargado el modelo, la aplicación funciona sin conexión.</p>
+
+<h2 id="edad">2. Edad mínima y responsabilidad del adulto</h2>
+<p><strong>La descarga, la instalación y la configuración de esta aplicación están reservadas a personas mayores de edad</strong> conforme a la legislación de su país de residencia (18 años, o la mayoría de edad aplicable).</p>
+<p>La aplicación incluye un <strong>modo peque</strong> pensado para que un adulto se lo ponga a un menor. Al activarlo, el adulto asume expresamente que:</p>
+<ul>
+  <li>Es <strong>el único responsable</strong> de decidir si un menor concreto puede usar el dispositivo y en qué condiciones.</li>
+  <li>Debe <strong>supervisar</strong> ese uso. Las salvaguardas del apartado 3 reducen el riesgo, pero no lo eliminan ni sustituyen la supervisión de un adulto.</li>
+  <li>Es responsable de custodiar el PIN del modo peque.</li>
+</ul>
+
+<h2 id="peque">3. Modo peque: qué garantiza y qué no</h2>
+<p>Mientras el modo peque está activo, la aplicación:</p>
+<ol>
+  <li><strong>Genera exclusivamente cuentos para público infantil.</strong> La selección de público de la pantalla principal queda ignorada; se fuerza el perfil infantil con independencia de lo que hubiera elegido el adulto.</li>
+  <li><strong>Filtra el texto generado.</strong> Todo cuento se comprueba antes de mostrarse contra una lista de términos inapropiados para esas edades. Un cuento que no pase el filtro <strong>no se muestra y no se guarda</strong>: se descarta y se genera otro.</li>
+  <li><strong>Solo ofrece cuentos infantiles en «Mis cuentos».</strong> Los cuentos generados para público juvenil o adulto, y los generados por versiones anteriores de la aplicación cuyo público no consta, <strong>no aparecen</strong> en el modo peque.</li>
+  <li><strong>Exige un PIN para salir</strong>, elegido por el adulto y almacenado como resumen criptográfico, nunca en claro.</li>
+</ol>
+<div class="highlight">
+  <strong>Lo que NO se garantiza.</strong> El texto lo produce un modelo estadístico de lenguaje, no una persona. Ninguna instrucción y ningún filtro pueden garantizar al cien por cien que un modelo generativo no produzca nunca un contenido inesperado, inexacto o inadecuado. Las medidas anteriores son razonables y están activas, pero <strong>no sustituyen la supervisión de un adulto</strong>. Si encuentras un resultado inadecuado, comunícalo a <strong>jaiverbot77@gmail.com</strong>.
+</div>
+
+<h2 id="contenido">4. El contenido que generas: titularidad y responsabilidad</h2>
+<p><strong>Nosotros no reclamamos ningún derecho sobre los cuentos que generes.</strong> No los vemos, no los recibimos y no los almacenamos: se quedan en tu teléfono.</p>
+
+<h3>4.1 Eres el único responsable</h3>
+<p>Cuentero Infinito es una herramienta de generación. <strong>Eres el único responsable de la titularidad, el uso, la publicación, la distribución y la explotación comercial del texto que generes localmente con ella</strong>, así como de que ese uso cumpla la ley aplicable y los derechos de terceros.</p>
+<p>Esto incluye, sin limitación, la responsabilidad de comprobar antes de publicar o comercializar un texto generado que no infringe derechos de propiedad intelectual, derechos de imagen, honor o intimidad de terceros, ni normas sobre publicidad, contenidos o protección de menores.</p>
+
+<h3>4.2 Derechos de autor sobre obras generadas por IA</h3>
+<p>Un texto producido <strong>exclusivamente</strong> por un modelo de inteligencia artificial, <strong>sin aportación creativa humana sustancial</strong>, generalmente <strong>no reúne los requisitos de protección por derecho de autor</strong>, por faltarle el requisito de autoría humana. En la práctica se comporta como material de dominio público: cualquiera podría reutilizarlo.</p>
+<p>Conviene que conozcas el matiz, porque <strong>no es idéntico en todas partes</strong>:</p>
+<table>
+  <tr><th>Jurisdicción</th><th>Situación</th></tr>
+  <tr><td><strong>Estados Unidos</strong></td><td>La Oficina de Derechos de Autor exige autoría humana. El material generado solo por IA no es registrable ni protegible</td></tr>
+  <tr><td><strong>Unión Europea</strong></td><td>Se exige que la obra sea «creación intelectual propia» de su autor; sin aportación humana creativa, no hay protección</td></tr>
+  <tr><td><strong>Reino Unido</strong></td><td><strong>Excepción notable:</strong> la CDPA 1988, s. 9(3), atribuye la autoría de las obras generadas por ordenador a quien realizó los arreglos necesarios, con 50 años de protección</td></tr>
+  <tr><td><strong>Colombia y otros países</strong></td><td>Varía. Consulta la normativa de tu jurisdicción</td></tr>
+</table>
+<p><strong>Qué implica esto para ti.</strong> Si editas, seleccionas, reordenas o reescribes el texto de forma sustancial, esa aportación tuya <strong>sí</strong> puede estar protegida, y la protección alcanzará a tu aportación, no al material generado en bruto. Si piensas comercializar los textos, documenta tu intervención.</p>
+<p>Ni este apartado ni ningún otro de estos Términos constituyen asesoramiento jurídico.</p>
+
+<h2 id="licencia">5. Licencia de uso de la aplicación</h2>
+<p>Se te concede una licencia personal, intransferible, no exclusiva y revocable para instalar y usar la aplicación en dispositivos de tu propiedad o bajo tu control, con fines lícitos.</p>
+<p>No está permitido: descompilar o aplicar ingeniería inversa a la aplicación salvo en la medida imperativamente permitida por la ley; eliminar los avisos de titularidad o de licencia; ni redistribuir la aplicación como si fuera propia.</p>
+
+<h2 id="pagos">6. Pagos y funciones de pago</h2>
+<ul>
+  <li><strong>Toda la transacción se realiza a través de la facturación de Google Play.</strong> No tratamos ni almacenamos datos de pago de ningún tipo.</li>
+  <li>Los <strong>reembolsos</strong> se rigen por la política de Google Play y se solicitan a través de Google, no a nosotros.</li>
+  <li>Una compra vitalicia queda vinculada a la cuenta de Google Play con la que se realizó, según las reglas de restauración de compras de la propia plataforma.</li>
+  <li>Si el importe pagado se ve afectado por un cambio en las condiciones, se respetará lo ya adquirido.</li>
+</ul>
+
+<h2 id="terceros">7. Componentes de terceros y sus licencias</h2>
+<p>La aplicación incorpora obra de terceros. Sus licencias se respetan y prevalecen sobre estos Términos en lo que a esos componentes se refiere:</p>
+<table>
+  <tr><th>Componente</th><th>Licencia</th><th>Nota</th></tr>
+  <tr><td>Modelo <strong>LFM2-1.2B</strong> (Liquid AI)</td><td>LFM Open License v1.0</td><td>Ver apartado 8</td></tr>
+  <tr><td><strong>llama.cpp</strong></td><td>MIT</td><td>Motor de inferencia</td></tr>
+  <tr><td>Tipografía <strong>Dancing Script</strong></td><td>SIL Open Font License 1.1</td><td>Incluida en la app</td></tr>
+  <tr><td>Android y su motor de síntesis de voz</td><td>Sus propios términos</td><td>Componentes del sistema</td></tr>
+</table>
+
+<h2 id="modelo">8. Licencia del modelo y umbral de 10.000.000 USD</h2>
+<p>El modelo de lenguaje que se ejecuta en el dispositivo se distribuye bajo la <strong>LFM Open License v1.0</strong>, que permite el uso comercial mientras los ingresos no superen un umbral de <strong>diez millones de dólares estadounidenses (10.000.000 USD)</strong>.</p>
+<p>A efectos de cumplimiento, se entiende que ese umbral se refiere a los <strong>ingresos globales, directos o indirectos, obtenidos por la aplicación</strong>, incluidos, entre otros:</p>
+<ul>
+  <li>suscripciones y compras dentro de la aplicación;</li>
+  <li>licencias y ventas del producto o de versiones derivadas;</li>
+  <li>ingresos por publicidad asociados a la aplicación;</li>
+  <li>cualquier otro ingreso atribuible a la explotación de la aplicación.</li>
+</ul>
+<p>Superado ese umbral, el titular de la aplicación deberá obtener de Liquid AI una licencia comercial específica antes de continuar la explotación.</p>
+<p><strong>Obligación interna de registro.</strong> El titular mantendrá un registro contable de las ventas efectivamente cobradas a través de <strong>Google Play Console</strong>, conciliado periódicamente, con el fin de poder acreditar el cumplimiento de este umbral si el titular del modelo lo solicita.</p>
+
+<h2 id="garantias">9. Ausencia de garantías</h2>
+<p>La aplicación se proporciona <strong>«tal cual»</strong>, sin garantías de ningún tipo, expresas o implícitas, incluidas las de comerciabilidad, idoneidad para un fin concreto y no infracción.</p>
+<p>No garantizamos que los cuentos generados sean exactos, originales, apropiados para un destinatario concreto ni adecuados a ninguna finalidad. <strong>El resultado de un modelo generativo es impredecible por naturaleza.</strong></p>
+
+<h2 id="responsabilidad">10. Limitación de responsabilidad</h2>
+<p>En la máxima medida permitida por la ley aplicable, no responderemos por daños indirectos, incidentales, especiales o consecuentes, ni por lucro cesante o pérdida de datos, derivados del uso o de la imposibilidad de uso de la aplicación.</p>
+<p>Nada en estos Términos excluye o limita la responsabilidad que no pueda excluirse o limitarse legalmente, incluidos los derechos que la normativa de consumo reconozca imperativamente al usuario.</p>
+
+<h2 id="modificacion">11. Modificación de los Términos</h2>
+<p>Podremos modificar estos Términos. La versión vigente se publicará en esta misma dirección con su fecha de revisión, y los cambios sustanciales se anunciarán en las notas de la versión. El uso continuado tras la publicación implica su aceptación.</p>
+
+<h2 id="legislacion">12. Legislación aplicable</h2>
+<p>Estos Términos se rigen por la <strong>legislación de la República de Colombia</strong>, sin perjuicio de las normas imperativas de protección de los consumidores del país de residencia habitual del usuario.</p>
+<p>El titular está registrado ante la <strong>Cámara de Comercio de Yopal (Colombia)</strong>.</p>
+
+<div class="contact-box" id="contacto">
+  <div class="kicker" style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--bronce);font-weight:500;font-family:var(--ui);margin-bottom:8px">13. Contacto</div>
+  <h3>¿Dudas sobre estos Términos?</h3>
+  <p style="color:var(--apagado);font-size:14px">Escríbenos y te respondemos lo antes posible.</p>
+  <a href="mailto:jaiverbot77@gmail.com" class="email">jaiverbot77@gmail.com</a>
+</div>
+
+<p class="lang-note"><a href="/cuentero/terms-en.html">Read these Terms in English →</a> · <a href="/cuentero/privacy.html">Política de Privacidad →</a></p>
+
+</div>
+
+<footer>
+  © 2026 Cuentero Infinito · Aplicación desarrollada por jhonsu01 ·
+  <a href="mailto:jaiverbot77@gmail.com" style="color:var(--bronce)">jaiverbot77@gmail.com</a>
+</footer>
+
+</body>
+</html>

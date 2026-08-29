@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="papel">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Política de Privacidad — Cuentero Infinito</title>
+<meta name="description" content="Política de Privacidad de Cuentero Infinito. La IA corre dentro de tu teléfono: no recogemos, no transmitimos y no almacenamos ningún dato personal.">
+<meta name="theme-color" content="#f7f1e3">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23241f1b'/><text x='50' y='68' font-family='Georgia' font-size='44' fill='%238c5a31' text-anchor='middle'>C</text></svg>">
+<style>
+:root{
+  --papel:#fffdf7; --crema:#f7f1e3; --hundido:#f2ead9; --borde:#e5dbc8; --borde-s:#d4c7ac;
+  --tinta:#241f1b; --fuerte:#4a4139; --texto:#5d524b; --apagado:#71675d; --apoyo:#8e8070;
+  --bronce:#8c5a31; --bronce-suave:#f6e9dc;
+  --display:"Instrument Serif",Georgia,serif; --ui:"Red Hat Mono",ui-monospace,monospace; --prosa:ui-sans-serif,system-ui,sans-serif;
+  --radio:6px; --shadow:0 4px 16px -4px rgba(93,82,75,.14);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--crema);color:var(--texto);font-family:var(--prosa);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--bronce)}
+code{background:var(--hundido);padding:.1em .4em;border-radius:3px;font-size:.9em;font-family:var(--ui);color:var(--fuerte)}
+.wrap{max-width:760px;margin:0 auto;padding:0 24px 80px}
+.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(16px);background:rgba(247,241,227,.85);border-bottom:1px solid var(--borde)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:58px;padding:0 24px}
+h2[id],#contacto{scroll-margin-top:80px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:600;font-size:14px;color:var(--tinta);font-family:var(--ui)}
+.brand .mark{width:28px;height:28px;border-radius:7px;background:var(--tinta);color:var(--crema);display:grid;place-items:center;font-family:var(--display);font-size:16px}
+.back{font-size:13px;color:var(--apagado);font-family:var(--ui)}
+.back:hover{color:var(--tinta)}
+.legal-head{padding:48px 0 28px;border-bottom:1px solid var(--borde);margin-bottom:32px}
+.legal-head .kicker{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--bronce);font-weight:500;font-family:var(--ui);margin-bottom:8px}
+.legal-head h1{font-family:var(--display);font-size:clamp(2rem,5vw,2.8rem);font-weight:400;color:var(--tinta);letter-spacing:-.03em;line-height:1.1;margin-bottom:14px}
+.meta{color:var(--apoyo);font-size:13.5px;font-family:var(--ui);line-height:1.6}
+.meta strong{color:var(--fuerte);font-weight:600}
+h2{font-family:var(--display);font-size:1.45rem;font-weight:400;color:var(--tinta);letter-spacing:-.02em;margin:36px 0 12px}
+h2:first-of-type{margin-top:0}
+p{margin-bottom:14px;color:var(--texto)}
+ul{padding-left:1.3rem;margin-bottom:14px}
+li{margin-bottom:8px;color:var(--texto)}
+li strong{color:var(--tinta)}
+.highlight{background:var(--bronce-suave);border-left:3px solid var(--bronce);padding:16px 20px;border-radius:0 var(--radio) var(--radio) 0;margin:20px 0;font-size:15px}
+.highlight strong{color:var(--tinta)}
+table{width:100%;border-collapse:collapse;margin:14px 0 18px;font-size:14px;background:var(--papel);border:1px solid var(--borde);border-radius:var(--radio);overflow:hidden}
+th{background:var(--hundido);text-align:left;padding:10px 14px;font-family:var(--ui);font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--apagado)}
+td{padding:10px 14px;border-top:1px solid var(--borde);color:var(--texto)}
+.contact-box{background:var(--papel);border:1px solid var(--borde);border-radius:var(--radio);padding:24px;text-align:center;margin-top:32px}
+.contact-box h3{font-family:var(--display);font-size:1.3rem;color:var(--tinta);margin-bottom:8px;font-weight:400}
+.contact-box a.email{display:inline-block;margin-top:10px;font-family:var(--ui);font-size:15px;font-weight:600;color:var(--bronce);padding:8px 18px;border-radius:99px;border:1px solid var(--borde-s);background:var(--papel);text-decoration:none}
+.contact-box a.email:hover{background:var(--bronce-suave)}
+.toc{background:var(--papel);border:1px solid var(--borde);border-radius:var(--radio);padding:18px 22px;margin-bottom:36px;font-size:13.5px}
+.toc strong{font-family:var(--ui);font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--apoyo);display:block;margin-bottom:8px}
+.toc a{display:block;padding:6px 10px;margin:1px -10px;border-radius:5px;color:var(--texto);text-decoration:none;transition:background .12s,color .12s}
+.toc a:hover{background:var(--hundido);color:var(--tinta)}
+footer{border-top:1px solid var(--borde);padding:24px;text-align:center;color:var(--apoyo);font-size:12.5px;font-family:var(--ui)}
+.lang-note{text-align:center;font-size:13px;color:var(--apoyo);margin-top:18px;font-family:var(--ui)}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="/cuentero/" class="brand"><span class="mark">C</span> Cuentero Infinito</a>
+    <a href="/cuentero/" class="back">← Volver al inicio</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<header class="legal-head">
+  <div class="kicker">Legal</div>
+  <h1>Política de Privacidad</h1>
+  <p class="meta">
+    Aplicación: <strong>Cuentero Infinito</strong> · Plataforma: <strong>Android</strong><br>
+    Identificador de paquete: <code>com.jhonsu01.cuenteroinfinito</code><br>
+    Responsable: <strong>JHON SUPELANO ROJAS</strong> · Registrado ante la Cámara de Comercio de Yopal, Colombia<br>
+    Contacto: <strong>jaiverbot77@gmail.com</strong><br>
+    En vigor desde: <strong>29 de agosto de 2026</strong> · Última revisión: <strong>29 de agosto de 2026</strong>
+  </p>
+</header>
+
+<nav class="toc">
+  <strong>Contenido</strong>
+  <a href="#resumen">1. Resumen</a>
+  <a href="#datos">2. Qué datos recogemos</a>
+  <a href="#telefono">3. Qué se guarda en tu teléfono</a>
+  <a href="#red">4. Conexiones de red</a>
+  <a href="#voz">5. Lectura en voz alta</a>
+  <a href="#pagos">6. Pagos</a>
+  <a href="#menores">7. Menores y modo peque</a>
+  <a href="#derechos">8. Tus derechos</a>
+  <a href="#terceros">9. Terceros</a>
+  <a href="#cambios">10. Cambios en esta política</a>
+  <a href="#contacto">11. Contacto</a>
+  <a href="#anexo">Anexo — Seguridad de los Datos (Google Play)</a>
+</nav>
+
+<h2 id="resumen">1. Resumen</h2>
+<div class="highlight">
+  <strong>Cuentero Infinito no recoge, no transmite y no almacena ningún dato personal.</strong>
+  No hay cuentas, no hay servidores, no hay analítica y no hay publicidad. Los cuentos se
+  inventan dentro de tu teléfono y no salen de él.
+</div>
+
+<h2 id="datos">2. Qué datos recogemos</h2>
+<p><strong>Ninguno.</strong></p>
+<p>No recogemos ni tratamos datos personales, ni identificadores de dispositivo, ni datos de uso, ni ubicación, ni contactos, ni identificadores de publicidad. No existe registro de usuario ni inicio de sesión. No incorporamos SDK de analítica, de publicidad ni de seguimiento de terceros.</p>
+
+<h2 id="telefono">3. Qué se guarda en tu teléfono</h2>
+<p>Todo lo siguiente vive <strong>solo</strong> en el almacenamiento privado de la aplicación, en tu dispositivo. Nosotros no tenemos acceso a ello en ningún momento:</p>
+<table>
+  <tr><th>Qué</th><th>Dónde</th><th>Para qué</th></tr>
+  <tr><td>Los cuentos generados</td><td>Base de datos local (SQLite)</td><td>Que puedas volver a escucharlos</td></tr>
+  <tr><td>Tus preferencias</td><td>Almacenamiento de preferencias local</td><td>Idioma, voz, ritmo, público, duración, tipo de letra</td></tr>
+  <tr><td>El PIN del modo peque</td><td>Local, guardado como <strong>resumen SHA-256</strong>, nunca en claro</td><td>Impedir que un menor salga del modo peque</td></tr>
+  <tr><td>El modelo de lenguaje</td><td>Carpeta de archivos de la app</td><td>Generar los cuentos sin conexión</td></tr>
+  <tr><td>El informe del último cierre inesperado</td><td>Fichero de texto local</td><td>Que puedas copiarlo <strong>tú</strong> y enviárnoslo <strong>si quieres</strong></td></tr>
+</table>
+<p><strong>La copia de seguridad automática de Android está desactivada</strong> en esta aplicación (<code>allowBackup="false"</code>). Nada de lo anterior se copia a Google Drive. La contrapartida es que tus cuentos no se transfieren solos al cambiar de móvil.</p>
+<p><strong>Todo se borra al desinstalar la aplicación.</strong> No queda copia en ningún sitio, porque nunca hubo copia en ningún sitio.</p>
+
+<h2 id="red">4. Conexiones de red</h2>
+<p>La aplicación solicita el permiso <code>INTERNET</code> para <strong>una única finalidad</strong>: descargar el modelo de lenguaje (unos 731 MB) la primera vez que se abre. Esa descarga se realiza contra los servidores de <strong>Hugging Face</strong> (<code>huggingface.co</code>), que —como cualquier descarga en Internet— podrán registrar tu dirección IP conforme a su propia política de privacidad. Nosotros no recibimos ni conservamos ese dato.</p>
+<p><strong>Después de esa descarga, la aplicación funciona sin conexión.</strong> No se envía ni se recibe nada más: ni los cuentos, ni lo que escribes, ni estadísticas de uso. Puedes comprobarlo poniendo el teléfono en modo avión.</p>
+
+<h2 id="voz">5. Lectura en voz alta</h2>
+<p>Para leer los cuentos se utiliza el <strong>motor de síntesis de voz del propio sistema Android</strong>. El texto del cuento se entrega a ese motor, que es un componente del dispositivo o una aplicación de terceros (habitualmente el servicio de voz de Google).</p>
+<p>Para que ese texto no salga del teléfono, <strong>la aplicación ofrece únicamente las voces que funcionan sin conexión</strong> y descarta expresamente las que requieren red. Aun así, el tratamiento que el motor de voz haga del texto se rige por la política de privacidad de quien lo desarrolle.</p>
+
+<h2 id="pagos">6. Pagos</h2>
+<p>La versión ilimitada de la aplicación se adquiere mediante una compra única, y <strong>la transacción se realiza íntegramente a través de la facturación de Google Play</strong>:</p>
+<ul>
+  <li><strong>No vemos, no tratamos y no almacenamos</strong> ningún dato de pago: ni números de tarjeta, ni titulares, ni direcciones de facturación.</li>
+  <li>La aplicación solo recibe de Google Play una confirmación de si la compra está activa o no.</li>
+  <li>Las condiciones, los reembolsos y el tratamiento de tus datos de pago se rigen por los términos y la política de privacidad de <strong>Google Play</strong>.</li>
+</ul>
+
+<h2 id="menores">7. Menores y modo peque</h2>
+<p><strong>La aplicación está destinada a ser descargada, instalada y configurada por una persona adulta.</strong></p>
+<p>El «modo peque» es una herramienta para ese adulto: presenta el cuento a pantalla completa, con letra grande, y se protege con un PIN que el adulto elige. No es un producto dirigido a menores por sí mismo, sino una función que un adulto activa bajo su responsabilidad y supervisión.</p>
+<ul>
+  <li><strong>No recogemos datos de nadie</strong>, y por tanto tampoco de menores. No hay nada que un menor pueda enviarnos aun queriendo.</li>
+  <li>El adulto responsable decide cuándo y en qué condiciones un menor usa el dispositivo.</li>
+  <li>Mientras el modo peque está activo, la aplicación <strong>solo genera y solo muestra cuentos para público infantil</strong>, y aplica además un filtro automático de contenido sobre el texto generado (ver los <a href="/cuentero/terms.html">Términos de Servicio</a>, apartado «Modo peque»).</li>
+</ul>
+<p>Si crees que un menor ha proporcionado datos personales a través de esta aplicación, escríbenos a <strong>jaiverbot77@gmail.com</strong>. Adelantamos la respuesta: no es posible, porque la aplicación no tiene ningún mecanismo para enviar datos.</p>
+
+<h2 id="derechos">8. Tus derechos</h2>
+<p>El Reglamento General de Protección de Datos y normas equivalentes te reconocen derechos de acceso, rectificación, supresión, oposición y portabilidad sobre tus datos personales.</p>
+<p>Como <strong>no tratamos ningún dato personal tuyo</strong>, no hay nada a lo que acceder ni que rectificar en nuestro poder. Los datos que la aplicación guarda están en tu teléfono, bajo tu control exclusivo: puedes borrarlos desde los ajustes del sistema («Borrar datos») o desinstalando la aplicación.</p>
+
+<h2 id="terceros">9. Terceros</h2>
+<p>La aplicación <strong>no comparte información con terceros</strong>, porque no dispone de información que compartir. Los únicos terceros que intervienen son:</p>
+<table>
+  <tr><th>Tercero</th><th>Cuándo interviene</th><th>Qué ve</th></tr>
+  <tr><td>Hugging Face</td><td>Solo en la descarga inicial del modelo</td><td>Una petición de descarga, con tu IP</td></tr>
+  <tr><td>Motor de voz del sistema</td><td>Al leer un cuento en voz alta</td><td>El texto del cuento que se le entrega</td></tr>
+  <tr><td>Google Play</td><td>Al instalar, actualizar y pagar</td><td>Lo que Google Play registra en cualquier app</td></tr>
+</table>
+
+<h2 id="cambios">10. Cambios en esta política</h2>
+<p>Si esta política cambia, se publicará la versión actualizada en esta misma dirección con una nueva fecha de revisión. Los cambios sustanciales se anunciarán además en las notas de la versión de la aplicación.</p>
+
+<div class="contact-box" id="contacto">
+  <div class="kicker" style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--bronce);font-weight:500;font-family:var(--ui);margin-bottom:8px">11. Contacto</div>
+  <h3>¿Dudas sobre esta política?</h3>
+  <p style="color:var(--apagado);font-size:14px">Escríbenos y te respondemos lo antes posible.</p>
+  <a href="mailto:jaiverbot77@gmail.com" class="email">jaiverbot77@gmail.com</a>
+</div>
+
+<h2 id="anexo">Anexo — Formulario de Seguridad de los Datos de Google Play</h2>
+<p>Declaración que corresponde a esta aplicación tal y como está construida hoy:</p>
+<table>
+  <tr><th>Pregunta de Google Play</th><th>Respuesta</th></tr>
+  <tr><td>¿La app recopila o comparte alguno de los tipos de datos obligatorios?</td><td><strong>No</strong></td></tr>
+  <tr><td>¿Se cifran los datos en tránsito?</td><td>No aplica: no se transmiten datos de usuario</td></tr>
+  <tr><td>¿Se puede solicitar la eliminación de datos?</td><td>No aplica: no hay datos en nuestro poder. El usuario borra los suyos desinstalando</td></tr>
+  <tr><td>¿La app está dirigida a menores?</td><td><strong>No.</strong> Público objetivo: adultos. Incluye una función supervisada por adultos</td></tr>
+  <tr><td>¿Usa identificadores de publicidad?</td><td><strong>No</strong></td></tr>
+</table>
+
+<p class="lang-note"><a href="/cuentero/privacy-en.html">Read this policy in English →</a></p>
+
+</div>
+
+<footer>
+  © 2026 Cuentero Infinito · Aplicación desarrollada por jhonsu01 ·
+  <a href="mailto:jaiverbot77@gmail.com" style="color:var(--bronce)">jaiverbot77@gmail.com</a>
+</footer>
+
+</body>
+</html>
