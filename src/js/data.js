@@ -52,6 +52,22 @@ const SKILLS = [
 
 const PROJECTS = [
   {
+    name: "Cuentero Infinito",
+    play: "https://play.google.com/store/apps/details?id=com.jhonsu01.cuenteroinfinito",
+    site: "https://serviciosconiabyjhonsu.com/cuentero/",
+    image: "img/cuentero.jpg",
+    category: "Entretenimiento",
+    tagline: "Cuentos de IA que nacen y se leen en tu teléfono",
+    description: "App publicada en Google Play donde un modelo de lenguaje (LFM2-1.2B) corre dentro del propio Android vía llama.cpp: pides un cuento, se lo inventa desde cero y te lo lee en voz alta. Español o inglés, modo peque con filtro infantil y PIN, y modo continuo para dormir. Sin conexión, sin cuentas y sin que nada salga del dispositivo.",
+    tech: ["Kotlin", "Python", "C++"],
+    features: [
+      "IA 100% on-device: LFM2-1.2B con llama.cpp",
+      "Nunca se repite: 280 arranques por combinación",
+      "Modo peque con filtro de contenido y PIN",
+      "Lectura en voz alta con resaltado por párrafo"
+    ]
+  },
+  {
     name: "PrintOrganize",
     play: "https://play.google.com/store/apps/details?id=com.jhonsu01.printorganize",
     msstore: "https://apps.microsoft.com/detail/9p11kr2pgx26?hl=es-ES&gl=ES",
