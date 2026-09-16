@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="papel">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auditoría Apps — De prototipo a producción en Google Play y Microsoft Store</title>
+<meta name="description" content="¿Tienes un prototipo o app funcional que no logras llevar a producción? Revisión técnica, arquitectura y hoja de ruta para publicar en Google Play y Microsoft Store. Sesión de diagnóstico por $100 USD.">
+<meta name="theme-color" content="#f7f1e3">
+<meta property="og:title" content="Auditoría Apps — De prototipo a producción">
+<meta property="og:description" content="Cierro la brecha técnica entre tu app y las tiendas: publicación, monetización, CI/CD y arquitectura.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23241f1b'/><text x='50' y='68' font-family='Georgia' font-size='44' fill='%238c5a31' text-anchor='middle'>A</text></svg>">
+<style>
+:root{
+  --papel:#fffdf7; --crema:#f7f1e3; --hundido:#f2ead9; --borde:#e5dbc8; --borde-s:#d4c7ac;
+  --tinta:#241f1b; --fuerte:#4a4139; --texto:#5d524b; --apagado:#71675d; --apoyo:#8e8070;
+  --bronce:#8c5a31; --bronce-hover:#73492a; --bronce-suave:#f6e9dc; --melocoton:#fbd3be;
+  --bien:#3f6b47; --display:"Instrument Serif","Red Hat Mono",Georgia,serif;
+  --ui:"Red Hat Mono",ui-monospace,monospace; --prosa:ui-sans-serif,system-ui,sans-serif;
+  --radio:6px; --radio-b:999px; --shadow:0 4px 16px -4px rgba(93,82,75,.14);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--crema);color:var(--texto);font-family:var(--ui);font-size:15px;line-height:1.65;
+  letter-spacing:-.018em;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:980px;margin:0 auto;padding:0 24px}
+
+/* Nav */
+.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(16px);background:rgba(247,241,227,.82);border-bottom:1px solid var(--borde)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:15px;color:var(--tinta)}
+.brand .mark{width:30px;height:30px;border-radius:7px;background:var(--tinta);color:var(--crema);display:grid;place-items:center;font-family:var(--display);font-size:17px}
+.nav-links{display:flex;gap:22px;font-size:13px;color:var(--apagado)}
+.nav-links a:hover{color:var(--tinta)}
+.badge-cta{display:inline-flex;align-items:center;gap:7px;padding:7px 14px;border-radius:var(--radio-b);background:var(--bronce);color:var(--papel);font-size:12.5px;font-weight:500;transition:.2s}
+.badge-cta:hover{background:var(--bronce-hover)}
+@media(max-width:680px){.nav-links{display:none}}
+
+/* Hero */
+.hero{padding:84px 0 64px;text-align:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:var(--radio);background:var(--papel);
+  border:1px solid var(--borde);font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--apagado);margin-bottom:26px}
+.eyebrow .pulse{width:6px;height:6px;border-radius:50%;background:var(--bien);box-shadow:0 0 8px var(--bien);animation:p 2s infinite}
+@keyframes p{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,6vw,3.8rem);color:var(--tinta);
+  letter-spacing:-.03em;line-height:1.08;margin-bottom:18px;text-wrap:balance}
+.hero h1 .accent{color:var(--bronce)}
+.hero .lead{max-width:62ch;margin:0 auto 20px;font-family:var(--prosa);font-size:clamp(1.02rem,1.8vw,1.15rem);color:var(--apagado);line-height:1.65}
+.hero .lead strong{color:var(--fuerte)}
+.hero .pitch{max-width:56ch;margin:0 auto 32px;font-family:var(--prosa);font-size:15.5px;color:var(--texto)}
+.hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:var(--radio-b);font-family:var(--ui);
+  font-weight:500;font-size:13px;border:1px solid transparent;cursor:pointer;transition:.2s}
+.btn-primary{background:var(--tinta);color:var(--crema)}
+.btn-primary:hover{background:var(--fuerte);transform:translateY(-1px)}
+.btn-marca{background:var(--bronce);color:var(--papel)}
+.btn-marca:hover{background:var(--bronce-hover);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--fuerte);border-color:var(--borde-s)}
+.btn-ghost:hover{background:var(--papel)}
+.hero .price-note{margin-top:14px;font-size:12px;color:var(--apoyo);font-family:var(--ui)}
+
+/* Section */
+section{padding:64px 0}
+.section-head{margin-bottom:40px}
+.section-head .kicker{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--bronce);font-weight:500;margin-bottom:8px}
+.section-head h2{font-family:var(--display);font-size:clamp(1.8rem,4vw,2.5rem);font-weight:400;color:var(--tinta);letter-spacing:-.03em}
+.section-head p{color:var(--apagado);margin-top:8px;font-family:var(--prosa);max-width:56ch}
+
+/* Services */
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.feature{background:var(--papel);border:1px solid var(--borde);border-radius:var(--radio);padding:22px;transition:.2s}
+.feature:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--borde-s)}
+.feature .ico{font-size:24px;margin-bottom:12px;display:block}
+.feature h3{font-family:var(--prosa);font-size:15px;font-weight:600;color:var(--tinta);margin-bottom:6px}
+.feature p{font-size:13.5px;color:var(--apagado);font-family:var(--prosa)}
+
+/* Steps (diagnóstico) */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;max-width:900px;margin:0 auto}
+.step{background:var(--papel);border:1px solid var(--borde);border-radius:10px;padding:24px;position:relative;transition:.2s}
+.step:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.step .paso{font-family:var(--ui);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--bronce);font-weight:600;margin-bottom:10px}
+.step .num{font-family:var(--display);font-size:2.4rem;color:var(--bronce);line-height:1;opacity:.5;margin-bottom:8px}
+.step h3{font-family:var(--prosa);font-size:15px;font-weight:600;color:var(--tinta);margin-bottom:6px}
+.step p{font-size:13.5px;color:var(--apagado);font-family:var(--prosa)}
+.step.hot{border-color:var(--bronce);border-width:1.5px;background:linear-gradient(180deg,var(--bronce-suave),var(--papel))}
+.price-chip{display:inline-block;margin-top:12px;font-family:var(--ui);font-size:12px;font-weight:600;color:var(--bronce);background:var(--bronce-suave);border:1px solid rgba(140,90,49,.25);padding:5px 12px;border-radius:99px}
+
+/* CTA final */
+.cta{text-align:center;padding:80px 0 60px}
+.cta h2{font-family:var(--display);font-size:clamp(2rem,5vw,2.8rem);font-weight:400;color:var(--tinta);margin-bottom:14px}
+.cta .accent{color:var(--bronce)}
+.cta p{color:var(--apagado);max-width:52ch;margin:0 auto 28px;font-family:var(--prosa)}
+.cta .btn-marca{font-size:14px;padding:15px 32px}
+.dm-note{margin-top:18px;font-size:13.5px;color:var(--apagado);font-family:var(--prosa)}
+.dm-note a{color:var(--bronce);text-decoration:underline}
+
+/* Disclaimer */
+.disclaimer{border-top:1px solid var(--borde);padding:22px 0 10px;margin-top:20px}
+.disclaimer p{font-size:11.5px;line-height:1.7;color:var(--apoyo);text-align:center;max-width:72ch;margin:0 auto;font-family:var(--prosa)}
+
+/* Footer */
+footer{padding:24px 0;text-align:center;color:var(--apoyo);font-size:12.5px}
+footer a{color:var(--apagado)}
+footer .links{display:flex;gap:18px;justify-content:center;margin-bottom:10px;flex-wrap:wrap}
+
+@media(max-width:680px){.hero{padding:60px 0 48px}.hero h1{font-size:2.2rem}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="/auditoriaapps/" class="brand"><span class="mark">A</span> Auditoría Apps</a>
+    <div class="nav-links">
+      <a href="#servicios">Servicios</a>
+      <a href="#diagnostico">Cómo empezamos</a>
+      <a href="#reservar">Reservar</a>
+    </div>
+    <a href="https://github.com/sponsors/jhonsu01?frequency=one-time&amp;sponsor=jhonsu01" class="badge-cta" target="_blank" rel="noopener">💳 $100 USD · Pago único</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="pulse"></span> Servicio profesional · Por jhonsu01</span>
+    <h1>¿Tienes un prototipo listo o una app funcional<br>que <span class="accent">no has logrado llevar a producción</span>?</h1>
+    <p class="lead">Publicar una aplicación en <strong>Google Play</strong> o <strong>Microsoft Store</strong> no es solo subir un archivo: implica pasar validaciones exigentes, gestionar pagos in-app, configurar la infraestructura adecuada y garantizar un despliegue sin fallas.</p>
+    <p class="pitch">Te ayudo a cerrar esa brecha técnica y llevar tu proyecto al mercado con un acompañamiento profesional.</p>
+    <div class="hero-cta">
+      <a href="https://github.com/sponsors/jhonsu01?frequency=one-time&amp;sponsor=jhonsu01" class="btn btn-marca" target="_blank" rel="noopener">Reservar revisión técnica · $100 USD →</a>
+      <a href="#servicios" class="btn btn-ghost">Ver servicios</a>
+    </div>
+    <p class="price-note">Pago único · Sin suscripción · Sesión de revisión y arquitectura</p>
+  </div>
+</header>
+
+<section id="servicios">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Servicios</div>
+      <h2>¿Qué puedo hacer por tu proyecto?</h2>
+      <p>De la validación de las tiendas a la arquitectura de sistemas: todo lo que hay entre tu app funcionando y tu app publicada.</p>
+    </div>
+    <div class="features">
+      <div class="feature"><span class="ico">🏪</span><h3>Publicación en Tiendas</h3><p>Configuración de tu cuenta de desarrollador verificada, gestión de pruebas internas y superación de procesos de aprobación en Play Store y Microsoft Store.</p></div>
+      <div class="feature"><span class="ico">💳</span><h3>Monetización</h3><p>Integración de pasarelas y sistemas de pago gestionados directamente por las tiendas, sin procesar datos sensibles de tus usuarios.</p></div>
+      <div class="feature"><span class="ico">⚙️</span><h3>Infraestructura y CI/CD</h3><p>Control de versiones local privado con integración continua (CI/CD) para optimizar recursos, más copias de seguridad en GitHub o Gitea en servidores privados.</p></div>
+      <div class="feature"><span class="ico">🚀</span><h3>Despliegues Seguros</h3><p>Ambientes de prueba (Staging) y automatización antes de lanzar a producción, para que nada llegue roto a tus usuarios.</p></div>
+      <div class="feature"><span class="ico">🧠</span><h3>Arquitectura Avanzada</h3><p>Configuración de sistemas agénticos persistentes con autoaprendizaje y despliegue de apps privadas para uso exclusivo de equipos internos.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="diagnostico">
+  <div class="wrap">
+    <div class="section-head" style="text-align:center">
+      <div class="kicker">📌 Diagnóstico inicial</div>
+      <h2>¿Cómo empezamos?</h2>
+      <p style="margin-left:auto;margin-right:auto">Para ponernos en marcha, realizo un análisis profundo de tu proyecto y diseño un plan de ruta técnico a tu medida.</p>
+    </div>
+    <div class="steps">
+      <div class="step hot">
+        <div class="paso">Paso 1</div>
+        <div class="num">1</div>
+        <h3>Adquiere tu sesión</h3>
+        <p>Reserva y paga tu sesión de revisión y arquitectura. Es el único pago para arrancar: sin suscripciones ni compromisos posteriores.</p>
+        <span class="price-chip">$100 USD · Pago único</span>
+      </div>
+      <div class="step">
+        <div class="paso">Paso 2</div>
+        <div class="num">2</div>
+        <h3>Analizo tu prototipo</h3>
+        <p>Reviso tu app, identifico los requerimientos técnicos de infraestructura y tiendas, y te entrego la hoja de ruta exacta para llegar a producción.</p>
+      </div>
+      <div class="step">
+        <div class="paso">Paso 3</div>
+        <div class="num">3</div>
+        <h3>Propuesta de implementación</h3>
+        <p>Presento la propuesta para implementar el plan por completo y llevar tu aplicación a producción, con el alcance cotizado según tu caso.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="reservar">
+  <div class="wrap">
+    <h2>Reserva la revisión técnica<br><span class="accent">de tu proyecto y su plan de ruta</span></h2>
+    <p>Un pago único de <strong>$100 USD</strong> por la sesión de revisión y arquitectura. El pago se gestiona de forma segura a través de GitHub Sponsors.</p>
+    <a href="https://github.com/sponsors/jhonsu01?frequency=one-time&amp;sponsor=jhonsu01" class="btn btn-marca" target="_blank" rel="noopener">Reservar aquí · $100 USD · Pago único →</a>
+    <p class="dm-note">¿Prefieres revisar los detalles de tu app antes de empezar? Escríbeme por mensaje privado (DM) o a <a href="mailto:jaiverbot77@gmail.com">jaiverbot77@gmail.com</a>.</p>
+  </div>
+</section>
+
+<div class="disclaimer">
+  <div class="wrap">
+    <p><strong>Aviso:</strong> El pago de $100 USD es un pago único y <strong>no reembolsable</strong>. La sesión se agenda según disponibilidad. El entregable de la sesión es la <strong>hoja de ruta</strong> (revisión técnica y plan de arquitectura). La implementación del plan se cotiza por separado una vez definido el alcance; el precio de la implementación depende del caso analizado.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="links">
+      <a href="mailto:jaiverbot77@gmail.com">Contacto</a>
+      <a href="https://serviciosconiabyjhonsu.com">Portafolio</a>
+      <a href="https://github.com/jhonsu01" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    © 2026 Auditoría Apps · jhonsu01 · <a href="mailto:jaiverbot77@gmail.com">jaiverbot77@gmail.com</a>
+  </div>
+</footer>
+
+</body>
+</html>
