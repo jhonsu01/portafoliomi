@@ -52,6 +52,23 @@ const SKILLS = [
 
 const PROJECTS = [
   {
+    name: "OnionHost",
+    play: "https://play.google.com/store/apps/details?id=com.jhonsu01.onionhost",
+    msstore: "https://apps.microsoft.com/detail/9PDGF2WST45F",
+    site: "https://serviciosconiabyjhonsu.com/onionhost/",
+    image: "img/onionhost.jpg",
+    category: "Privacidad",
+    tagline: "Tu web en la red Tor, desde tu teléfono o PC",
+    description: "App publicada en Google Play y Microsoft Store que convierte cualquier carpeta con un index.html en un sitio con dirección .onion propia (servicios ocultos v3). Tor va embebido, el servidor web corre en el propio dispositivo y los archivos nunca salen de él: cero recolección de datos.",
+    tech: ["Kotlin", "Electron", "JavaScript", "Tor"],
+    features: [
+      "Dominio .onion v3 generado en el dispositivo",
+      "Motor Tor embebido en Android y Windows",
+      "Vista previa integrada y consola de registros",
+      "Cero recolección: sin cuentas ni rastreadores"
+    ]
+  },
+  {
     name: "Cuentero Infinito",
     play: "https://play.google.com/store/apps/details?id=com.jhonsu01.cuenteroinfinito",
     site: "https://serviciosconiabyjhonsu.com/cuentero/",
