@@ -52,6 +52,22 @@ const SKILLS = [
 
 const PROJECTS = [
   {
+    name: "Sunsam Apps Store",
+    repo: "https://github.com/jhonsu01/sunsam-apps-store",
+    site: "https://jhonsu01.github.io/sunsam-apps-store/",
+    image: "img/sunsamstore.jpg",
+    category: "Tienda de Apps",
+    tagline: "El escaparate de todas mis aplicaciones, en una sola tienda",
+    description: "Tienda de aplicaciones propia que recopila todos los proyectos del desarrollador: ficha de cada app con descripción, capturas y descarga directa del APK. Versión web desplegada en GitHub Pages y APK de la tienda para instalar en Android.",
+    tech: ["HTML", "CSS", "JavaScript", "GitHub Pages"],
+    features: [
+      "Recopila todos los proyectos en un solo lugar",
+      "Fichas con descripción, capturas y descarga de APK",
+      "Versión web en GitHub Pages + APK de la tienda",
+      "Actualizada con cada nuevo lanzamiento"
+    ]
+  },
+  {
     name: "OnionHost",
     play: "https://play.google.com/store/apps/details?id=com.jhonsu01.onionhost",
     msstore: "https://apps.microsoft.com/detail/9PDGF2WST45F",
