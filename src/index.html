@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 
-<link rel="stylesheet" href="css/style.css?v=051">
+<link rel="stylesheet" href="css/style.css?v=052">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='14' fill='%23241f1b'/><text x='50' y='70' font-family='Georgia' font-size='58' fill='%238c5a31' text-anchor='middle'>J</text></svg>">
 
 <!-- Anti-FOUC: aplica tema guardado antes de renderizar -->
@@ -38,12 +38,30 @@
   <div class="wrap">
     <a href="#top" class="brand"><span class="mark">J</span> Jhon Supelano</a>
     <div class="nav-links">
-      <a href="#about">Sobre mí</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Proyectos</a>
-      <a href="#experience">Trayectoria</a>
+      <a href="#about" data-i="navAbout">Sobre mí</a>
+      <a href="#skills" data-i="navSkills">Skills</a>
+      <a href="#projects" data-i="navProjects">Proyectos</a>
+      <a href="#experience" data-i="navExp">Trayectoria</a>
     </div>
     <div class="nav-right">
+      <!-- Selector de idioma -->
+      <div class="theme-select lang-select">
+        <button class="theme-btn" id="langBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Cambiar idioma">
+          <span style="font-size:13px">🌐</span>
+          <span class="theme-name" id="langName">ES</span>
+          <svg width="10" height="10" viewBox="0 0 10 10" style="opacity:.5"><path d="M2 3.5L5 6.5 8 3.5" stroke="currentColor" fill="none" stroke-width="1.4" stroke-linecap="round"/></svg>
+        </button>
+        <div class="theme-menu" id="langMenu" role="listbox">
+          <div class="theme-opt lang-opt" data-lang="es" role="option"><span class="theme-opt-txt"><b>Español</b><span>ES</span></span></div>
+          <div class="theme-opt lang-opt" data-lang="en" role="option"><span class="theme-opt-txt"><b>English</b><span>EN</span></span></div>
+          <div class="theme-opt lang-opt" data-lang="fr" role="option"><span class="theme-opt-txt"><b>Français</b><span>FR</span></span></div>
+          <div class="theme-opt lang-opt" data-lang="pt" role="option"><span class="theme-opt-txt"><b>Português</b><span>PT</span></span></div>
+          <div class="theme-opt lang-opt" data-lang="ru" role="option"><span class="theme-opt-txt"><b>Русский</b><span>RU</span></span></div>
+          <div class="theme-opt lang-opt" data-lang="zh" role="option"><span class="theme-opt-txt"><b>中文（简体）</b><span>ZH</span></span></div>
+          <div class="theme-opt lang-opt" data-lang="ja" role="option"><span class="theme-opt-txt"><b>日本語</b><span>JA</span></span></div>
+          <div class="theme-opt lang-opt" data-lang="ko" role="option"><span class="theme-opt-txt"><b>한국어</b><span>KO</span></span></div>
+        </div>
+      </div>
       <!-- Selector de tema -->
       <div class="theme-select">
         <button class="theme-btn" id="themeBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Cambiar tema">
@@ -62,19 +80,19 @@
           </div>
         </div>
       </div>
-      <a href="#contact" class="nav-cta">Contacto</a>
+      <a href="#contact" class="nav-cta" data-i="navContact">Contacto</a>
     </div>
   </div>
 </nav>
 
 <header class="hero" id="top">
   <div class="wrap">
-    <span class="eyebrow"><span class="pulse"></span> Disponible para nuevos proyectos</span>
-    <h1>Hola, soy <span class="grad">Jhon Supelano</span>.<br><span id="roleRotator"></span><span class="typed-cursor">▋</span></h1>
+    <span class="eyebrow"><span class="pulse"></span> <span data-i="eyebrow">Disponible para nuevos proyectos</span></span>
+    <h1><span data-i="greet">Hola, soy</span> <span class="grad">Jhon Supelano</span>.<br><span id="roleRotator"></span><span class="typed-cursor">▋</span></h1>
     <p class="lead" id="heroLead"></p>
     <div class="hero-cta">
-      <a href="#projects" class="btn btn-primary">Ver proyectos →</a>
-      <a href="#contact" class="btn btn-ghost">Contáctame</a>
+      <a href="#projects" class="btn btn-primary" data-i="btnProjects">Ver proyectos →</a>
+      <a href="#contact" class="btn btn-ghost" data-i="btnContact">Contáctame</a>
     </div>
     <div class="stats" id="stats"></div>
   </div>
@@ -82,7 +100,7 @@
 
 <section id="about" class="reveal">
   <div class="wrap">
-    <div class="section-head"><div class="kicker">Sobre mí</div><h2>Ingeniero que une IA, producto y seguridad</h2></div>
+    <div class="section-head"><div class="kicker" data-i="aboutK">Sobre mí</div><h2 data-i="aboutH">Ingeniero que une IA, producto y seguridad</h2></div>
     <div class="about-grid">
       <div class="about-bio" id="aboutBio"></div>
       <aside class="about-card" id="aboutCard"></aside>
@@ -92,21 +110,21 @@
 
 <section id="skills" class="reveal">
   <div class="wrap">
-    <div class="section-head"><div class="kicker">Capacidades</div><h2>Tecnologías que domino</h2><p>Stack completo para construir, desplegar y asegurar aplicaciones inteligentes.</p></div>
+    <div class="section-head"><div class="kicker" data-i="skillsK">Capacidades</div><h2 data-i="skillsH">Tecnologías que domino</h2><p data-i="skillsP">Stack completo para construir, desplegar y asegurar aplicaciones inteligentes.</p></div>
     <div class="skills-grid" id="skillsGrid"></div>
   </div>
 </section>
 
 <section id="projects" class="reveal">
   <div class="wrap">
-    <div class="section-head"><div class="kicker">Portafolio</div><h2>Proyectos destacados</h2><p>Apps publicadas en Google Play y proyectos open source enfocados en privacidad, IA y productividad.</p></div>
+    <div class="section-head"><div class="kicker" data-i="projectsK">Portafolio</div><h2 data-i="projectsH">Proyectos destacados</h2><p data-i="projectsP">Apps publicadas en Google Play y proyectos open source enfocados en privacidad, IA y productividad.</p></div>
     <div class="projects-grid" id="projectsGrid"></div>
   </div>
 </section>
 
 <section id="experience" class="reveal">
   <div class="wrap">
-    <div class="section-head"><div class="kicker">Trayectoria</div><h2>Experiencia profesional</h2></div>
+    <div class="section-head"><div class="kicker" data-i="expK">Trayectoria</div><h2 data-i="expH">Experiencia profesional</h2></div>
     <div class="timeline" id="timeline"></div>
   </div>
 </section>
@@ -114,9 +132,9 @@
 <section id="studies" class="reveal">
   <div class="wrap">
     <div class="section-head">
-      <div class="kicker">Formación</div>
-      <h2>Trayectoria académica</h2>
-      <p>De bachiller técnico a ingeniería de multimedia — una década aprendiendo sin parar.</p>
+      <div class="kicker" data-i="studiesK">Formación</div>
+      <h2 data-i="studiesH">Trayectoria académica</h2>
+      <p data-i="studiesP">De bachiller técnico a ingeniería de multimedia — una década aprendiendo sin parar.</p>
     </div>
     <div class="timeline" id="studiesTimeline"></div>
   </div>
@@ -125,34 +143,35 @@
 <section id="certs" class="reveal">
   <div class="wrap">
     <div class="section-head">
-      <div class="kicker">44 certificaciones</div>
-      <h2>Lo que he aprendido</h2>
-      <p>Cada punto es una certificación; cada color, una institución. Pasa el cursor por la constelación.</p>
+      <div class="kicker" data-i="certsK">44 certificaciones</div>
+      <h2 data-i="certsH">Lo que he aprendido</h2>
+      <p data-i="certsP">Cada punto es una certificación; cada color, una institución. Pasa el cursor por la constelación.</p>
     </div>
     <div class="constellation-wrap">
       <canvas id="certCanvas" aria-label="Nube interactiva de 44 certificaciones agrupadas por institución"></canvas>
       <div class="cert-tooltip" id="certTooltip" role="tooltip"></div>
       <div class="constellation-legend" id="certLegend"></div>
     </div>
-    <p class="constellation-hint">💡 Pasa el cursor sobre un punto para ver la certificación · cada color agrupa por institución emisora.</p>
+    <p class="constellation-hint" data-i="hint">💡 Pasa el cursor sobre un punto para ver la certificación · cada color agrupa por institución emisora.</p>
   </div>
 </section>
 
 <section id="contact" class="contact reveal">
   <div class="wrap">
-    <h2>¿Construimos algo <span class="grad">extraordinario</span>?</h2>
+    <h2 data-i="contactH">¿Construimos algo <span class="grad">extraordinario</span>?</h2>
     <p id="contactText"></p>
-    <a href="mailto:jhonsu777@gmail.com" class="btn btn-primary">Envíame un correo ✦</a>
+    <a href="mailto:jhonsu777@gmail.com" class="btn btn-primary" data-i="contactBtn">Envíame un correo ✦</a>
     <div class="social-row" style="justify-content:center" id="contactSocial"></div>
   </div>
 </section>
 
 <footer>
-  <div class="wrap">© <span id="year"></span> Jhon Supelano · <a href="https://github.com/jhonsu01">github.com/jhonsu01</a> · Hecho con IA en Colombia 🇨🇴</div>
+  <div class="wrap">© <span id="year"></span> Jhon Supelano · <a href="https://github.com/jhonsu01">github.com/jhonsu01</a> · <span data-i="footerMade">Hecho con IA en Colombia 🇨🇴</span></div>
 </footer>
 
-<script src="js/data.js?v=051"></script>
-<script src="js/app.js?v=051"></script>
-<script src="js/constellation.js?v=051"></script>
+<script src="js/i18n.js?v=052"></script>
+<script src="js/data.js?v=052"></script>
+<script src="js/app.js?v=052"></script>
+<script src="js/constellation.js?v=052"></script>
 </body>
 </html>

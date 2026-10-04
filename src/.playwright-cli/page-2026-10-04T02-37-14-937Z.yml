@@ -1,0 +1,607 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - link "J Jhon Supelano" [ref=e4] [cursor=pointer]:
+        - /url: "#top"
+        - generic [ref=e5]: J
+        - text: Jhon Supelano
+      - generic [ref=e6]:
+        - link "About" [ref=e615] [cursor=pointer]:
+          - /url: "#about"
+        - link "Skills" [ref=e8] [cursor=pointer]:
+          - /url: "#skills"
+        - link "Projects" [ref=e616] [cursor=pointer]:
+          - /url: "#projects"
+        - link "Career" [ref=e617] [cursor=pointer]:
+          - /url: "#experience"
+      - generic [ref=e11]:
+        - generic [ref=e12]:
+          - button "Cambiar idioma" [ref=e13] [cursor=pointer]:
+            - generic [ref=e14]: 🌐
+            - generic [ref=e15]: EN
+          - listbox:
+            - option "Español ES":
+              - generic:
+                - generic: Español
+                - text: ES
+            - option "English EN":
+              - generic:
+                - generic: English
+                - text: EN
+            - option "Français FR":
+              - generic:
+                - generic: Français
+                - text: FR
+            - option "Português PT":
+              - generic:
+                - generic: Português
+                - text: PT
+            - option "Русский RU":
+              - generic:
+                - generic: Русский
+                - text: RU
+            - option "中文（简体） ZH":
+              - generic:
+                - generic: 中文（简体）
+                - text: ZH
+            - option "日本語 JA":
+              - generic:
+                - generic: 日本語
+                - text: JA
+            - option "한국어 KO":
+              - generic:
+                - generic: 한국어
+                - text: KO
+        - generic [ref=e18]:
+          - button "Cambiar tema" [ref=e19] [cursor=pointer]:
+            - generic [ref=e21]: Papel
+          - listbox:
+            - option "Papel Cálido · microsoft.ai":
+              - generic:
+                - generic: Papel
+                - text: Cálido · microsoft.ai
+            - option "Aurora Oscuro · azul/violeta":
+              - generic:
+                - generic: Aurora
+                - text: Oscuro · azul/violeta
+        - link "Contact" [ref=e618] [cursor=pointer]:
+          - /url: "#contact"
+  - banner [ref=e25]:
+    - generic [ref=e26]:
+      - generic [ref=e27]: Available for new projects
+      - heading "Hola, soy Jhon Supelano. AI Appl▋" [level=1] [ref=e619]: Hola, soy Jhon Supelano.AI Appl▋
+      - paragraph [ref=e31]: I build intelligent applications that combine AI, security and product experience.
+      - generic [ref=e32]:
+        - link "View projects →" [ref=e620] [cursor=pointer]:
+          - /url: "#projects"
+        - link "Get in touch" [ref=e621] [cursor=pointer]:
+          - /url: "#contact"
+      - generic [ref=e35]:
+        - generic [ref=e622]:
+          - generic [ref=e623]: 100+
+          - generic [ref=e624]: Open-source projects
+        - generic [ref=e625]:
+          - generic [ref=e626]: 10+
+          - generic [ref=e627]: Years in tech
+        - generic [ref=e628]:
+          - generic [ref=e629]: AES-256
+          - generic [ref=e630]: Military-grade encryption
+        - generic [ref=e631]:
+          - generic [ref=e632]: 100%
+          - generic [ref=e633]: Offline-first
+  - generic [ref=e49]:
+    - generic [ref=e50]:
+      - generic [ref=e51]: About
+      - heading "An engineer bridging AI, product and security" [level=2] [ref=e634]
+    - generic [ref=e53]:
+      - paragraph [ref=e635]: "AI and Process Automation specialist with full-stack experience: native Android development (Kotlin), C#, TypeScript, JavaScript and PHP. I master AI agent orchestration, LLM integration (Claude, GPT, GLM) and security architectures with AES-256 encryption. Focused on scalable technology solutions, from mobile apps to intelligent production systems."
+      - complementary [ref=e56]:
+        - heading "Career highlights" [level=3] [ref=e636]
+        - list [ref=e637]:
+          - listitem [ref=e638]: ✦ 10+ years creating tech content on YouTube
+          - listitem [ref=e639]: ✦ Winner of the 'Revolución Mr. Robot' Cybersecurity Challenge
+          - listitem [ref=e640]: ✦ Recognized as Tech Entrepreneur by Apps.co
+          - listitem [ref=e641]: ✦ Former Senior AI Developer at Sunsam
+        - heading "📍 Colombia" [level=3] [ref=e642]
+        - generic [ref=e643]:
+          - link "GitHub" [ref=e644] [cursor=pointer]:
+            - /url: https://github.com/jhonsu01
+          - link "LinkedIn" [ref=e647] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/jhonsupelano
+          - link "YouTube" [ref=e650] [cursor=pointer]:
+            - /url: https://www.youtube.com/channel/UCfZIXT8Vur29d4bW0LiAyiw
+          - link "X" [ref=e653] [cursor=pointer]:
+            - /url: https://twitter.com/JHONSU777
+          - link "Telegram" [ref=e656] [cursor=pointer]:
+            - /url: https://t.me/jhonsu777
+          - link "WhatsApp" [ref=e659] [cursor=pointer]:
+            - /url: https://wa.me/qr/4QCHGEUHYPXCK1
+          - link "Keybase" [ref=e662] [cursor=pointer]:
+            - /url: https://keybase.io/cryptojhonsu
+          - link "Instagram" [ref=e665] [cursor=pointer]:
+            - /url: https://www.instagram.com/jhonsu777/
+  - generic [ref=e90]:
+    - generic [ref=e91]:
+      - generic [ref=e92]: Capabilities
+      - heading "Technologies I master" [level=2] [ref=e668]
+      - paragraph [ref=e94]: A complete stack to build, ship and secure intelligent applications.
+    - generic [ref=e95]:
+      - generic [ref=e669]:
+        - generic [ref=e670]: Mobile
+        - generic [ref=e671]:
+          - generic [ref=e672]: Kotlin / Android
+          - generic [ref=e673]: 95%
+      - generic [ref=e676]:
+        - generic [ref=e677]: Desktop
+        - generic [ref=e678]:
+          - generic [ref=e679]: C# / .NET 8 / WPF
+          - generic [ref=e680]: 88%
+      - generic [ref=e683]:
+        - generic [ref=e684]: Web
+        - generic [ref=e685]:
+          - generic [ref=e686]: TypeScript / JavaScript
+          - generic [ref=e687]: 85%
+      - generic [ref=e690]:
+        - generic [ref=e691]: Backend
+        - generic [ref=e692]:
+          - generic [ref=e693]: Python
+          - generic [ref=e694]: 82%
+      - generic [ref=e697]:
+        - generic [ref=e698]: Backend
+        - generic [ref=e699]:
+          - generic [ref=e700]: Node.js / Express
+          - generic [ref=e701]: 80%
+      - generic [ref=e704]:
+        - generic [ref=e705]: Web
+        - generic [ref=e706]:
+          - generic [ref=e707]: Next.js / Tauri / Rust
+          - generic [ref=e708]: 75%
+      - generic [ref=e711]:
+        - generic [ref=e712]: AI
+        - generic [ref=e713]:
+          - generic [ref=e714]: Orquestación de Agentes IA
+          - generic [ref=e715]: 90%
+      - generic [ref=e718]:
+        - generic [ref=e719]: AI
+        - generic [ref=e720]:
+          - generic [ref=e721]: LLM Integration (Claude/GPT/GLM)
+          - generic [ref=e722]: 88%
+      - generic [ref=e725]:
+        - generic [ref=e726]: Security
+        - generic [ref=e727]:
+          - generic [ref=e728]: Criptografía AES-256 / PBKDF2
+          - generic [ref=e729]: 85%
+      - generic [ref=e732]:
+        - generic [ref=e733]: Web3
+        - generic [ref=e734]:
+          - generic [ref=e735]: Blockchain / Smart Contracts
+          - generic [ref=e736]: 78%
+      - generic [ref=e739]:
+        - generic [ref=e740]: Infra
+        - generic [ref=e741]:
+          - generic [ref=e742]: DevOps / Linux / Servidores
+          - generic [ref=e743]: 87%
+      - generic [ref=e746]:
+        - generic [ref=e747]: Infra
+        - generic [ref=e748]:
+          - generic [ref=e749]: GitHub Actions / CI-CD
+          - generic [ref=e750]: 85%
+  - generic [ref=e169]:
+    - generic [ref=e170]:
+      - generic [ref=e171]: Portfolio
+      - heading "Featured projects" [level=2] [ref=e753]
+      - paragraph [ref=e173]: Apps published on Google Play and open-source projects focused on privacy, AI and productivity.
+    - generic [ref=e174]:
+      - article [ref=e754]:
+        - generic [ref=e755]:
+          - generic [ref=e756]: App Store
+          - img "Sunsam Apps Store" [ref=e757]
+        - generic [ref=e758]:
+          - heading "Sunsam Apps Store" [level=3] [ref=e759]
+          - generic [ref=e760]: The showcase of all my applications, in one store
+          - paragraph [ref=e761]: "Own app store compiling every project by the developer: a page per app with description, screenshots and direct APK download. Web version deployed on GitHub Pages plus a store APK for Android."
+          - generic [ref=e762]:
+            - generic [ref=e763]: HTML
+            - generic [ref=e764]: CSS
+            - generic [ref=e765]: JavaScript
+            - generic [ref=e766]: GitHub Pages
+          - generic [ref=e767]:
+            - link "View on GitHub →" [ref=e768] [cursor=pointer]:
+              - /url: https://github.com/jhonsu01/sunsam-apps-store
+            - link "Learn more →" [ref=e769] [cursor=pointer]:
+              - /url: https://jhonsu01.github.io/sunsam-apps-store/
+      - article [ref=e770]:
+        - generic [ref=e771]:
+          - generic [ref=e772]: Privacy
+          - img "OnionHost" [ref=e773]
+        - generic [ref=e774]:
+          - heading "OnionHost" [level=3] [ref=e775]
+          - generic [ref=e776]: Your website on the Tor network, from your phone or PC
+          - paragraph [ref=e777]: "App published on Google Play and Microsoft Store that turns any folder with an index.html into a site with its own .onion address (hidden services v3). Tor is embedded, the web server runs on the device itself and files never leave it: zero data collection."
+          - generic [ref=e778]:
+            - generic [ref=e779]: Kotlin
+            - generic [ref=e780]: Electron
+            - generic [ref=e781]: JavaScript
+            - generic [ref=e782]: Tor
+          - generic [ref=e783]:
+            - link "View on Play Store →" [ref=e784] [cursor=pointer]:
+              - /url: https://play.google.com/store/apps/details?id=com.jhonsu01.onionhost
+            - link "Microsoft Store →" [ref=e785] [cursor=pointer]:
+              - /url: https://apps.microsoft.com/detail/9PDGF2WST45F
+            - link "Learn more →" [ref=e786] [cursor=pointer]:
+              - /url: https://serviciosconiabyjhonsu.com/onionhost/
+      - article [ref=e787]:
+        - generic [ref=e788]:
+          - generic [ref=e789]: Entertainment
+          - img "Cuentero Infinito" [ref=e790]
+        - generic [ref=e791]:
+          - heading "Cuentero Infinito" [level=3] [ref=e792]
+          - generic [ref=e793]: AI stories born and read aloud on your phone
+          - paragraph [ref=e794]: "App published on Google Play where a language model (LFM2-1.2B) runs inside the phone via llama.cpp: ask for a story, it invents one from scratch and reads it aloud. Spanish or English, kids mode with content filter and PIN, and continuous mode for sleeping. No connection, no accounts, nothing leaves the device."
+          - generic [ref=e795]:
+            - generic [ref=e796]: Kotlin
+            - generic [ref=e797]: Python
+            - generic [ref=e798]: C++
+          - generic [ref=e799]:
+            - link "View on Play Store →" [ref=e800] [cursor=pointer]:
+              - /url: https://play.google.com/store/apps/details?id=com.jhonsu01.cuenteroinfinito
+            - link "Learn more →" [ref=e801] [cursor=pointer]:
+              - /url: https://serviciosconiabyjhonsu.com/cuentero/
+      - article [ref=e802]:
+        - generic [ref=e803]:
+          - generic [ref=e804]: Productivity
+          - img "PrintOrganize" [ref=e805]
+        - generic [ref=e806]:
+          - heading "PrintOrganize" [level=3] [ref=e807]
+          - generic [ref=e808]: Images at exact physical sizes, ready to print
+          - paragraph [ref=e809]: "App published on Google Play and Microsoft Store (Android and Windows) that arranges a folder's images into a grid inside a Word document, each at an exact physical size in centimeters. The .docx is generated in streaming on the device: no cloud, no accounts, no storage permissions."
+          - generic [ref=e810]:
+            - generic [ref=e811]: Kotlin Multiplatform
+            - generic [ref=e812]: Compose MP
+            - generic [ref=e813]: Android
+            - generic [ref=e814]: Windows
+            - generic [ref=e815]: OOXML
+          - generic [ref=e816]:
+            - link "View on Play Store →" [ref=e817] [cursor=pointer]:
+              - /url: https://play.google.com/store/apps/details?id=com.jhonsu01.printorganize
+            - link "Microsoft Store →" [ref=e818] [cursor=pointer]:
+              - /url: https://apps.microsoft.com/detail/9p11kr2pgx26?hl=es-ES&gl=ES
+            - link "Learn more →" [ref=e819] [cursor=pointer]:
+              - /url: https://serviciosconiabyjhonsu.com/printorganize/
+      - article [ref=e820]:
+        - generic [ref=e821]:
+          - generic [ref=e822]: Productivity
+          - img "Docu Scaner 150%" [ref=e823]
+        - generic [ref=e824]:
+          - heading "Docu Scaner 150%" [level=3] [ref=e825]
+          - generic [ref=e826]: Scan, enlarge to 150% and print ID documents
+          - paragraph [ref=e827]: "Android app published on Google Play that scans ID documents with on-device AI (ML Kit), enlarges them to 150% on Letter-size paper at 300 DPI and prints straight from the phone. Offline-first: AES-256 encrypted vault, biometric lock and no servers."
+          - generic [ref=e828]:
+            - generic [ref=e829]: Kotlin
+            - generic [ref=e830]: Jetpack Compose
+            - generic [ref=e831]: ML Kit
+            - generic [ref=e832]: AES-256
+            - generic [ref=e833]: BiometricPrompt
+          - generic [ref=e834]:
+            - link "View on Play Store →" [ref=e835] [cursor=pointer]:
+              - /url: https://play.google.com/store/apps/details?id=com.jhonsu01.docuscaner
+            - link "Learn more →" [ref=e836] [cursor=pointer]:
+              - /url: https://serviciosconiabyjhonsu.com/docuscaner/
+      - article [ref=e837]:
+        - generic [ref=e838]:
+          - generic [ref=e839]: Security
+          - img "OpenCallShield" [ref=e840]
+        - generic [ref=e841]:
+          - heading "OpenCallShield" [level=3] [ref=e842]
+          - generic [ref=e843]: SPAM call blocking with privacy first
+          - paragraph [ref=e844]: Open-source Android app that screens incoming calls through CallScreeningService to silence or reject them based on a rules engine. Syncs with a public collaborative blocklist on GitHub without compromising privacy.
+          - generic [ref=e845]:
+            - generic [ref=e846]: Kotlin
+            - generic [ref=e847]: Jetpack Compose
+            - generic [ref=e848]: Material 3
+            - generic [ref=e849]: Room
+            - generic [ref=e850]: WorkManager
+          - link "View on GitHub →" [ref=e852] [cursor=pointer]:
+            - /url: https://github.com/jhonsu01/OpenCallShield
+      - article [ref=e853]:
+        - generic [ref=e854]:
+          - generic [ref=e855]: Productivity
+          - img "OpenWirelessDisplay" [ref=e856]
+        - generic [ref=e857]:
+          - heading "OpenWirelessDisplay" [level=3] [ref=e858]
+          - generic [ref=e859]: Your Android as a wireless monitor for your PC
+          - paragraph [ref=e860]: "Open-source alternative to Spacedesk: turns an Android device into a wireless secondary monitor for a Windows PC. Supports real mirror and extended mode through a virtual display driver, with secure PIN pairing."
+          - generic [ref=e861]:
+            - generic [ref=e862]: Kotlin
+            - generic [ref=e863]: .NET 8
+            - generic [ref=e864]: WPF
+            - generic [ref=e865]: C#
+            - generic [ref=e866]: C++
+            - generic [ref=e867]: mDNS
+          - link "View on GitHub →" [ref=e869] [cursor=pointer]:
+            - /url: https://github.com/jhonsu01/OpenWirelessDisplay
+      - article [ref=e870]:
+        - generic [ref=e871]:
+          - generic [ref=e872]: Productivity
+          - img "CompartirArchivosRED" [ref=e873]
+        - generic [ref=e874]:
+          - heading "CompartirArchivosRED" [level=3] [ref=e875]
+          - generic [ref=e876]: Share files over the local network, no cloud or cables
+          - paragraph [ref=e877]: Wireless file transfer between Android and Windows on the same local network. Automatic discovery via UDP broadcast and robust TCP transfer, with expirable PIN authorization.
+          - generic [ref=e878]:
+            - generic [ref=e879]: Kotlin
+            - generic [ref=e880]: Jetpack Compose
+            - generic [ref=e881]: .NET 8
+            - generic [ref=e882]: WPF
+            - generic [ref=e883]: TCP/UDP
+          - link "View on GitHub →" [ref=e885] [cursor=pointer]:
+            - /url: https://github.com/jhonsu01/CompartirArchivosRED
+      - article [ref=e886]:
+        - generic [ref=e887]:
+          - generic [ref=e888]: Security
+          - img "IDPersonalSecure" [ref=e889]
+        - generic [ref=e890]:
+          - heading "IDPersonalSecure" [level=3] [ref=e891]
+          - generic [ref=e892]: Personal digital vault encrypted with AES-256
+          - paragraph [ref=e893]: Offline-first digital vault and identity manager, cross-platform (Android + Windows). Encrypts identity documents natively with AES-256-GCM and securely transfers vaults between devices.
+          - generic [ref=e894]:
+            - generic [ref=e895]: Kotlin
+            - generic [ref=e896]: C#
+            - generic [ref=e897]: .NET 8
+            - generic [ref=e898]: Fluent UI
+            - generic [ref=e899]: AES-256-GCM
+          - link "View on GitHub →" [ref=e901] [cursor=pointer]:
+            - /url: https://github.com/jhonsu01/IDPersonalSecure
+      - article [ref=e902]:
+        - generic [ref=e903]:
+          - generic [ref=e904]: Productivity
+          - img "PayBioApp" [ref=e905]
+        - generic [ref=e906]:
+          - heading "PayBioApp" [level=3] [ref=e907]
+          - generic [ref=e908]: Virtual payment card holder powered by on-device AI
+          - paragraph [ref=e909]: Offline virtual vault that manages payment methods (crypto, banks, wallets) and displays them as cards with QR codes. Uses on-device AI (ML Kit) to extract payment data from images, with kiosk mode for TVs and counters.
+          - generic [ref=e910]:
+            - generic [ref=e911]: Kotlin
+            - generic [ref=e912]: Jetpack Compose
+            - generic [ref=e913]: Room
+            - generic [ref=e914]: SQLCipher
+            - generic [ref=e915]: ML Kit
+          - link "View on GitHub →" [ref=e917] [cursor=pointer]:
+            - /url: https://github.com/jhonsu01/PayBioApp
+      - article [ref=e918]:
+        - generic [ref=e919]:
+          - generic [ref=e920]: Platforms
+          - img "klanly" [ref=e921]
+        - generic [ref=e922]:
+          - heading "klanly" [level=3] [ref=e923]
+          - generic [ref=e924]: Skool-style paid-community platform
+          - paragraph [ref=e925]: "Open-source paid-community platform with three roles (Admin, Producer, User). Multi-platform delivery: desktop apps (Tauri), mobile (Android) and web (Next.js), with dual payments via gateway and manual receipts."
+          - generic [ref=e926]:
+            - generic [ref=e927]: Next.js
+            - generic [ref=e928]: Tauri v2
+            - generic [ref=e929]: Rust
+            - generic [ref=e930]: Kotlin
+            - generic [ref=e931]: JWT
+            - generic [ref=e932]: Wompi
+          - link "View on GitHub →" [ref=e934] [cursor=pointer]:
+            - /url: https://github.com/jhonsu01/klanly
+      - article [ref=e935]:
+        - generic [ref=e936]:
+          - generic [ref=e937]: Productivity
+          - img "TurnosDespachoDispensario" [ref=e938]
+        - generic [ref=e939]:
+          - heading "TurnosDespachoDispensario" [level=3] [ref=e940]
+          - generic [ref=e941]: Pharmacy queues with AI OCR of prescriptions
+          - paragraph [ref=e942]: Queue management system for pharmacies. Patients photograph prescriptions and staff use AI OCR (OpenAI Vision) to read medications, cross-check inventory and deduct stock by FEFO. Runs offline over the local network.
+          - generic [ref=e943]:
+            - generic [ref=e944]: Kotlin
+            - generic [ref=e945]: Electron
+            - generic [ref=e946]: Node.js
+            - generic [ref=e947]: SQLite
+            - generic [ref=e948]: OpenAI Vision
+          - link "View on GitHub →" [ref=e950] [cursor=pointer]:
+            - /url: https://github.com/jhonsu01/TurnosDespachoDispensario
+      - article [ref=e951]:
+        - generic [ref=e952]:
+          - generic [ref=e953]: Productivity
+          - img "ReciclajeApp" [ref=e954]
+        - generic [ref=e955]:
+          - heading "ReciclajeApp" [level=3] [ref=e956]
+          - generic [ref=e957]: Complete offline management for recycling centers
+          - paragraph [ref=e958]: Offline-first management system for recycling centers. A desktop component acts as local server and admin panel, Android apps as customer and weighing-station interfaces, and an Android TV app as the public queue board.
+          - generic [ref=e959]:
+            - generic [ref=e960]: Electron
+            - generic [ref=e961]: Express
+            - generic [ref=e962]: WebSocket
+            - generic [ref=e963]: Kotlin
+            - generic [ref=e964]: SQLite
+          - link "View on GitHub →" [ref=e966] [cursor=pointer]:
+            - /url: https://github.com/jhonsu01/ReciclajeApp
+  - generic [ref=e389]:
+    - generic [ref=e390]:
+      - generic [ref=e391]: Career
+      - heading "Professional experience" [level=2] [ref=e967]
+    - generic [ref=e393]:
+      - generic [ref=e968]:
+        - generic [ref=e969]: Senior AI Applications Developer
+        - generic [ref=e970]: Sunsam · 2026 — 8 meses
+        - generic [ref=e971]: End-to-end development of AI apps with multi-agent orchestration, LLM integration (Claude, GPT, GLM) and architectures separating deterministic from stochastic processes.
+      - generic [ref=e972]:
+        - generic [ref=e973]: Options Trader
+        - generic [ref=e974]: tastytrade · 2025–2026
+        - generic [ref=e975]: Options trading on tech stocks with implied-volatility analysis and risk management.
+      - generic [ref=e976]:
+        - generic [ref=e977]: DeFi Protocol Analyst
+        - generic [ref=e978]: DeFi / Web 3.0 · 2020–2024
+        - generic [ref=e979]: Analysis of decentralized protocols, yield farming and airdrops with portfolio management in the Web3 ecosystem.
+      - generic [ref=e980]:
+        - generic [ref=e981]: Tech Content Creator
+        - generic [ref=e982]: YouTube · 2016 — Actualidad
+        - generic [ref=e983]: Over 10 years producing educational content about cryptography, blockchain, AI and emerging technologies.
+      - generic [ref=e984]:
+        - generic [ref=e985]: Independent Crypto Trader
+        - generic [ref=e986]: Binance · 2019–2022
+        - generic [ref=e987]: Spot trading and market analysis across multiple cryptocurrency pairs.
+      - generic [ref=e988]:
+        - generic [ref=e989]: WordPress Web Developer
+        - generic [ref=e990]: Huvid · 2019–2020
+        - generic [ref=e991]: LMS platform on WordPress with custom PHP and MySQL features.
+      - generic [ref=e992]:
+        - generic [ref=e993]: Smart Contracts Developer
+        - generic [ref=e994]: Ethereum · 2018–2019
+        - generic [ref=e995]: Development and deployment of ERC-20 smart contracts on the Ethereum blockchain.
+      - generic [ref=e996]:
+        - generic [ref=e997]: IT Support Technician
+        - generic [ref=e998]: Independiente · 2013–2019
+        - generic [ref=e999]: On-site and remote technical support, Windows/Linux administration and LAN/WiFi networks.
+  - generic [ref=e427]:
+    - generic [ref=e428]:
+      - generic [ref=e429]: Education
+      - heading "Academic background" [level=2] [ref=e1000]
+      - paragraph [ref=e431]: From technical high school to multimedia engineering — a decade of non-stop learning.
+    - generic [ref=e432]:
+      - generic [ref=e1001]:
+        - generic [ref=e1002]: Multimedia Engineering
+        - generic [ref=e1003]: Universidad Nacional Abierta y a Distancia (UNAD) · 2025 – 2029
+        - generic [ref=e1004]:
+          - generic [ref=e1005]: Ongoing
+          - generic [ref=e1006]: SENA credit-transfer agreement 012/2019
+        - generic [ref=e1007]:
+          - generic [ref=e1008]: Programación
+          - generic [ref=e1009]: Producción Multimedia
+          - generic [ref=e1010]: Sistemas
+      - generic [ref=e1011]:
+        - generic [ref=e1012]: Technologist in International Physical Distribution
+        - generic [ref=e1013]: SENA · 2021 – 2023
+        - generic [ref=e1014]: Graduate
+        - generic [ref=e1016]:
+          - generic [ref=e1017]: Importación/Exportación
+          - generic [ref=e1018]: Aduanas
+          - generic [ref=e1019]: Logística
+      - generic [ref=e1020]:
+        - generic [ref=e1021]: Artificial Intelligence
+        - generic [ref=e1022]: Platzi (alianza MinTIC) · 2020
+        - generic [ref=e1023]: Completed
+        - generic [ref=e1025]:
+          - generic [ref=e1026]: IA
+          - generic [ref=e1027]: Tecnologías científicas
+      - generic [ref=e1028]:
+        - generic [ref=e1029]: Blockchain and Cryptocurrencies
+        - generic [ref=e1030]: Platzi · 2020
+        - generic [ref=e1031]: Completed
+        - generic [ref=e1033]:
+          - generic [ref=e1034]: Blockchain
+          - generic [ref=e1035]: DeFi
+      - generic [ref=e1036]:
+        - generic [ref=e1037]: Specialization in Online Marketing & Business Models
+        - generic [ref=e1038]: SENA · 2019
+        - generic [ref=e1039]: Graduate
+        - generic [ref=e1041]:
+          - generic [ref=e1042]: Marketing digital
+          - generic [ref=e1043]: Negocios
+      - generic [ref=e1044]:
+        - generic [ref=e1045]: Multimedia Production Technologist
+        - generic [ref=e1046]: SENA · 2016 – 2018
+        - generic [ref=e1047]: Graduate
+        - generic [ref=e1049]:
+          - generic [ref=e1050]: Multimedia
+          - generic [ref=e1051]: Producción audiovisual
+      - generic [ref=e1052]:
+        - generic [ref=e1053]: PC Assembly & Configuration Assistant
+        - generic [ref=e1054]: SENA · 2007 – 2008
+        - generic [ref=e1055]:
+          - generic [ref=e1056]: Graduate
+          - generic [ref=e1057]: Professional Aptitude Certificate
+        - generic [ref=e1058]:
+          - generic [ref=e1059]: Hardware
+          - generic [ref=e1060]: Soporte
+      - generic [ref=e1061]:
+        - generic [ref=e1062]: Technical High School Diploma in Electricity (Electronics)
+        - generic [ref=e1063]: Colegio Juan José Rondón · 2007 – 2008
+        - generic [ref=e1064]:
+          - generic [ref=e1065]: High school
+          - generic [ref=e1066]: Internship in equipment maintenance
+        - generic [ref=e1067]:
+          - generic [ref=e1068]: Electricidad
+          - generic [ref=e1069]: Electrónica
+  - generic [ref=e503]:
+    - generic [ref=e504]:
+      - generic [ref=e505]: 44 certifications
+      - heading "What I have learned" [level=2] [ref=e1070]
+      - paragraph [ref=e507]: Each dot is a certification; each color, an institution. Hover over the constellation.
+    - generic [ref=e508]:
+      - generic "Nube interactiva de 44 certificaciones agrupadas por institución" [ref=e509]
+      - generic [ref=e510]:
+        - generic "Platzi" [ref=e1071]:
+          - text: Platzi
+          - emphasis [ref=e1073]: "19"
+        - generic "Servicio Nacional de Aprendizaje (SENA)" [ref=e1074]:
+          - text: SENA
+          - emphasis [ref=e1076]: "9"
+        - generic "Amazon Web Services (AWS)" [ref=e1077]:
+          - text: AWS
+          - emphasis [ref=e1079]: "3"
+        - generic "Bancolombia" [ref=e1080]:
+          - text: Bancolombia
+          - emphasis [ref=e1082]: "1"
+        - generic "Universidad Distrital Francisco José de Caldas" [ref=e1083]:
+          - text: U. Distrital
+          - emphasis [ref=e1085]: "1"
+        - generic "NASA - National Aeronautics and Space Administration" [ref=e1086]:
+          - text: NASA
+          - emphasis [ref=e1088]: "1"
+        - generic "Coursera" [ref=e1089]:
+          - text: Coursera
+          - emphasis [ref=e1091]: "1"
+        - generic "Huawei" [ref=e1092]:
+          - text: Huawei
+          - emphasis [ref=e1094]: "1"
+        - generic "LinkedIn" [ref=e1095]:
+          - text: LinkedIn
+          - emphasis [ref=e1097]: "1"
+        - generic "CertiProf" [ref=e1098]:
+          - text: CertiProf
+          - emphasis [ref=e1100]: "1"
+        - generic "bvc-Bolsa de Valores de Colombia S.A." [ref=e1101]:
+          - text: bvc
+          - emphasis [ref=e1103]: "1"
+        - generic "Superintendencia Financiera de Colombia" [ref=e1104]:
+          - text: SFC
+          - emphasis [ref=e1106]: "1"
+        - generic "Cisco Networking Academy" [ref=e1107]:
+          - text: Cisco
+          - emphasis [ref=e1109]: "1"
+        - generic "Bancoldex" [ref=e1110]:
+          - text: Bancoldex
+          - emphasis [ref=e1112]: "1"
+        - generic "Cámara de Comercio de Casanare" [ref=e1113]:
+          - text: Cámara
+          - emphasis [ref=e1115]: "1"
+        - generic "CodeAI" [ref=e1116]:
+          - text: CodeAI
+          - emphasis [ref=e1118]: "1"
+    - paragraph [ref=e559]: 💡 Hover a dot to see the certification · each color groups by issuing institution.
+  - generic [ref=e561]:
+    - heading "Shall we build something extraordinary?" [level=2] [ref=e1119]
+    - paragraph [ref=e563]: Whether it's an AI product, a secure app or a technical consultation — let's talk.
+    - link "Email me ✦" [ref=e1120] [cursor=pointer]:
+      - /url: mailto:jhonsu777@gmail.com
+    - generic [ref=e565]:
+      - link "GitHub" [ref=e1121] [cursor=pointer]:
+        - /url: https://github.com/jhonsu01
+      - link "LinkedIn" [ref=e1124] [cursor=pointer]:
+        - /url: https://www.linkedin.com/in/jhonsupelano
+      - link "YouTube" [ref=e1127] [cursor=pointer]:
+        - /url: https://www.youtube.com/channel/UCfZIXT8Vur29d4bW0LiAyiw
+      - link "X" [ref=e1130] [cursor=pointer]:
+        - /url: https://twitter.com/JHONSU777
+      - link "Telegram" [ref=e1133] [cursor=pointer]:
+        - /url: https://t.me/jhonsu777
+      - link "WhatsApp" [ref=e1136] [cursor=pointer]:
+        - /url: https://wa.me/qr/4QCHGEUHYPXCK1
+  - contentinfo [ref=e584]:
+    - generic [ref=e585]:
+      - text: © 2026 Jhon Supelano ·
+      - link "github.com/jhonsu01" [ref=e586] [cursor=pointer]:
+        - /url: https://github.com/jhonsu01
+      - text: · Built with AI in Colombia 🇨🇴

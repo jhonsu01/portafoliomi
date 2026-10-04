@@ -71,16 +71,68 @@
   const el = (tag, cls, html) => { const e=document.createElement(tag); if(cls)e.className=cls; if(html!=null)e.innerHTML=html; return e; };
   const esc = s => String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
+  /* ---------- i18n (es = base en data.js; resto en i18n.js) ---------- */
+  const I18ND = window.PORTFOLIO_I18N || {};
+  const BASE_TITLE = document.title;
+  function detectLang(){
+    try{ const s = localStorage.getItem('portfolio-lang'); if(s && (s==='es' || I18ND[s])) return s; }catch(e){}
+    const n = ((navigator.languages && navigator.languages[0]) || navigator.language || 'es');
+    const b = String(n).toLowerCase();
+    if(b.indexOf('zh') === 0) return 'zh';
+    const base = b.slice(0,2);
+    return I18ND[base] ? base : 'es';
+  }
+  let LANG = detectLang();
+  const LT = () => I18ND[LANG] || null;
+  const trUI = (k,fb) => { const l = LT(); return (l && l.ui && l.ui[k] != null) ? l.ui[k] : fb; };
+  const trP  = (k,fb) => { const l = LT(); return (l && l.profile && l.profile[k] != null) ? l.profile[k] : fb; };
+  const trCat = s => { const l = LT(); return (l && l.cats && l.cats[s]) || s; };
+  const trGroup = s => { const l = LT(); return (l && l.groups && l.groups[s]) || s; };
+  const trPr = (n,f,fb) => { const l = LT(); const p = l && l.projects && l.projects[n]; return (p && p[f] != null) ? p[f] : fb; };
+  const trEx = (i,f,fb) => { const l = LT(); const e = l && l.exp && l.exp[i]; return (e && e[f] != null) ? e[f] : fb; };
+  const trSt = (i,f,fb) => { const l = LT(); const s = l && l.studies && l.studies[i]; return (s && s[f] != null) ? s[f] : fb; };
+  const ES_BASE = {};
+  function captureES(){
+    document.querySelectorAll('[data-i]').forEach(elm => { if(!(elm.dataset.i in ES_BASE)) ES_BASE[elm.dataset.i] = elm.innerHTML; });
+  }
+  function applyStatic(){
+    document.querySelectorAll('[data-i]').forEach(elm => {
+      const k = elm.dataset.i;
+      if(LANG === 'es'){ if(k in ES_BASE) elm.innerHTML = ES_BASE[k]; return; }
+      const v = trUI(k, null);
+      if(v != null) elm.innerHTML = v;
+      else if(k in ES_BASE) elm.innerHTML = ES_BASE[k];
+    });
+    document.documentElement.lang = (LANG === 'zh') ? 'zh-Hans' : LANG;
+    document.title = (LT() && LT().docTitle) || BASE_TITLE;
+    const nm = document.getElementById('langName'); if(nm) nm.textContent = LANG.toUpperCase();
+    document.querySelectorAll('.lang-opt').forEach(o => o.classList.toggle('active', o.dataset.lang === LANG));
+  }
+
+  /* ---------- Render dinámico (re-ejecutable al cambiar idioma) ---------- */
+  const socialMap = [
+    ['github','GitHub'],['linkedin','LinkedIn'],['youtube','YouTube'],
+    ['twitter','X'],['telegram','Telegram'],['whatsapp','WhatsApp'],
+    ['keybase','Keybase'],['instagram','Instagram']
+  ];
+  let rotTimer = null, firstRender = true;
+
+  function renderAll(){
+    if(rotTimer){ clearTimeout(rotTimer); rotTimer = null; }
+    ['#stats','#aboutBio','#aboutCard','#skillsGrid','#projectsGrid','#timeline','#studiesTimeline','#contactSocial']
+      .forEach(id => { const n = $(id); if(n) n.innerHTML = ''; });
+
   /* ---------- Hero ---------- */
-  $('#heroLead').textContent = P.tagline;
+  $('#heroLead').textContent = trP('tagline', P.tagline);
 
   // Stats
   const stats = $('#stats');
+  const statsLabels = trUI('stats', null) || ['Proyectos open source','Años en tecnología','Cifrado de grado militar','Offline-first'];
   const statsData = [
-    {num: '100+', lbl: 'Proyectos open source'},
-    {num: '10+', lbl: 'Años en tecnología'},
-    {num: 'AES-256', lbl: 'Cifrado de grado militar'},
-    {num: '100%', lbl: 'Offline-first'}
+    {num: '100+', lbl: statsLabels[0]},
+    {num: '10+', lbl: statsLabels[1]},
+    {num: 'AES-256', lbl: statsLabels[2]},
+    {num: '100%', lbl: statsLabels[3]}
   ];
   statsData.forEach(s => stats.appendChild(el('div','stat',
     `<div class="num">${s.num}</div><div class="lbl">${s.lbl}</div>`)));
@@ -88,32 +140,28 @@
   // Role rotator (typewriter)
   (function(){
     const host = $('#roleRotator');
+    const roles = trP('roles', null) || P.roles;
     let i=0, c=0, del=false;
     function tick(){
-      const cur = P.roles[i];
+      const cur = roles[i];
       host.textContent = cur.slice(0,c);
-      if(!del){ c++; if(c>cur.length){del=true; return setTimeout(tick, reduce?400:1800);} }
-      else { c--; if(c<0){del=false; i=(i+1)%P.roles.length;} }
-      setTimeout(tick, del?40:70);
+      if(!del){ c++; if(c>cur.length){del=true; rotTimer = setTimeout(tick, reduce?400:1800); return;} }
+      else { c--; if(c<0){del=false; i=(i+1)%roles.length;} }
+      rotTimer = setTimeout(tick, del?40:70);
     }
     tick();
   })();
 
   /* ---------- About ---------- */
   const bio = $('#aboutBio');
-  P.bio.split('\n').forEach(p => p.trim() && bio.appendChild(el('p',null,esc(p))));
+  trP('bio', P.bio).split('\n').forEach(p => p.trim() && bio.appendChild(el('p',null,esc(p))));
   const card = $('#aboutCard');
-  card.appendChild(el('h3',null,'Logros destacados'));
+  card.appendChild(el('h3',null, esc(trUI('achTitle','Logros destacados'))));
   const ul = el('ul');
-  P.highlights.forEach(h => ul.appendChild(el('li',null,esc(h))));
+  (trP('highlights', null) || P.highlights).forEach(h => ul.appendChild(el('li',null,esc(h))));
   card.appendChild(ul);
   // datos contacto
-  card.appendChild(el('h3',{style:'margin-top:22px'},'📍 ' + P.location));
-  const socialMap = [
-    ['github','GitHub'],['linkedin','LinkedIn'],['youtube','YouTube'],
-    ['twitter','X'],['telegram','Telegram'],['whatsapp','WhatsApp'],
-    ['keybase','Keybase'],['instagram','Instagram']
-  ];
+  card.appendChild(el('h3',{style:'margin-top:22px'},'📍 ' + esc(trUI('location', P.location))));
   const socials = el('div','social-row');
   socialMap.forEach(([k,lbl]) => {
     if(!P.social[k]) return;
@@ -127,7 +175,7 @@
   const sg = $('#skillsGrid');
   SK.forEach(s => {
     const it = el('div','skill');
-    it.innerHTML = `<div class="skill-group">${s.group}</div>
+    it.innerHTML = `<div class="skill-group">${esc(trGroup(s.group))}</div>
       <div class="skill-top"><span class="skill-name">${esc(s.name)}</span><span class="skill-pct">${s.level}%</span></div>
       <div class="skill-bar"><div class="skill-fill" data-w="${s.level}"></div></div>`;
     sg.appendChild(it);
@@ -140,20 +188,20 @@
     const onerr = "this.onerror=null;this.parentNode.style.display='none'";
     c.innerHTML = `
       <div class="project-img">
-        <span class="project-cat">${esc(p.category)}</span>
+        <span class="project-cat">${esc(trCat(p.category))}</span>
         <img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy" onerror="${onerr}">
       </div>
       <div class="project-body">
         <h3>${esc(p.name)}</h3>
-        <div class="project-tag">${esc(p.tagline)}</div>
-        <p class="project-desc">${esc(p.description)}</p>
+        <div class="project-tag">${esc(trPr(p.name,'t',p.tagline))}</div>
+        <p class="project-desc">${esc(trPr(p.name,'d',p.description))}</p>
         <div class="project-tech">${p.tech.map(t=>`<span class="chip">${esc(t)}</span>`).join('')}</div>
         <div class="project-links">
           ${p.play
-            ? `<a class="project-link" href="${esc(p.play)}" target="_blank" rel="noopener">Ver en Play Store →</a>`
-            : `<a class="project-link" href="${esc(p.repo)}" target="_blank" rel="noopener">Ver en GitHub →</a>`}
-          ${p.msstore ? `<a class="project-link" href="${esc(p.msstore)}" target="_blank" rel="noopener">Microsoft Store →</a>` : ''}
-          ${p.site ? `<a class="project-link alt" href="${esc(p.site)}">Ver más →</a>` : ''}
+            ? `<a class="project-link" href="${esc(p.play)}" target="_blank" rel="noopener">${esc(trUI('viewPlay','Ver en Play Store →'))}</a>`
+            : `<a class="project-link" href="${esc(p.repo)}" target="_blank" rel="noopener">${esc(trUI('viewGithub','Ver en GitHub →'))}</a>`}
+          ${p.msstore ? `<a class="project-link" href="${esc(p.msstore)}" target="_blank" rel="noopener">${esc(trUI('msStore','Microsoft Store →'))}</a>` : ''}
+          ${p.site ? `<a class="project-link alt" href="${esc(p.site)}">${esc(trUI('more','Ver más →'))}</a>` : ''}
         </div>
       </div>`;
     pg.appendChild(c);
@@ -161,26 +209,58 @@
 
   /* ---------- Experience ---------- */
   const tl = $('#timeline');
-  EX.forEach(e => tl.appendChild(el('div','tl-item reveal',
-    `<div class="tl-role">${esc(e.role)}</div>
+  EX.forEach((e,i) => tl.appendChild(el('div','tl-item reveal',
+    `<div class="tl-role">${esc(trEx(i,'r',e.role))}</div>
      <div class="tl-org">${esc(e.org)} · <span class="tl-period">${esc(e.period)}</span></div>
-     <div class="tl-desc">${esc(e.desc)}</div>`)));
+     <div class="tl-desc">${esc(trEx(i,'d',e.desc))}</div>`)));
 
   /* ---------- Estudios (timeline académica) ---------- */
   const stTl = $('#studiesTimeline');
   if(stTl){
-    STUDIES.forEach(s => {
+    STUDIES.forEach((s,i) => {
       const item = el('div','tl-item reveal');
       const statusCls = s.status === 'En curso' ? 'study-status ongoing' : 'study-status';
       item.innerHTML =
-        `<div class="tl-role">${esc(s.title)}</div>
+        `<div class="tl-role">${esc(trSt(i,'t',s.title))}</div>
          <div class="tl-org">${esc(s.school)} · <span class="tl-period">${esc(s.period)}</span></div>
-         <div class="study-meta"><span class="${statusCls}">${esc(s.status)}</span>
-           ${s.note ? `<span class="study-note">${esc(s.note)}</span>` : ''}</div>
+         <div class="study-meta"><span class="${statusCls}">${esc(trSt(i,'s',s.status))}</span>
+           ${s.note ? `<span class="study-note">${esc(trSt(i,'n',s.note))}</span>` : ''}</div>
          ${s.skills ? `<div class="study-skills">${s.skills.map(x=>`<span class="chip">${esc(x)}</span>`).join('')}</div>` : ''}`;
       stTl.appendChild(item);
     });
   }
+
+  renderContact();
+  } /* fin renderAll */
+  renderAll();
+  captureES();
+  applyStatic();
+
+  /* ---------- Selector de idioma ---------- */
+  window.__setPortfolioLang = function(l){
+    if(l !== 'es' && !I18ND[l]) return;
+    LANG = l;
+    try{ localStorage.setItem('portfolio-lang', l); }catch(e){}
+    renderAll();
+    applyStatic();
+    refreshReveals();
+  };
+  (function langMenu(){
+    const btn = document.getElementById('langBtn'), menu = document.getElementById('langMenu');
+    if(!btn || !menu) return;
+    function toggle(open){
+      const o = open !== undefined ? open : !menu.classList.contains('open');
+      menu.classList.toggle('open', o);
+      btn.setAttribute('aria-expanded', String(o));
+    }
+    btn.addEventListener('click', e => { e.stopPropagation(); toggle(); });
+    menu.querySelectorAll('.lang-opt').forEach(o =>
+      o.addEventListener('click', () => { window.__setPortfolioLang(o.dataset.lang); toggle(false); }));
+    document.addEventListener('click', e => {
+      if(!menu.contains(e.target) && !btn.contains(e.target)) toggle(false);
+    });
+    document.addEventListener('keydown', e => { if(e.key === 'Escape') toggle(false); });
+  })();
 
   /* ---------- Leyenda de la constelación (paleta dinámica por tema) ---------- */
   function renderLegend(){
@@ -204,14 +284,17 @@
   window.addEventListener('themechange', renderLegend);
 
   /* ---------- Contact ---------- */
-  $('#contactText').textContent = 'Ya sea para un producto con IA, una app segura o una consultoría técnica, conversemos.';
-  const cs = $('#contactSocial');
-  socialMap.slice(0,6).forEach(([k,lbl]) => {
-    if(!P.social[k]) return;
-    const a = el('a'); a.href=P.social[k]; a.target='_blank'; a.rel='noopener'; a.title=lbl;
-    a.appendChild(svgIcon(k));
-    cs.appendChild(a);
-  });
+  function renderContact(){
+    $('#contactText').textContent = trUI('contactText','Ya sea para un producto con IA, una app segura o una consultoría técnica, conversemos.');
+    const cs = $('#contactSocial');
+    cs.innerHTML = '';
+    socialMap.slice(0,6).forEach(([k,lbl]) => {
+      if(!P.social[k]) return;
+      const a = el('a'); a.href=P.social[k]; a.target='_blank'; a.rel='noopener'; a.title=lbl;
+      a.appendChild(svgIcon(k));
+      cs.appendChild(a);
+    });
+  }
 
   /* ---------- Year ---------- */
   $('#year').textContent = new Date().getFullYear();
@@ -228,7 +311,17 @@
       }
     });
   }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
-  document.querySelectorAll('.reveal').forEach(r => io.observe(r));
+  function refreshReveals(){
+    document.querySelectorAll('.reveal').forEach(r => {
+      if(firstRender){ io.observe(r); }
+      else {
+        r.classList.add('in');
+        r.querySelectorAll && r.querySelectorAll('.skill-fill').forEach(f => { f.style.width = f.dataset.w + '%'; });
+      }
+    });
+  }
+  refreshReveals();
+  firstRender = false;
 
   /* ---------- Iconos SVG inline (sin dependencias) ---------- */
   function svgIcon(name){

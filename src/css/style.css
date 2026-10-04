@@ -335,3 +335,9 @@ footer a{color:var(--apagado)}
   *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
   .reveal{opacity:1;transform:none}
 }
+
+/* ---------- Selector de idioma ---------- */
+.lang-select .theme-menu{min-width:175px}
+.lang-select .theme-opt{padding:7px 12px}
+.lang-select .theme-opt b{font-size:13px}
+.lang-select .theme-opt-txt span:last-child{color:var(--apoyo);font-family:var(--font-ui);font-size:10.5px;letter-spacing:.06em}
