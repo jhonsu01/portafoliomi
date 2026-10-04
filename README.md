@@ -4,52 +4,68 @@
 
 🌐 **En vivo:** [serviciosconiabyjhonsu.com](https://serviciosconiabyjhonsu.com)
 
-![Versión](https://img.shields.io/badge/version-v0.1.0-6e8cff)
+**Español** | [English](README.en.md) | [Français](README.fr.md) | [Português](README.pt.md) | [Русский](README.ru.md) | [中文](README.zh.md) | [日本語](README.ja.md) | [한국어](README.ko.md)
+
+![Versión](https://img.shields.io/badge/version-v0.2.0-6e8cff)
 ![License](https://img.shields.io/badge/license-MIT-9d7cff)
-![Status](https://img.shields.io/badge/status-en%20desarrollo-5fd0c3)
+![Status](https://img.shields.io/badge/status-activo-5fd0c3)
 
 ---
 
 ## ✨ Características
 
-- **Diseño estilo microsoft.ai / Claude Desktop** — limpio, premium, con gradientes sutiles y tipografía refinada.
-- **Data-driven** — los proyectos y la info de perfil viven en `src/js/data.js`. Editar el portafolio = editar un JSON.
-- **100% estático** — sin build step, sin dependencias. Solo HTML, CSS y JS vanilla.
-- **Responsive** — se ve perfecto en móvil, tablet y desktop.
-- **Accesible** — respeta `prefers-reduced-motion` y `prefers-color-scheme`.
-- **SEO + Open Graph** — meta tags completos para redes sociales.
+- **8 idiomas** — español, inglés, francés, portugués, ruso, chino, japonés y coreano, con detección automática del idioma del navegador y selector manual.
+- **Dos temas** — «Papel» (claro, cálido) y «Aurora» (oscuro, azul/violeta), con atajo de teclado `T`.
+- **Data-driven** — perfil, proyectos, skills y certificaciones viven en `src/js/data.js`. Editar el portafolio = editar datos.
+- **100% estático** — sin build step ni dependencias: HTML, CSS y JS vanilla.
+- **Constelación de certificaciones** — canvas interactivo con 44 certificaciones agrupadas por institución.
+- **Responsive y accesible** — respeta `prefers-reduced-motion` y funciona en móvil, tablet y desktop.
+- **SEO + Open Graph** — meta tags completos.
+
+## 📱 Subsitios de aplicaciones
+
+- Cada app publicada tiene su propia landing + política de privacidad bajo rutas del dominio principal:
+- **PrintOrganize** — `/printorganize/` · [Google Play](https://play.google.com/store/apps/details?id=com.jhonsu01.printorganize) + Microsoft Store
+- **Docu Scaner 150%** — `/docuscaner/` · [Google Play](https://play.google.com/store/apps/details?id=com.jhonsu01.docuscaner)
+- **Cuentero Infinito** — `/cuentero/` · [Google Play](https://play.google.com/store/apps/details?id=com.jhonsu01.cuenteroinfinito)
+- **OnionHost** — `/onionhost/` · [Google Play](https://play.google.com/store/apps/details?id=com.jhonsu01.onionhost) + Microsoft Store
+- **SafeVault** — `/safevault/` — sitio completo en 8 idiomas
+- **Auditoría Apps** — `/auditoriaapps/` — página de embudo del servicio de revisión técnica
 
 ## 📂 Estructura
 
 ```
-portafoliomi/
-├── src/
-│   ├── index.html          # Estructura de la página
-│   ├── css/style.css       # Estilos (estilo microsoft.ai)
-│   ├── js/
-│   │   ├── data.js         # 👈 Edita aquí: perfil, skills, proyectos
-│   │   └── app.js          # Render dinámico + animaciones
-├── .github/workflows/
-│   └── release.yml         # CI: empaqueta + publica release + cleanup
-├── CHANGELOG.md            # Historial de versiones
-└── README.md
+src/
+├── index.html           # Estructura de la página
+├── css/style.css        # Estilos y temas
+├── js/
+│   ├── data.js          # 👈 Edita aquí: perfil, skills, proyectos
+│   ├── i18n.js          # 🌍 Traducciones (7 idiomas, es = base)
+│   ├── app.js           # Render dinámico + i18n + animaciones
+│   └── constellation.js # Constelación de certificaciones
+├── img/                 # Portadas de los proyectos destacados
+├── printorganize/ docuscaner/ cuentero/ onionhost/ safevault/ auditoriaapps/
+└── tools/               # Generadores (legal multilingüe SafeVault)
 ```
 
 ## 🛠️ Cómo editar el portafolio
 
-1. Abre `src/js/data.js`
-2. Modifica `PROFILE` (tu info), `PROJECTS` (tus apps), `SKILLS`, `EXPERIENCE` o `CERTS`
-3. Los cambios se reflejan al recargar — sin compilar nada
+1. Abre `src/js/data.js` y modifica `PROFILE`, `PROJECTS`, `SKILLS`, `EXPERIENCE` o `CERTS`.
+2. Para añadir un idioma o cambiar textos traducidos, edita `src/js/i18n.js`.
+3. Sube el contador de caché `?v=NNN` en `src/index.html` al cambiar CSS/JS.
+4. Los cambios se reflejan al recargar — sin compilar nada.
 
-## 🚀 Releases
+## 🌍 Idiomas
 
-Este repositorio publica releases versionadas que empaquetan el sitio web completo.
+- El español es el idioma base (vive en el HTML y `data.js`). Las traducciones de los otros 7 idiomas están en `src/js/i18n.js`.
+- Al cargar, la web detecta el idioma del navegador; el usuario puede cambiarlo con el selector 🌐 junto al botón de tema.
+- La elección se guarda en `localStorage` y sobrevive recargas.
 
-- **Cada release** incluye:
-  - `portafolio-X.Y.Z.zip` — el sitio listo para servir
-  - `CHANGELOG.md` — con los cambios de la versión
-- **Auto-cleanup:** al publicar una nueva versión, las releases anteriores se eliminan automáticamente. Solo se mantiene la última.
-- Para crear una nueva release, basta con crear y push un tag: `git tag v0.2.0 && git push origin v0.2.0`
+## 🚀 Releases y despliegue
+
+- **Deploy:** `git push origin main` + `git pull` en el servidor. El sitio se sirve estático, sin reinicios.
+- **Cada release** empaqueta el sitio completo (`portafolio-X.Y.Z.zip`) y borra automáticamente las anteriores: solo queda la última.
+- Nueva release: `git tag v0.2.0 && git push origin v0.2.0` (GitHub Actions hace el resto).
 
 ## 📜 Licencia
 
