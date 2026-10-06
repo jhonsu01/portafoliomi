@@ -45,6 +45,7 @@ profile:{
 cats:{"Tienda de Apps":"App Store","Productividad":"Productivity","Seguridad":"Security","Privacidad":"Privacy","Entretenimiento":"Entertainment","Plataformas":"Platforms"},
 groups:{"Móvil":"Mobile","Desktop":"Desktop","Web":"Web","Backend":"Backend","IA":"AI","Seguridad":"Security","Web3":"Web3","Infra":"Infra"},
 projects:{
+  "SafeVault":{t:"Sensitive photos, detected by on-device AI and encrypted with AES-256",d:"App on Google Play that scans your gallery and camera with on-device AI (circuit consensus), detects sensitive images and stores them encrypted in AES-256 vaults with portable .svbk backups. No cloud, no accounts: nothing leaves your device."},
   "Sunsam Apps Store":{t:"The showcase of all my applications, in one store",d:"Own app store compiling every project by the developer: a page per app with description, screenshots and direct APK download. Web version deployed on GitHub Pages plus a store APK for Android."},
   "OnionHost":{t:"Your website on the Tor network, from your phone or PC",d:"App published on Google Play and Microsoft Store that turns any folder with an index.html into a site with its own .onion address (hidden services v3). Tor is embedded, the web server runs on the device itself and files never leave it: zero data collection."},
   "Cuentero Infinito":{t:"AI stories born and read aloud on your phone",d:"App published on Google Play where a language model (LFM2-1.2B) runs inside the phone via llama.cpp: ask for a story, it invents one from scratch and reads it aloud. Spanish or English, kids mode with content filter and PIN, and continuous mode for sleeping. No connection, no accounts, nothing leaves the device."},
@@ -114,6 +115,7 @@ profile:{
 cats:{"Tienda de Apps":"Boutique d'apps","Productividad":"Productivité","Seguridad":"Sécurité","Privacidad":"Confidentialité","Entretenimiento":"Divertissement","Plataformas":"Plateformes"},
 groups:{"Móvil":"Mobile","Desktop":"Desktop","Web":"Web","Backend":"Backend","IA":"IA","Seguridad":"Sécurité","Web3":"Web3","Infra":"Infra"},
 projects:{
+  "SafeVault":{t:"Photos sensibles détectées par une IA locale et chiffrées en AES-256",d:"App sur Google Play qui analyse la galerie et l'appareil photo avec une IA locale (consensus de circuits), détecte les images sensibles et les stocke chiffrées dans des coffres AES-256 avec sauvegardes .svbk portables. Sans cloud, sans compte : rien ne quitte l'appareil."},
   "Sunsam Apps Store":{t:"La vitrine de toutes mes applications, en une seule boutique",d:"Boutique d'applications personnelle qui recueille tous les projets du développeur : une fiche par app avec description, captures et téléchargement direct de l'APK. Version web sur GitHub Pages et APK de la boutique pour Android."},
   "OnionHost":{t:"Votre site web sur le réseau Tor, depuis votre téléphone ou PC",d:"App publiée sur Google Play et Microsoft Store qui transforme n'importe quel dossier avec un index.html en site doté de sa propre adresse .onion (services cachés v3). Tor est embarqué, le serveur web tourne sur l'appareil et les fichiers ne le quittent jamais : zéro collecte de données."},
   "Cuentero Infinito":{t:"Des histoires d'IA nées et lues sur votre téléphone",d:"App publiée sur Google Play où un modèle de langage (LFM2-1.2B) tourne dans le téléphone via llama.cpp : demandez une histoire, il l'invente de zéro et la lit à voix haute. Espagnol ou anglais, mode enfants avec filtre de contenu et PIN, et mode continu pour s'endormir. Sans connexion, sans comptes, rien ne quitte l'appareil."},
@@ -183,6 +185,7 @@ profile:{
 cats:{"Tienda de Apps":"Loja de Apps","Productividad":"Produtividade","Seguridad":"Segurança","Privacidad":"Privacidade","Entretenimiento":"Entretenimento","Plataformas":"Plataformas"},
 groups:{"Móvil":"Móvel","Desktop":"Desktop","Web":"Web","Backend":"Backend","IA":"IA","Segurança":"Segurança","Web3":"Web3","Infra":"Infra"},
 projects:{
+  "SafeVault":{t:"Fotos sensíveis detectadas por IA local e criptografadas com AES-256",d:"App no Google Play que analisa galeria e câmera com IA local (consenso de circuitos), detecta imagens sensíveis e as guarda criptografadas em vaults AES-256 com backups .svbk portáteis. Sem nuvem, sem contas: nada sai do dispositivo."},
   "Sunsam Apps Store":{t:"A vitrine de todos os meus aplicativos, em uma só loja",d:"Loja de aplicativos própria que reúne todos os projetos do desenvolvedor: uma ficha por app com descrição, capturas e download direto do APK. Versão web no GitHub Pages e APK da loja para Android."},
   "OnionHost":{t:"Seu site na rede Tor, do seu telefone ou PC",d:"App publicada no Google Play e na Microsoft Store que transforma qualquer pasta com um index.html em um site com endereço .onion próprio (hidden services v3). Tor é embutido, o servidor web roda no próprio dispositivo e os arquivos nunca saem dele: zero coleta de dados."},
   "Cuentero Infinito":{t:"Histórias de IA que nascem e são lidas no seu telefone",d:"App publicada no Google Play onde um modelo de linguagem (LFM2-1.2B) roda dentro do telefone via llama.cpp: peça uma história, ele a inventa do zero e a lê em voz alta. Espanhol ou inglês, modo infantil com filtro de conteúdo e PIN, e modo contínuo para dormir. Sem conexão, sem contas, nada sai do dispositivo."},
@@ -252,6 +255,7 @@ profile:{
 cats:{"Tienda de Apps":"Магазин приложений","Productividad":"Продуктивность","Seguridad":"Безопасность","Privacidad":"Приватность","Entretenimiento":"Развлечения","Plataformas":"Платформы"},
 groups:{"Móvil":"Мобильная","Desktop":"Десктоп","Web":"Веб","Backend":"Бэкенд","IA":"ИИ","Seguridad":"Безопасность","Web3":"Web3","Infra":"Инфра"},
 projects:{
+  "SafeVault":{t:"Чувствительные фото распознаёт локальный ИИ и шифрует AES-256",d:"Приложение в Google Play анализирует галерею и камеру локальным ИИ (консенсус контуров), находит чувствительные изображения и хранит их зашифрованными в сейфах AES-256 с переносными копиями .svbk. Без облака и аккаунтов: ничего не покидает устройство."},
   "Sunsam Apps Store":{t:"Витрина всех моих приложений в одном магазине",d:"Собственный магазин приложений, собирающий все проекты разработчика: карточка каждого приложения с описанием, скриншотами и прямым скачиванием APK. Веб-версия на GitHub Pages и APK магазина для Android."},
   "OnionHost":{t:"Ваш сайт в сети Tor — с телефона или ПК",d:"Приложение в Google Play и Microsoft Store, превращающее любую папку с index.html в сайт с собственным адресом .onion (hidden services v3). Tor встроен, веб-сервер работает на самом устройстве, файлы его не покидают: нулевой сбор данных."},
   "Cuentero Infinito":{t:"Истории от ИИ, которые рождаются и читаются на телефоне",d:"Приложение в Google Play, где языковая модель (LFM2-1.2B) работает внутри телефона через llama.cpp: попросите историю — она придумает её с нуля и прочитает вслух. Испанский или английский, детский режим с фильтром и PIN-кодом, непрерывный режим для засыпания. Без интернета, без аккаунтов, ничего не покидает устройство."},
@@ -321,6 +325,7 @@ profile:{
 cats:{"Tienda de Apps":"应用商店","Productividad":"生产力","Seguridad":"安全","Privacidad":"隐私","Entretenimiento":"娱乐","Plataformas":"平台"},
 groups:{"Móvil":"移动","Desktop":"桌面","Web":"Web","Backend":"后端","IA":"AI","Seguridad":"安全","Web3":"Web3","Infra":"基础设施"},
 projects:{
+  "SafeVault":{t:"敏感照片由本地 AI 识别并以 AES-256 加密",d:"已上架 Google Play：端内 AI（回路共识）分析相册与相机，识别敏感图像并以 AES-256 加密存入保险库，支持便携 .svbk 备份。无云端、无账号：任何数据都不离开设备。"},
   "Sunsam Apps Store":{t:"我的所有应用，尽在一个商店",d:"自有应用商店，收录开发者的全部项目：每个应用一页，含简介、截图与 APK 直接下载。网页版部署于 GitHub Pages，并提供 Android 商店 APK。"},
   "OnionHost":{t:"从手机或电脑把网站发布到 Tor 网络",d:"已上架 Google Play 与 Microsoft Store。将任何含 index.html 的文件夹变成拥有专属 .onion 地址（v3 隐藏服务）的网站。Tor 内置，Web 服务器运行在设备本身，文件永不外传：零数据收集。"},
   "Cuentero Infinito":{t:"在手机上诞生并被朗读的 AI 故事",d:"已上架 Google Play：语言模型（LFM2-1.2B）通过 llama.cpp 在手机内运行——点一个故事，它从零创作并朗读。支持中英之外的四语界面、带内容过滤与 PIN 的儿童模式、以及伴睡的连续模式。无需联网、无需账号，任何数据都不离开设备。"},
@@ -390,6 +395,7 @@ profile:{
 cats:{"Tienda de Apps":"アプリストア","Productividad":"仕事効率化","Seguridad":"セキュリティ","Privacidad":"プライバシー","Entretenimiento":"エンタメ","Plataformas":"プラットフォーム"},
 groups:{"Móvil":"モバイル","Desktop":"デスクトップ","Web":"Web","Backend":"バックエンド","IA":"AI","Seguridad":"セキュリティ","Web3":"Web3","Infra":"インフラ"},
 projects:{
+  "SafeVault":{t:"センシティブな写真を端末内AIが検出し、AES-256で暗号化",d:"Google Play公開中。端末内AI（回路コンセンサス）がギャラリーとカメラを解析し、センシティブな画像を検出してAES-256で暗号化し、携帯可能な.svbkバックアップ付きのVaultに保管。クラウド不要・アカウント不要。"},
   "Sunsam Apps Store":{t:"すべてのアプリを一つのストアに",d:"開発者の全プロジェクトを集めた自作アプリストア。各アプリの紹介ページには説明・スクリーンショット・APKの直接ダウンロード。Web版はGitHub Pages、ストアAPKも提供。"},
   "OnionHost":{t:"スマホやPCからTorネットワークにウェブサイトを公開",d:"Google PlayとMicrosoft Storeで公開中。index.html入りのフォルダを、独自の.onionアドレス（v3隠しサービス）を持つサイトに変えます。Torを内蔵し、ウェブサーバーは端末そのもので動作。ファイルは端末の外に出ません：データ収集ゼロ。"},
   "Cuentero Infinito":{t:"スマホの中で生まれ、読み上げられるAIの物語",d:"Google Playで公開中。言語モデル（LFM2-1.2B）がllama.cppでスマホの中で動作します。物語をリクエストすると、ゼロから創作して読み上げます。スペイン語・英語対応、コンテンツフィルターとPIN付きのキッズモード、眠るための連続モードも。接続不要・アカウント不要。"},
@@ -459,6 +465,7 @@ profile:{
 cats:{"Tienda de Apps":"앱 스토어","Productividad":"생산성","Seguridad":"보안","Privacidad":"프라이버시","Entretenimiento":"엔터테인먼트","Plataformas":"플랫폼"},
 groups:{"Móvil":"모바일","Desktop":"데스크톱","Web":"웹","Backend":"백엔드","IA":"AI","Seguridad":"보안","Web3":"Web3","Infra":"인프라"},
 projects:{
+  "SafeVault":{t:"민감한 사진을 온디바이스 AI가 찾아 AES-256으로 암호화",d:"Google Play 출시. 온디바이스 AI(회로 합의)가 갤러리와 카메라를 분석해 민감한 이미지를 찾고 AES-256으로 암호화해 .svbk 휴대용 백업이 가능한 볼트에 보관. 클라우드도 계정도 없이 아무것도 기기를 떠나지 않습니다."},
   "Sunsam Apps Store":{t:"내 모든 앱을 하나의 스토어에서",d:"개발자의 모든 프로젝트를 모은 자체 앱 스토어. 앱마다 설명·스크린샷·APK 직접 다운로드가 있는 페이지를 제공합니다. GitHub Pages 웹 버전과 Android용 스토어 APK."},
   "OnionHost":{t:"휴대폰이나 PC에서 Tor 네트워크로 웹사이트 게시",d:"Google Play와 Microsoft Store 출시. index.html이 있는 폴더를 고유한 .onion 주소(v3 히든 서비스)를 가진 사이트로 바꿉니다. Tor를 내장했고 웹 서버는 기기 자체에서 실행되며 파일은 절대 밖으로 나가지 않습니다: 데이터 수집 제로."},
   "Cuentero Infinito":{t:"휴대폰 안에서 태어나 읽어주는 AI 이야기",d:"Google Play 출시. 언어 모델(LFM2-1.2B)이 llama.cpp로 휴대폰 안에서 작동합니다. 이야기를 요청하면 처음부터 창작해 소리 내어 읽어줍니다. 스페인어·영어, 콘텐츠 필터와 PIN이 있는 키즈 모드, 잠들 때를 위한 연속 모드. 연결도 계정도 필요 없고 아무것도 기기를 떠나지 않습니다."},

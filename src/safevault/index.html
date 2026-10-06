@@ -142,7 +142,7 @@ footer .links{display:flex;gap:18px;justify-content:center;margin-bottom:10px;fl
         <option value="fr">Français</option><option value="ru">Русский</option><option value="zh">中文（简体）</option>
         <option value="ja">日本語</option><option value="ko">한국어</option>
       </select>
-      <span class="badge-play" data-i="badge"></span>
+      <a href="https://play.google.com/store/apps/details?id=com.jhonsu.safevault" class="badge-play" target="_blank" rel="noopener" data-i="badge"></a>
     </div>
   </div>
 </nav>
@@ -153,7 +153,8 @@ footer .links{display:flex;gap:18px;justify-content:center;margin-bottom:10px;fl
     <h1><span data-i="h1a"></span><br><span class="accent" data-i="h1b"></span></h1>
     <p class="lead" data-i="lead"></p>
     <div class="hero-cta">
-      <a href="#funciones" class="btn btn-primary" data-i="cta1"></a>
+      <a href="https://play.google.com/store/apps/details?id=com.jhonsu.safevault" class="btn btn-primary" target="_blank" rel="noopener" data-i="cta0"></a>
+      <a href="#funciones" class="btn btn-ghost" data-i="cta1"></a>
       <a href="#privacidad" class="btn btn-ghost" data-i="cta2"></a>
     </div>
     <div class="phone-frame">
@@ -205,7 +206,7 @@ footer .links{display:flex;gap:18px;justify-content:center;margin-bottom:10px;fl
         <div class="price-amt free">$0<small data-i="c1_per"></small></div>
         <div class="price-sub" data-i="c1_sub"></div>
         <ul class="price-feats" id="c1_feats"></ul>
-        <div class="btn-block"><span class="btn btn-ghost" style="opacity:.7;cursor:default" data-i="c1_btn"></span></div>
+        <div class="btn-block"><a href="https://play.google.com/store/apps/details?id=com.jhonsu.safevault" class="btn btn-ghost" target="_blank" rel="noopener" data-i="c1_btn"></a></div>
       </div>
       <div class="price-card featured">
         <span class="price-tag" data-i="c2_tag"></span>
@@ -213,7 +214,7 @@ footer .links{display:flex;gap:18px;justify-content:center;margin-bottom:10px;fl
         <div class="price-amt">$7.99<small data-i="c2_per"></small></div>
         <div class="price-sub" data-i="c2_sub"></div>
         <ul class="price-feats" id="c2_feats"></ul>
-        <div class="btn-block"><span class="btn btn-marca" data-i="c2_btn"></span></div>
+        <div class="btn-block"><a href="https://play.google.com/store/apps/details?id=com.jhonsu.safevault" class="btn btn-marca" target="_blank" rel="noopener" data-i="c2_btn"></a></div>
       </div>
     </div>
     <p style="text-align:center;color:var(--apoyo);font-size:12.5px;margin-top:22px;font-family:var(--ui)" data-i="pr_note"></p>
@@ -249,7 +250,8 @@ footer .links{display:flex;gap:18px;justify-content:center;margin-bottom:10px;fl
     <h2><span data-i="cta_h1"></span><br><span class="accent" data-i="cta_h2"></span></h2>
     <p data-i="cta_p"></p>
     <div class="hero-cta" style="margin-bottom:0">
-      <a href="https://serviciosconiabyjhonsu.com" class="btn btn-primary" data-i="cta_dev"></a>
+      <a href="https://play.google.com/store/apps/details?id=com.jhonsu.safevault" class="btn btn-primary" target="_blank" rel="noopener" data-i="cta0"></a>
+      <a href="https://serviciosconiabyjhonsu.com" class="btn btn-ghost" data-i="cta_dev"></a>
       <a href="https://ko-fi.com/V7V81LV7GX" class="btn btn-ghost" target="_blank" rel="noopener">Ko-fi ☕</a>
     </div>
   </div>
@@ -269,11 +271,11 @@ footer .links{display:flex;gap:18px;justify-content:center;margin-bottom:10px;fl
 
 <script>
 var I18N={
-es:{badge:"📱 En revisión en Google Play",nav1:"Funciones",nav2:"Cómo funciona",nav3:"Precios",nav4:"Privacidad",nav5:"FAQ",
+es:{badge:"📱 Disponible en Google Play",nav1:"Funciones",nav2:"Cómo funciona",nav3:"Precios",nav4:"Privacidad",nav5:"FAQ",
 eyebrow:"App Android · IA 100% en tu teléfono · 8 idiomas",
 h1a:"Tus fotos sensibles,",h1b:"cifradas por IA local",
 lead:"SafeVault analiza tu galería y tu cámara con inteligencia artificial que corre dentro del teléfono, detecta las imágenes sensibles y las guarda en un vault cifrado con AES-256. Sin nube, sin cuentas, sin anuncios: nada sale de tu dispositivo.",
-cta1:"Ver funciones →",cta2:"Privacidad",vaultName:"Vault · Personal",phoneLabel:"Cifrado en el dispositivo · Huella",
+cta0:"Descargar en Google Play →",cta1:"Ver funciones →",cta2:"Privacidad",vaultName:"Vault · Personal",phoneLabel:"Cifrado en el dispositivo · Huella",
 fs_k:"Funciones",fs_h2:"Todo el análisis, en tu teléfono",fs_sub:"Varios modelos de IA votan y un router de consenso decide. Sin consenso, la imagen va a revisión: nunca una acción silenciosa.",
 feats:[
 ["🛡️","Guardián automático","Un guardián vigia las fotos nuevas y protege las sensibles en segundos. Modo automático directo al vault, o cola de revisión manual para decidir tú."],
@@ -287,8 +289,8 @@ steps:[["Elige idioma y permisos","Español, English, Português, Français, Р�
 ["Descarga los modelos","Solo una vez (≈ 22 MB): la app elige el modelo adecuado a tu teléfono y verifica cada archivo con SHA-256."],
 ["Crea tu vault","Con una contraseña tuya. Analiza la galería o deja que el guardián vigile las fotos nuevas."]],
 pr_k:"Precios simples",pr_h2:"Empieza gratis, desbloquea cuando quieras",pr_sub:"Sin suscripciones y sin renovaciones. Un único pago y es tuyo para siempre.",
-c1_name:"Gratis",c1_per:" / siempre",c1_sub:"Protección completa básica",c1_feats:["Todo el análisis y la clasificación","Cámara con IA y modo evidencia","Guardián automático","Un vault y una copia importada"],c1_feats_no:["Vaults y copias ilimitadas"],c1_btn:"Incluido al instalar",
-c2_tag:"Recomendado",c2_name:"SafeVault Ilimitado",c2_per:" USD · pago único",c2_sub:"Licencia de por vida",c2_feats:["Vaults con nombre sin límite","Importa todas las copias que quieras","Todas las funciones de la versión gratis","Se restaura con tu cuenta de Google Play"],c2_btn:"Próximamente en Google Play",
+c1_name:"Gratis",c1_per:" / siempre",c1_sub:"Protección completa básica",c1_feats:["Todo el análisis y la clasificación","Cámara con IA y modo evidencia","Guardián automático","Un vault y una copia importada"],c1_feats_no:["Vaults y copias ilimitadas"],c1_btn:"Descargar gratis",
+c2_tag:"Recomendado",c2_name:"SafeVault Ilimitado",c2_per:" USD · pago único",c2_sub:"Licencia de por vida",c2_feats:["Vaults con nombre sin límite","Importa todas las copias que quieras","Todas las funciones de la versión gratis","Se restaura con tu cuenta de Google Play"],c2_btn:"Conseguirla en Google Play",
 pr_note:"La compra se gestiona con Google Play Billing · Pago único · Sin caducidad",
 pv_h3:"Nada sale de tu teléfono",pv_p:"SafeVault no recopila, no almacena en servidores y no comparte ningún dato personal. Todo el análisis, el cifrado y el almacenamiento ocurren exclusivamente dentro de tu teléfono.",
 pv_b1:"Política de Privacidad →",pv_b2:"Términos de Uso",
@@ -297,14 +299,14 @@ faqs:[["¿Funciona sin internet?","Solo lo usa una vez, para descargar los model
 ["¿Qué pasa si olvido la contraseña?","Nadie puede recuperar el contenido, ni siquiera nosotros: la clave se genera en tu dispositivo y nunca sale de él. Exporta copias .svbk para no perderlo todo."],
 ["¿Puede equivocarse la IA?","Sí: es un modelo estadístico. Por eso hay una cola de revisión cuando los circuitos no coinciden, y todo es reversible desde el vault."],
 ["¿Cuánto cuesta?","La descarga es gratuita e incluye un vault y una copia importada. La compra única «SafeVault Ilimitado» ($7.99 USD) desbloquea vaults y copias sin límite."],
-["¿Cuándo estará en Google Play?","Está en proceso de aprobación. Mientras tanto, aquí puedes conocer todas las funciones."]],
-cta_h1:"Tus fotos, bajo llave,",cta_h2:"sin salir del teléfono.",cta_p:"SafeVault llegará pronto a Google Play. Protección con IA local y cifrado real, en 8 idiomas.",cta_dev:"Sobre el desarrollador →",
+["¿Dónde descargo la app?","Ya está disponible y aprobada en la <a href='https://play.google.com/store/apps/details?id=com.jhonsu.safevault' target='_blank' rel='noopener'>ficha de SafeVault en Google Play</a>. La descarga y el primer vault son gratuitos."]],
+cta_h1:"Tus fotos, bajo llave,",cta_h2:"sin salir del teléfono.",cta_p:"SafeVault ya está disponible en Google Play. Protección con IA local y cifrado real, en 8 idiomas.",cta_dev:"Sobre el desarrollador →",
 foot:"© 2026 SafeVault · Desarrollado por jhonsu01 · jaiverbot77@gmail.com"},
-en:{badge:"📱 In review on Google Play",nav1:"Features",nav2:"How it works",nav3:"Pricing",nav4:"Privacy",nav5:"FAQ",
+en:{badge:"📱 Available on Google Play",nav1:"Features",nav2:"How it works",nav3:"Pricing",nav4:"Privacy",nav5:"FAQ",
 eyebrow:"Android app · 100% on-device AI · 8 languages",
 h1a:"Your sensitive photos,",h1b:"encrypted by on-device AI",
 lead:"SafeVault scans your gallery and camera with artificial intelligence that runs inside your phone, detects sensitive images and stores them in an AES-256 encrypted vault. No cloud, no accounts, no ads: nothing leaves your device.",
-cta1:"See features →",cta2:"Privacy",vaultName:"Vault · Personal",phoneLabel:"Encrypted on device · Fingerprint",
+cta0:"Download on Google Play →",cta1:"See features →",cta2:"Privacy",vaultName:"Vault · Personal",phoneLabel:"Encrypted on device · Fingerprint",
 fs_k:"Features",fs_h2:"All the analysis, on your phone",fs_sub:"Several AI models vote and a consensus router decides. Without consensus, the image goes to review — never a silent action.",
 feats:[
 ["🛡️","Automatic protection","A guardian watches new photos and protects sensitive ones within seconds. Automatic mode straight to the vault, or a manual review queue so you decide."],
@@ -318,8 +320,8 @@ steps:[["Pick language & permissions","Español, English, Português, Français,
 ["Download the models","Once only (≈ 22 MB): the app picks the right model for your phone and verifies every file with SHA-256."],
 ["Create your vault","With your own password. Scan the gallery or let the guardian watch new photos."]],
 pr_k:"Simple pricing",pr_h2:"Start free, unlock anytime",pr_sub:"No subscriptions, no renewals. One payment and it's yours forever.",
-c1_name:"Free",c1_per:" / forever",c1_sub:"Full basic protection",c1_feats:["All analysis and classification","AI camera and evidence mode","Automatic guardian","One vault and one imported backup"],c1_feats_no:["Unlimited vaults and backups"],c1_btn:"Included on install",
-c2_tag:"Recommended",c2_name:"SafeVault Unlimited",c2_per:" USD · one-time",c2_sub:"Lifetime license",c2_feats:["Unlimited named vaults","Import as many backups as you want","Every feature of the free version","Restored with your Google Play account"],c2_btn:"Coming soon to Google Play",
+c1_name:"Free",c1_per:" / forever",c1_sub:"Full basic protection",c1_feats:["All analysis and classification","AI camera and evidence mode","Automatic guardian","One vault and one imported backup"],c1_feats_no:["Unlimited vaults and backups"],c1_btn:"Download free",
+c2_tag:"Recommended",c2_name:"SafeVault Unlimited",c2_per:" USD · one-time",c2_sub:"Lifetime license",c2_feats:["Unlimited named vaults","Import as many backups as you want","Every feature of the free version","Restored with your Google Play account"],c2_btn:"Get it on Google Play",
 pr_note:"Purchase handled by Google Play Billing · One-time · No expiry",
 pv_h3:"Nothing leaves your phone",pv_p:"SafeVault collects nothing, stores nothing on servers and shares no personal data. All analysis, encryption and storage happen exclusively inside your phone.",
 pv_b1:"Privacy Policy →",pv_b2:"Terms of Use",
@@ -328,14 +330,14 @@ faqs:[["Does it work offline?","Internet is used only once, to download the AI m
 ["What if I forget my password?","Nobody can recover the contents, not even us: the key is generated on your device and never leaves it. Export .svbk backups so you don't lose everything."],
 ["Can the AI be wrong?","Yes: it's a statistical model. That's why there's a review queue when the circuits disagree, and everything is reversible from the vault."],
 ["How much does it cost?","The download is free and includes one vault and one imported backup. The one-time “SafeVault Unlimited” purchase ($7.99 USD) unlocks unlimited vaults and backups."],
-["When will it be on Google Play?","It's under review. In the meantime, you can explore all the features here."]],
-cta_h1:"Your photos, under lock,",cta_h2:"without leaving the phone.",cta_p:"SafeVault is coming soon to Google Play. On-device AI protection and real encryption, in 8 languages.",cta_dev:"About the developer →",
+["Where do I download the app?","It's now available and approved on <a href='https://play.google.com/store/apps/details?id=com.jhonsu.safevault' target='_blank' rel='noopener'>SafeVault on Google Play</a>. The download and your first vault are free."]],
+cta_h1:"Your photos, under lock,",cta_h2:"without leaving the phone.",cta_p:"SafeVault is now available on Google Play. On-device AI protection and real encryption, in 8 languages.",cta_dev:"About the developer →",
 foot:"© 2026 SafeVault · Developed by jhonsu01 · jaiverbot77@gmail.com"},
-pt:{badge:"📱 Em revisão no Google Play",nav1:"Funções",nav2:"Como funciona",nav3:"Preços",nav4:"Privacidade",nav5:"FAQ",
+pt:{badge:"📱 Disponível no Google Play",nav1:"Funções",nav2:"Como funciona",nav3:"Preços",nav4:"Privacidade",nav5:"FAQ",
 eyebrow:"App Android · IA 100% local · 8 idiomas",
 h1a:"Suas fotos sensíveis,",h1b:"criptografadas por IA local",
 lead:"O SafeVault analisa sua galeria e sua câmera com inteligência artificial que roda dentro do telefone, detecta imagens sensíveis e as guarda em um vault criptografado com AES-256. Sem nuvem, sem contas, sem anúncios: nada sai do seu dispositivo.",
-cta1:"Ver funções →",cta2:"Privacidade",vaultName:"Vault · Pessoal",phoneLabel:"Criptografado no dispositivo · Digital",
+cta0:"Baixar no Google Play →",cta1:"Ver funções →",cta2:"Privacidade",vaultName:"Vault · Pessoal",phoneLabel:"Criptografado no dispositivo · Digital",
 fs_k:"Funções",fs_h2:"Toda a análise, no seu telefone",fs_sub:"Vários modelos de IA votam e um roteador de consenso decide. Sem consenso, a imagem vai para revisão — nunca uma ação silenciosa.",
 feats:[
 ["🛡️","Proteção automática","Um guardião vigia as fotos novas e protege as sensíveis em segundos. Modo automático direto ao vault, ou fila de revisão manual para você decidir."],
@@ -349,8 +351,8 @@ steps:[["Escolha idioma e permissões","Español, English, Português, Français
 ["Baixe os modelos","Só uma vez (≈ 22 MB): o app escolhe o modelo adequado ao seu telefone e verifica cada arquivo com SHA-256."],
 ["Crie seu vault","Com uma senha sua. Analise a galeria ou deixe o guardião vigiar as fotos novas."]],
 pr_k:"Preços simples",pr_h2:"Comece grátis, desbloqueie quando quiser",pr_sub:"Sem assinaturas e sem renovações. Um único pagamento e é seu para sempre.",
-c1_name:"Grátis",c1_per:" / sempre",c1_sub:"Proteção básica completa",c1_feats:["Toda a análise e classificação","Câmera com IA e modo evidência","Guardião automático","Um vault e uma cópia importada"],c1_feats_no:["Vaults e cópias ilimitadas"],c1_btn:"Incluído na instalação",
-c2_tag:"Recomendado",c2_name:"SafeVault Ilimitado",c2_per:" USD · pagamento único",c2_sub:"Licença vitalícia",c2_feats:["Vaults com nome sem limite","Importe quantas cópias quiser","Todas as funções da versão grátis","Restaurado com sua conta do Google Play"],c2_btn:"Em breve no Google Play",
+c1_name:"Grátis",c1_per:" / sempre",c1_sub:"Proteção básica completa",c1_feats:["Toda a análise e classificação","Câmera com IA e modo evidência","Guardião automático","Um vault e uma cópia importada"],c1_feats_no:["Vaults e cópias ilimitadas"],c1_btn:"Baixar grátis",
+c2_tag:"Recomendado",c2_name:"SafeVault Ilimitado",c2_per:" USD · pagamento único",c2_sub:"Licença vitalícia",c2_feats:["Vaults com nome sem limite","Importe quantas cópias quiser","Todas as funções da versão grátis","Restaurado com sua conta do Google Play"],c2_btn:"Obter no Google Play",
 pr_note:"Compra gerenciada pelo Google Play Billing · Pagamento único · Sem expiração",
 pv_h3:"Nada sai do seu telefone",pv_p:"O SafeVault não coleta, não armazena em servidores e não compartilha nenhum dado pessoal. Toda a análise, criptografia e armazenamento ocorrem exclusivamente dentro do seu telefone.",
 pv_b1:"Política de Privacidade →",pv_b2:"Termos de Uso",
@@ -359,14 +361,14 @@ faqs:[["Funciona sem internet?","A internet é usada uma única vez, para baixar
 ["E se eu esquecer a senha?","Ninguém consegue recuperar o conteúdo, nem nós: a chave é gerada no seu dispositivo e nunca sai dele. Exporte cópias .svbk para não perder tudo."],
 ["A IA pode errar?","Sim: é um modelo estatístico. Por isso existe uma fila de revisão quando os circuitos não concordam, e tudo é reversível a partir do vault."],
 ["Quanto custa?","O download é gratuito e inclui um vault e uma cópia importada. A compra única «SafeVault Ilimitado» ($7.99 USD) libera vaults e cópias sem limite."],
-["Quando chega ao Google Play?","Está em processo de aprovação. Enquanto isso, conheça todas as funções aqui."]],
-cta_h1:"Suas fotos, sob fechadura,",cta_h2:"sem sair do telefone.",cta_p:"O SafeVault chega em breve ao Google Play. Proteção com IA local e criptografia real, em 8 idiomas.",cta_dev:"Sobre o desenvolvedor →",
+["Onde baixo o app?","Já está disponível e aprovado na <a href='https://play.google.com/store/apps/details?id=com.jhonsu.safevault' target='_blank' rel='noopener'>ficha do SafeVault no Google Play</a>. O download e o primeiro vault são gratuitos."]],
+cta_h1:"Suas fotos, sob fechadura,",cta_h2:"sem sair do telefone.",cta_p:"O SafeVault já está disponível no Google Play. Proteção com IA local e criptografia real, em 8 idiomas.",cta_dev:"Sobre o desenvolvedor →",
 foot:"© 2026 SafeVault · Desenvolvido por jhonsu01 · jaiverbot77@gmail.com"},
-fr:{badge:"📱 En cours de revue sur Google Play",nav1:"Fonctions",nav2:"Comment ça marche",nav3:"Tarifs",nav4:"Confidentialité",nav5:"FAQ",
+fr:{badge:"📱 Disponible sur Google Play",nav1:"Fonctions",nav2:"Comment ça marche",nav3:"Tarifs",nav4:"Confidentialité",nav5:"FAQ",
 eyebrow:"App Android · IA 100% locale · 8 langues",
 h1a:"Vos photos sensibles,",h1b:"chiffrées par une IA locale",
 lead:"SafeVault analyse votre galerie et votre appareil photo avec une intelligence artificielle qui tourne dans votre téléphone, détecte les images sensibles et les range dans un coffre chiffré en AES-256. Sans cloud, sans compte, sans pub : rien ne quitte votre appareil.",
-cta1:"Voir les fonctions →",cta2:"Confidentialité",vaultName:"Coffre · Perso",phoneLabel:"Chiffré sur l'appareil · Empreinte",
+cta0:"Télécharger sur Google Play →",cta1:"Voir les fonctions →",cta2:"Confidentialité",vaultName:"Coffre · Perso",phoneLabel:"Chiffré sur l'appareil · Empreinte",
 fs_k:"Fonctions",fs_h2:"Toute l'analyse, dans votre téléphone",fs_sub:"Plusieurs modèles d'IA votent et un routeur de consensus décide. Sans consensus, l'image part en révision — jamais d'action silencieuse.",
 feats:[
 ["🛡️","Protection automatique","Un gardien surveille les nouvelles photos et protège les sensibles en quelques secondes. Mode automatique direct au coffre, ou file de révision manuelle pour décider vous-même."],
@@ -380,8 +382,8 @@ steps:[["Choisissez langue et permissions","Español, English, Português, Fran�
 ["Téléchargez les modèles","Une seule fois (≈ 22 Mo) : l'app choisit le modèle adapté à votre téléphone et vérifie chaque fichier avec SHA-256."],
 ["Créez votre coffre","Avec votre propre mot de passe. Analysez la galerie ou laissez le gardien surveiller les nouvelles photos."]],
 pr_k:"Tarifs simples",pr_h2:"Commencez gratuit, débloquez quand vous voulez",pr_sub:"Sans abonnement ni renouvellement. Un seul paiement, à vous pour toujours.",
-c1_name:"Gratuit",c1_per:" / toujours",c1_sub:"Protection de base complète",c1_feats:["Toute l'analyse et la classification","Appareil photo IA et mode preuve","Gardien automatique","Un coffre et une sauvegarde importée"],c1_feats_no:["Coffres et sauvegardes illimités"],c1_btn:"Inclus à l'installation",
-c2_tag:"Recommandé",c2_name:"SafeVault Illimité",c2_per:" USD · paiement unique",c2_sub:"Licence à vie",c2_feats:["Coffres nommés sans limite","Importez toutes les sauvegardes voulues","Toutes les fonctions de la version gratuite","Restauré avec votre compte Google Play"],c2_btn:"Bientôt sur Google Play",
+c1_name:"Gratuit",c1_per:" / toujours",c1_sub:"Protection de base complète",c1_feats:["Toute l'analyse et la classification","Appareil photo IA et mode preuve","Gardien automatique","Un coffre et une sauvegarde importée"],c1_feats_no:["Coffres et sauvegardes illimités"],c1_btn:"Télécharger gratuitement",
+c2_tag:"Recommandé",c2_name:"SafeVault Illimité",c2_per:" USD · paiement unique",c2_sub:"Licence à vie",c2_feats:["Coffres nommés sans limite","Importez toutes les sauvegardes voulues","Toutes les fonctions de la version gratuite","Restauré avec votre compte Google Play"],c2_btn:"L'obtenir sur Google Play",
 pr_note:"Achat géré par Google Play Billing · Paiement unique · Sans expiration",
 pv_h3:"Rien ne quitte votre téléphone",pv_p:"SafeVault ne collecte rien, ne stocke rien sur des serveurs et ne partage aucune donnée personnelle. Toute l'analyse, le chiffrement et le stockage ont lieu exclusivement dans votre téléphone.",
 pv_b1:"Politique de confidentialité →",pv_b2:"Conditions d'utilisation",
@@ -390,14 +392,14 @@ faqs:[["Ça marche hors ligne ?","Internet sert une seule fois, pour télécharg
 ["J'oublie mon mot de passe ?","Personne ne peut récupérer le contenu, pas même nous : la clé est générée sur votre appareil et n'en sort jamais. Exportez des sauvegardes .svbk pour ne rien perdre."],
 ["L'IA peut-elle se tromper ?","Oui : c'est un modèle statistique. D'où une file de révision quand les circuits ne s'accordent pas, et tout est réversible depuis le coffre."],
 ["Combien ça coûte ?","Le téléchargement est gratuit avec un coffre et une sauvegarde importée. L'achat unique « SafeVault Illimité » (7,99 USD) débloque coffres et sauvegardes sans limite."],
-["Quand sur Google Play ?","En cours d'examen. En attendant, découvrez toutes les fonctions ici."]],
-cta_h1:"Vos photos, sous verrou,",cta_h2:"sans quitter le téléphone.",cta_p:"SafeVault arrive bientôt sur Google Play. Protection par IA locale et vrai chiffrement, en 8 langues.",cta_dev:"À propos du développeur →",
+["Où télécharger l'app ?","Elle est déjà disponible et approuvée sur <a href='https://play.google.com/store/apps/details?id=com.jhonsu.safevault' target='_blank' rel='noopener'>la fiche SafeVault sur Google Play</a>. Le téléchargement et votre premier coffre sont gratuits."]],
+cta_h1:"Vos photos, sous verrou,",cta_h2:"sans quitter le téléphone.",cta_p:"SafeVault est désormais disponible sur Google Play. Protection par IA locale et vrai chiffrement, en 8 langues.",cta_dev:"À propos du développeur →",
 foot:"© 2026 SafeVault · Développé par jhonsu01 · jaiverbot77@gmail.com"},
-ru:{badge:"📱 На проверке в Google Play",nav1:"Возможности",nav2:"Как работает",nav3:"Цены",nav4:"Приватность",nav5:"Вопросы",
+ru:{badge:"📱 Доступно в Google Play",nav1:"Возможности",nav2:"Как работает",nav3:"Цены",nav4:"Приватность",nav5:"Вопросы",
 eyebrow:"Приложение для Android · ИИ на 100% локальный · 8 языков",
 h1a:"Ваши чувствительные фото,",h1b:"шифрует локальный ИИ",
 lead:"SafeVault анализирует галерею и камеру с помощью искусственного интеллекта, работающего внутри телефона, находит чувствительные изображения и хранит их в сейфе, зашифрованном AES-256. Без облака, без аккаунтов, без рекламы: ничего не покидает ваше устройство.",
-cta1:"Возможности →",cta2:"Приватность",vaultName:"Сейф · Личное",phoneLabel:"Шифрование на устройстве · Отпечаток",
+cta0:"Скачать в Google Play →",cta1:"Возможности →",cta2:"Приватность",vaultName:"Сейф · Личное",phoneLabel:"Шифрование на устройстве · Отпечаток",
 fs_k:"Возможности",fs_h2:"Весь анализ — в вашем телефоне",fs_sub:"Несколько моделей ИИ голосуют, маршрут консенсуса решает. Без консенсуса фото идёт на проверку — никаких молчаливых действий.",
 feats:[
 ["🛡️","Автоматическая защита","Страж следит за новыми фото и защищает чувствительные за секунды. Автоматический режим сразу в сейф или очередь ручной проверки, чтобы решать самому."],
@@ -411,8 +413,8 @@ steps:[["Выберите язык и разрешения","Español, English, 
 ["Скачайте модели","Только один раз (≈ 22 МБ): приложение подберёт модель под ваш телефон и проверит каждый файл по SHA-256."],
 ["Создайте сейф","С вашим паролем. Просканируйте галерею или доверьте стражу новые фото."]],
 pr_k:"Простые цены",pr_h2:"Начните бесплатно, откройте когда захотите",pr_sub:"Без подписок и продлений. Один платёж — и навсегда ваше.",
-c1_name:"Бесплатно",c1_per:" / навсегда",c1_sub:"Полная базовая защита",c1_feats:["Весь анализ и классификация","Камера с ИИ и режим доказательств","Автоматический страж","Один сейф и одна импортированная копия"],c1_feats_no:["Сейфы и копии без ограничений"],c1_btn:"Включено при установке",
-c2_tag:"Рекомендуем",c2_name:"SafeVault Безлимит",c2_per:" USD · разовый платёж",c2_sub:"Пожизненная лицензия",c2_feats:["Сейфы с именами без ограничений","Импортируйте сколько копий хотите","Все функции бесплатной версии","Восстанавливается с аккаунтом Google Play"],c2_btn:"Скоро в Google Play",
+c1_name:"Бесплатно",c1_per:" / навсегда",c1_sub:"Полная базовая защита",c1_feats:["Весь анализ и классификация","Камера с ИИ и режим доказательств","Автоматический страж","Один сейф и одна импортированная копия"],c1_feats_no:["Сейфы и копии без ограничений"],c1_btn:"Скачать бесплатно",
+c2_tag:"Рекомендуем",c2_name:"SafeVault Безлимит",c2_per:" USD · разовый платёж",c2_sub:"Пожизненная лицензия",c2_feats:["Сейфы с именами без ограничений","Импортируйте сколько копий хотите","Все функции бесплатной версии","Восстанавливается с аккаунтом Google Play"],c2_btn:"Забрать в Google Play",
 pr_note:"Покупка через Google Play Billing · Разовый платёж · Без срока действия",
 pv_h3:"Ничего не покидает ваш телефон",pv_p:"SafeVault ничего не собирает, не хранит на серверах и не передаёт персональные данные. Весь анализ, шифрование и хранение происходят исключительно внутри вашего телефона.",
 pv_b1:"Политика конфиденциальности →",pv_b2:"Условия использования",
@@ -421,14 +423,14 @@ faqs:[["Работает без интернета?","Интернет нуже�
 ["Что если забыть пароль?","Содержимое не восстановит никто, даже мы: ключ создаётся на вашем устройстве и никогда его не покидает. Экспортируйте копии .svbk, чтобы не потерять всё."],
 ["ИИ может ошибаться?","Да, это статистическая модель. Поэтому есть очередь проверки, когда контуры не сходятся, и всё обратимо из сейфа."],
 ["Сколько стоит?","Загрузка бесплатна и включает один сейф и одну импортированную копию. Разовая покупка «SafeVault Безлимит» (7,99 USD) снимает ограничения на сейфы и копии."],
-["Когда в Google Play?","На проверке. А пока изучите все возможности здесь."]],
-cta_h1:"Ваши фото под замком,",cta_h2:"не покидая телефона.",cta_p:"SafeVault скоро появится в Google Play. Защита локальным ИИ и настоящее шифрование на 8 языках.",cta_dev:"О разработчике →",
+["Где скачать приложение?","Оно уже доступно и одобрено на <a href='https://play.google.com/store/apps/details?id=com.jhonsu.safevault' target='_blank' rel='noopener'>странице SafeVault в Google Play</a>. Загрузка и первый сейф бесплатны."]],
+cta_h1:"Ваши фото под замком,",cta_h2:"не покидая телефона.",cta_p:"SafeVault уже доступен в Google Play. Защита локальным ИИ и настоящее шифрование на 8 языках.",cta_dev:"О разработчике →",
 foot:"© 2026 SafeVault · Разработчик jhonsu01 · jaiverbot77@gmail.com"},
-"zh":{badge:"📱 Google Play 审核中",nav1:"功能",nav2:"工作原理",nav3:"价格",nav4:"隐私",nav5:"常见问题",
+"zh":{badge:"📱 已上架 Google Play",nav1:"功能",nav2:"工作原理",nav3:"价格",nav4:"隐私",nav5:"常见问题",
 eyebrow:"Android 应用 · 100% 端内 AI · 8 种语言",
 h1a:"您的敏感照片，",h1b:"由本地 AI 加密保护",
 lead:"SafeVault 使用在手机内部运行的人工智能分析相册和相机，识别敏感图像并将其存入 AES-256 加密的保险库。无云端、无账号、无广告：任何数据都不会离开您的设备。",
-cta1:"查看功能 →",cta2:"隐私",vaultName:"保险库 · 个人",phoneLabel:"端内加密 · 指纹解锁",
+cta0:"在 Google Play 下载 →",cta1:"查看功能 →",cta2:"隐私",vaultName:"保险库 · 个人",phoneLabel:"端内加密 · 指纹解锁",
 fs_k:"功能",fs_h2:"全部分析都在手机里完成",fs_sub:"多个 AI 模型投票，由共识路由器决策。没有共识时照片进入人工审核——绝不静默操作。",
 feats:[
 ["🛡️","自动保护","守护程序监视新照片，几秒内保护敏感内容。自动模式直接入库，或使用人工审核队列由您决定。"],
@@ -442,8 +444,8 @@ steps:[["选择语言并授权","Español、English、Português、Français、�
 ["下载模型","仅需一次（约 22 MB）：应用按您的手机选择合适模型，并用 SHA-256 校验每个文件。"],
 ["创建保险库","设置您自己的密码。扫描相册，或让守护程序监视新照片。"]],
 pr_k:"简单定价",pr_h2:"免费开始，随时解锁",pr_sub:"无订阅、无续费。一次付款，永久拥有。",
-c1_name:"免费",c1_per:" / 永久",c1_sub:"完整基础保护",c1_feats:["全部分析与分类功能","AI 相机与证据模式","自动守护","一个保险库和一次导入备份"],c1_feats_no:["无限保险库与备份"],c1_btn:"安装即含",
-c2_tag:"推荐",c2_name:"SafeVault 无限版",c2_per:" USD · 一次性付费",c2_sub:"终身授权",c2_feats:["无限命名保险库","导入任意数量的备份","免费版全部功能","可通过 Google Play 账号恢复"],c2_btn:"即将上架 Google Play",
+c1_name:"免费",c1_per:" / 永久",c1_sub:"完整基础保护",c1_feats:["全部分析与分类功能","AI 相机与证据模式","自动守护","一个保险库和一次导入备份"],c1_feats_no:["无限保险库与备份"],c1_btn:"免费下载",
+c2_tag:"推荐",c2_name:"SafeVault 无限版",c2_per:" USD · 一次性付费",c2_sub:"终身授权",c2_feats:["无限命名保险库","导入任意数量的备份","免费版全部功能","可通过 Google Play 账号恢复"],c2_btn:"在 Google Play 获取",
 pr_note:"购买由 Google Play Billing 处理 · 一次性付费 · 永久有效",
 pv_h3:"任何数据都不离开手机",pv_p:"SafeVault 不收集、不在服务器存储、也不共享任何个人数据。全部分析、加密和存储都只在您的手机内完成。",
 pv_b1:"隐私政策 →",pv_b2:"使用条款",
@@ -452,14 +454,14 @@ faqs:[["可以离线使用吗？","只有下载 AI 模型时需要联网一次�
 ["忘记密码怎么办？","任何人（包括我们）都无法恢复内容：密钥在您的设备上生成，从不外传。请导出 .svbk 备份以免丢失。"],
 ["AI 会出错吗？","会，它是统计模型。因此当回路意见不一致时会进入审核队列，且所有操作都可从保险库撤销。"],
 ["价格是多少？","下载免费，包含一个保险库和一次导入备份。一次性购买“SafeVault 无限版”（$7.99 USD）即可解锁无限保险库与备份。"],
-["什么时候上架 Google Play？","正在审核中。届时可在此了解全部功能。"]],
-cta_h1:"您的照片，锁进保险库，",cta_h2:"不离开手机。",cta_p:"SafeVault 即将上架 Google Play。本地 AI 保护与真正加密，支持 8 种语言。",cta_dev:"关于开发者 →",
+["在哪里下载应用？","已通过审核并上架 <a href='https://play.google.com/store/apps/details?id=com.jhonsu.safevault' target='_blank' rel='noopener'>Google Play 上的 SafeVault</a>。下载和第一个保险库免费。"]],
+cta_h1:"您的照片，锁进保险库，",cta_h2:"不离开手机。",cta_p:"SafeVault 已上架 Google Play。本地 AI 保护与真正加密，支持 8 种语言。",cta_dev:"关于开发者 →",
 foot:"© 2026 SafeVault · 开发者 jhonsu01 · jaiverbot77@gmail.com"},
-ja:{badge:"📱 Google Play 審査中",nav1:"機能",nav2:"使い方",nav3:"料金",nav4:"プライバシー",nav5:"FAQ",
+ja:{badge:"📱 Google Play で配信中",nav1:"機能",nav2:"使い方",nav3:"料金",nav4:"プライバシー",nav5:"FAQ",
 eyebrow:"Android アプリ · 100% 端末内 AI · 8 言語対応",
 h1a:"センシティブな写真を、",h1b:"端末内 AI で暗号化",
 lead:"SafeVault は、スマートフォンの中で動く AI でギャラリーとカメラを解析し、センシティブな画像を見つけて AES-256 で暗号化した Vault に保管します。クラウドなし、アカウントなし、広告なし。データが端末の外に出ることはありません。",
-cta1:"機能を見る →",cta2:"プライバシー",vaultName:"Vault · プライベート",phoneLabel:"端末内暗号化 · 指紋認証",
+cta0:"Google Playでダウンロード →",cta1:"機能を見る →",cta2:"プライバシー",vaultName:"Vault · プライベート",phoneLabel:"端末内暗号化 · 指紋認証",
 fs_k:"機能",fs_h2:"すべての解析がスマホの中で",fs_sub:"複数の AI モデルが投票し、コンセンサス・ルーターが判断。意見が割れた場合は確認キューへ——黙って処理することはありません。",
 feats:[
 ["🛡️","自動保護","ガーディアンが新しい写真を見張り、センシティブなものを数秒で保護。自動モードで直接 Vault へ、または自分で判断する確認キュー。"],
@@ -473,8 +475,8 @@ steps:[["言語と権限を選択","Español、English、Português、Français�
 ["モデルをダウンロード","一度だけ（約 22 MB）：端末に合ったモデルを選び、SHA-256 で検証。"],
 ["Vault を作成","自分のパスワードで。ギャラリーを解析するか、ガーディアンに新しい写真の監視を任せます。"]],
 pr_k:"シンプルな料金",pr_h2:"無料で始めて、いつでも解放",pr_sub:"サブスクなし・更新なし。一度の支払いで永久にあなたのもの。",
-c1_name:"無料",c1_per:" / 永久",c1_sub:"完全な基本保護",c1_feats:["すべての解析・分類","AI カメラと証拠モード","自動ガーディアン","Vault 1 つと取り込みバックアップ 1 つ"],c1_feats_no:["Vault とバックアップ無制限"],c1_btn:"インストール時に含まれる",
-c2_tag:"おすすめ",c2_name:"SafeVault 無制限版",c2_per:" USD · 買い切り",c2_sub:"永久ライセンス",c2_feats:["名前付き Vault を無制限に作成","バックアップをいくつでも取り込み","無料版の全機能","Google Play アカウントで復元"],c2_btn:"近日 Google Play 登場",
+c1_name:"無料",c1_per:" / 永久",c1_sub:"完全な基本保護",c1_feats:["すべての解析・分類","AI カメラと証拠モード","自動ガーディアン","Vault 1 つと取り込みバックアップ 1 つ"],c1_feats_no:["Vault とバックアップ無制限"],c1_btn:"無料でダウンロード",
+c2_tag:"おすすめ",c2_name:"SafeVault 無制限版",c2_per:" USD · 買い切り",c2_sub:"永久ライセンス",c2_feats:["名前付き Vault を無制限に作成","バックアップをいくつでも取り込み","無料版の全機能","Google Play アカウントで復元"],c2_btn:"Google Playで入手",
 pr_note:"購入は Google Play Billing で処理 · 買い切り · 期限なし",
 pv_h3:"何も端末の外に出ません",pv_p:"SafeVault は個人情報を収集せず、サーバーに保存せず、共有もありません。解析・暗号化・保存はすべて端末の中だけで行われます。",
 pv_b1:"プライバシーポリシー →",pv_b2:"利用規約",
@@ -483,14 +485,14 @@ faqs:[["オフラインで動きますか？","AI モデルのダウンロード
 ["パスワードを忘れたら？","当方を含め誰も内容を復元できません。鍵は端末内で生成され、外に出ないためです。喪失防止に .svbk バックアップをエクスポートしてください。"],
 ["AI は間違えますか？","はい、統計モデルです。そのため回路の判断が割れた場合は確認キューに回り、Vault からすべて取り消せます。"],
 ["料金は？","ダウンロードは無料で、Vault 1 つと取り込みバックアップ 1 つを含みます。買い切り「SafeVault 無制限版」（$7.99 USD）で無制限になります。"],
-["いつ Google Play に？","現在審査中です。それまで全機能をここでご確認いただけます。"]],
-cta_h1:"あなたの写真に鍵をかける、",cta_h2:"端末の外に出さずに。",cta_p:"SafeVault はまもなく Google Play に登場します。端末内 AI による保護と本物の暗号化を、8 言語で。",cta_dev:"開発者について →",
+["どこでダウンロードできますか？","審査を通過し<a href='https://play.google.com/store/apps/details?id=com.jhonsu.safevault' target='_blank' rel='noopener'>Google PlayのSafeVault</a>で配信中です。ダウンロードと最初のVaultは無料です。"]],
+cta_h1:"あなたの写真に鍵をかける、",cta_h2:"端末の外に出さずに。",cta_p:"SafeVault は Google Play で配信中です。端末内 AI による保護と本物の暗号化を、8 言語で。",cta_dev:"開発者について →",
 foot:"© 2026 SafeVault · 開発者 jhonsu01 · jaiverbot77@gmail.com"},
-ko:{badge:"📱 Google Play 심사 중",nav1:"기능",nav2:"작동 방식",nav3:"가격",nav4:"개인정보",nav5:"FAQ",
+ko:{badge:"📱 Google Play 출시",nav1:"기능",nav2:"작동 방식",nav3:"가격",nav4:"개인정보",nav5:"FAQ",
 eyebrow:"Android 앱 · 100% 온디바이스 AI · 8개 언어",
 h1a:"민감한 사진을,",h1b:"온디바이스 AI로 암호화",
 lead:"SafeVault는 휴대폰 안에서 실행되는 인공지능으로 갤러리와 카메라를 분석하고, 민감한 이미지를 찾아 AES-256으로 암호화된 볼트에 보관합니다. 클라우드 없음, 계정 없음, 광고 없음: 어떤 데이터도 기기를 떠나지 않습니다.",
-cta1:"기능 보기 →",cta2:"개인정보",vaultName:"볼트 · 개인",phoneLabel:"기기 내 암호화 · 지문",
+cta0:"Google Play에서 다운로드 →",cta1:"기능 보기 →",cta2:"개인정보",vaultName:"볼트 · 개인",phoneLabel:"기기 내 암호화 · 지문",
 fs_k:"기능",fs_h2:"모든 분석이 휴대폰 안에서",fs_sub:"여러 AI 모델이 투표하고 합의 라우터가 결정합니다. 합의가 없으면 검토 대기열로 — 절대 임의로 처리하지 않습니다.",
 feats:[
 ["🛡️","자동 보호","가디언이 새 사진을 감시하고 민감한 사진을 몇 초 안에 보호합니다. 바로 볼트로 보내는 자동 모드, 또는 직접 결정하는 검토 대기열."],
@@ -504,8 +506,8 @@ steps:[["언어와 권한 선택","Español, English, Português, Français, Р�
 ["모델 내려받기","한 번만(약 22 MB): 휴대폰에 맞는 모델을 고르고 SHA-256으로 검증합니다."],
 ["볼트 만들기","직접 정한 비밀번호로. 갤러리를 분석하거나 가디언에게 새 사진 감시를 맡기세요."]],
 pr_k:"간단한 가격",pr_h2:"무료로 시작, 원할 때 해제",pr_sub:"구독 없음, 갱신 없음. 한 번 결제하면 영원히.",
-c1_name:"무료",c1_per:" / 영구",c1_sub:"완전한 기본 보호",c1_feats:["모든 분석 및 분류","AI 카메라와 증거 모드","자동 가디언","볼트 1개, 가져온 백업 1개"],c1_feats_no:["무제한 볼트와 백업"],c1_btn:"설치 시 포함",
-c2_tag:"추천",c2_name:"SafeVault 무제한",c2_per:" USD · 1회 결제",c2_sub:"평생 라이선스",c2_feats:["이름 있는 볼트 무제한","원하는 만큼 백업 가져오기","무료 버전의 모든 기능","Google Play 계정으로 복원"],c2_btn:"곧 Google Play 출시",
+c1_name:"무료",c1_per:" / 영구",c1_sub:"완전한 기본 보호",c1_feats:["모든 분석 및 분류","AI 카메라와 증거 모드","자동 가디언","볼트 1개, 가져온 백업 1개"],c1_feats_no:["무제한 볼트와 백업"],c1_btn:"무료 다운로드",
+c2_tag:"추천",c2_name:"SafeVault 무제한",c2_per:" USD · 1회 결제",c2_sub:"평생 라이선스",c2_feats:["이름 있는 볼트 무제한","원하는 만큼 백업 가져오기","무료 버전의 모든 기능","Google Play 계정으로 복원"],c2_btn:"Google Play에서 받기",
 pr_note:"구매는 Google Play Billing으로 처리 · 1회 결제 · 만료 없음",
 pv_h3:"아무것도 휴대폰을 떠나지 않습니다",pv_p:"SafeVault는 개인정보를 수집하지 않고, 서버에 저장하지 않고, 공유하지도 않습니다. 모든 분석, 암호화, 저장은 오직 휴대폰 안에서만 이루어집니다.",
 pv_b1:"개인정보 처리방침 →",pv_b2:"이용약관",
@@ -514,8 +516,8 @@ faqs:[["오프라인에서 되나요?","AI 모델을 내려받을 때 한 번만
 ["비밀번호를 잊으면?","당사를 포함해 아무도 내용을 복구할 수 없습니다. 키는 기기에서 생성되어 절대 밖으로 나가지 않습니다. .svbk 백업을 내보내 두세요."],
 ["AI가 틀릴 수 있나요?","네, 통계 모델입니다. 그래서 회로 의견이 갈리면 검토 대기열로 가고, 볼트에서 모두 되돌릴 수 있습니다."],
 ["가격은?","다운로드는 무료이며 볼트 1개와 가져온 백업 1개가 포함됩니다. 1회 결제 «SafeVault 무제한»($7.99 USD)으로 무제한이 됩니다."],
-["언제 Google Play에?","현재 심사 중입니다. 그동안 모든 기능을 여기서 확인하세요."]],
-cta_h1:"당신의 사진에 자물쇠를,",cta_h2:"휴대폰 밖으로 내보내지 마세요.",cta_p:"SafeVault가 곧 Google Play에 출시됩니다. 온디바이스 AI 보호와 진짜 암호화를 8개 언어로.",cta_dev:"개발자 소개 →",
+["어디서 다운로드하나요?","심사를 통과해 <a href='https://play.google.com/store/apps/details?id=com.jhonsu.safevault' target='_blank' rel='noopener'>Google Play의 SafeVault</a>에 출시되었습니다. 다운로드와 첫 볼트는 무료입니다."]],
+cta_h1:"당신의 사진에 자물쇠를,",cta_h2:"휴대폰 밖으로 내보내지 마세요.",cta_p:"SafeVault가 Google Play에 출시되었습니다. 온디바이스 AI 보호와 진짜 암호화를 8개 언어로.",cta_dev:"개발자 소개 →",
 foot:"© 2026 SafeVault · 개발자 jhonsu01 · jaiverbot77@gmail.com"}
 };
 

@@ -52,6 +52,22 @@ const SKILLS = [
 
 const PROJECTS = [
   {
+    name: "SafeVault",
+    play: "https://play.google.com/store/apps/details?id=com.jhonsu.safevault",
+    site: "https://serviciosconiabyjhonsu.com/safevault/",
+    image: "img/safevault.jpg",
+    category: "Privacidad",
+    tagline: "Tus fotos sensibles, detectadas por IA local y cifradas con AES-256",
+    description: "App publicada en Google Play que analiza galería y cámara con IA que corre dentro del teléfono (consenso de circuitos), detecta imágenes sensibles y las guarda cifradas en vaults AES-256 con copias .svbk portables. Sin nube, sin cuentas: nada sale del dispositivo.",
+    tech: ["Kotlin", "Jetpack Compose", "ONNX", "AES-256"],
+    features: [
+      "IA 100% on-device: consenso de circuitos",
+      "Vaults con nombre cifrados AES-256-GCM",
+      "Modo evidencia con GPS y hash SHA-256",
+      "Copias .svbk portables entre teléfonos"
+    ]
+  },
+  {
     name: "Sunsam Apps Store",
     repo: "https://github.com/jhonsu01/sunsam-apps-store",
     site: "https://jhonsu01.github.io/sunsam-apps-store/",
